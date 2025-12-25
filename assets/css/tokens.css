@@ -1,0 +1,59 @@
+:root{
+  /* Colors */
+  --color-scheme-1-background:#ffffff;
+  --color-scheme-1-accent:#00568d;
+  --color-scheme-1-border:#0d040226;
+  --color-scheme-2-background:#e5eef3;
+  --color-scheme-2-foreground:#ccdde8;
+  --color-scheme-2-accent:#00568d;
+  --color-scheme-3-background:#00568d;
+  --color-scheme-3-text:#ffffff;
+  --color-scheme-3-border:#ffffff33;
+  --color-orient:#00568d;
+  --color-orient-light:#4c88af;
+  --color-neutral-darkest:#0d0402;
+  --color-white:#ffffff;
+  --opacity-transparent:#ffffff00;
+
+  /* Spacing & layout */
+  --page-padding-global:64px;
+  --section-padding-large:112px;
+  --section-padding-medium:80px;
+  --container-large:1280px;
+  --max-width-large:768px;
+  --max-width-medium:560px;
+
+  /* Radius */
+  --radius-medium:16px;
+
+  /* Typography sizes */
+  --text-heading-1:72px;
+  --text-heading-2:52px;
+  --text-heading-3:44px;
+  --text-heading-5:28px;
+  --text-regular:16px;
+  --text-medium:18px;
+  --text-small:14px;
+  --text-tiny:12px;
+
+  /* Typography families & weights */
+  --font-heading:"Wix Madefor Display","Noto Sans JP",sans-serif;
+  --font-body:"Noto Sans","Noto Sans JP",sans-serif;
+  --font-weight-regular:400;
+  --font-weight-medium:500;
+  --font-weight-semibold:600;
+  --font-weight-bold:700;
+
+  /* Line heights & tracking */
+  --lh-tight:1.2;
+  --lh-body:1.5;
+  --ls-tight:-1px;
+  --ls-normal:0;
+
+  /* Legacy aliases for existing CSS */
+  --brand:var(--color-scheme-1-accent);
+  --ink:var(--color-neutral-darkest);
+  --muted:var(--color-scheme-2-background);
+  --surface:var(--color-scheme-1-background);
+  --container:var(--container-large);
+}

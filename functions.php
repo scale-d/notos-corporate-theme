@@ -26,16 +26,12 @@ add_action('customize_register', function($wp_customize){
   ));
 });
 
-// CSS/JS 読み込み（モバイルメニュー用）
+// CSS/JS 読み込み（tokens.cssを最優先で読み込み）
 add_action('wp_enqueue_scripts', function () {
-  wp_enqueue_style('notos-base', get_stylesheet_uri(), [], '0.1.0');
+  wp_enqueue_style('notos-tokens', get_template_directory_uri().'/assets/css/tokens.css', [], '0.1.0');
+  wp_enqueue_style('notos-base', get_stylesheet_uri(), ['notos-tokens'], '0.1.0');
   wp_enqueue_style('notos-main', get_template_directory_uri().'/assets/css/main.css', ['notos-base'], '0.1.0');
   wp_enqueue_script('notos-nav', get_template_directory_uri().'/assets/js/nav.js', [], '0.1.0', true);
-});
-
-add_action('wp_enqueue_scripts', function () {
-  wp_enqueue_style('notos-base', get_stylesheet_uri(), [], '0.1.0');
-  wp_enqueue_style('notos-main', get_template_directory_uri().'/assets/css/main.css', ['notos-base'], '0.1.0');
   // 必要になったらJSも：wp_enqueue_script('notos-js', get_template_directory_uri().'/assets/js/main.js', [], '0.1.0', true);
 });
 // 管理画面メニューに「Theme Assets」追加
