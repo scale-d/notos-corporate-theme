@@ -38,7 +38,7 @@ get_header();
               target="_blank" rel="noopener noreferrer"
               aria-label="LinkedInでシェア">
               <span class="c-post-share__icon" aria-hidden="true">
-                <img src="<?php echo esc_url($icon_base . '/Instagram.svg'); ?>" alt="" width="24" height="24" loading="lazy">
+                <img src="<?php echo esc_url($icon_base . '/instagram.svg'); ?>" alt="" width="24" height="24" loading="lazy">
               </span>
             </a>
 
@@ -47,7 +47,7 @@ get_header();
               target="_blank" rel="noopener noreferrer"
               aria-label="Facebookでシェア">
               <span class="c-post-share__icon" aria-hidden="true">
-                <img src="<?php echo esc_url($icon_base . '/Facebook.svg'); ?>" alt="" width="24" height="24" loading="lazy">
+                <img src="<?php echo esc_url($icon_base . '/facebook.svg'); ?>" alt="" width="24" height="24" loading="lazy">
               </span>
             </a>
           </div>
