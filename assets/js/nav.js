@@ -1,5 +1,5 @@
 (function(){
-  const btn = document.querySelector('.site-nav__toggle');
+  const btn = document.querySelector('.c-header__toggle');
   const nav = document.querySelector('#primaryMenu');
   if(!btn || !nav) return;
   btn.addEventListener('click', function(){

@@ -1,4 +1,5 @@
 :root{
+  /* DESIGN TOKENS — required by theme. Do not remove these variables. */
   /* Colors */
   --color-scheme-1-background:#ffffff;
   --color-scheme-1-accent:#00568d;
@@ -14,6 +15,8 @@
   --color-neutral-darkest:#0d0402;
   --color-white:#ffffff;
   --opacity-transparent:#ffffff00;
+  --opacity-neutral-darkest-15:#0d040226;
+  --opacity-neutral-darkest-60:#0d040299;
 
   /* Spacing & layout */
   --page-padding-global:64px;
@@ -24,15 +27,77 @@
   --max-width-medium:560px;
 
   /* Radius */
+  --radius-xsmall:4px;
+  --radius-small:12px;
   --radius-medium:16px;
+  --radius-pill:999px;
+
+  /* Borders & sizes */
+  --border-thin:1px;
+  --header-height:72px;
+  --logo-width:84px;
+  --logo-height:60px;
+  --footer-logo-width:370px;
+  --footer-logo-height:100px;
+
+  /* Hero */
+  --hero-min-height:900px;
+  --hero-padding-y:64px;
+  --hero-padding-x:24px;
+  --hero-logo-width:560px;
+  --hero-logo-height:153px;
+
+  /* Logo section */
+  --logo-title-width:560px;
+  --logo-grid-gap:32px;
+  --logo-grid-padding-x:54px;
+  --logo-grid-padding-y:8px;
+  --logo-grid-cell-height:140px;
+
+  /* Contact section */
+  --contact-gap:80px;
+  --contact-title-width:768px;
+  --contact-form-width:560px;
+  --contact-textarea-height:180px;
+  --checkbox-size:18px;
+
+  /* Blog section */
+  --blog-section-gap:64px;
+  --blog-card-width:394px;
+  --blog-card-image-height:262px;
+  --blog-card-padding:24px;
+  --blog-grid-gap:32px;
+  --blog-grid-gap-vertical:64px;
+  --blog-page-grid-gap:32px;
+  --blog-tag-padding-x:10px;
+  --blog-tag-padding-y:4px;
+  --blog-tag-radius:6px;
+  --blog-slider-btn-size:48px;
+  --blog-slider-btn-padding:12px;
+  --blog-slider-radius:8px;
+  --blog-page-section-gap:80px;
+  --blog-page-feature-gap:80px;
+  --blog-page-feature-image-width:640px;
+  --blog-page-feature-image-height:426px;
+  --blog-feature-media-width: var(--blog-page-feature-image-width);
+  --blog-feature-media-height: var(--blog-page-feature-image-height);
+  --blog-page-card-width:405px;
+  --blog-page-card-image-height:270px;
+  --blog-page-card-gap:24px;
+  --blog-page-filter-gap:22px;
+  --blog-page-filter-radius:8px;
+  --blog-page-filter-padding-x:12px;
+  --blog-page-filter-padding-y:6px;
+  --blog-page-avatar-size:48px;
 
   /* Typography sizes */
   --text-heading-1:72px;
   --text-heading-2:52px;
   --text-heading-3:44px;
+  --text-heading-4:36px;
   --text-heading-5:28px;
   --text-regular:16px;
-  --text-medium:18px;
+  --text-medium:16px;
   --text-small:14px;
   --text-tiny:12px;
 
@@ -56,4 +121,43 @@
   --muted:var(--color-scheme-2-background);
   --surface:var(--color-scheme-1-background);
   --container:var(--container-large);
+
+  /* Spacing scale for layout */
+  --space-0:0px;
+  --space-1:4px;
+  --space-1-5:6px;
+  --space-2:8px;
+  --space-2-5:10px;
+  --space-3:12px;
+  --space-3-25:13px;
+  --space-4:16px;
+  --space-4-5:20px;
+  --space-5:24px;
+  --space-6:32px;
+  --space-7:40px;
+  --space-8:48px;
+  --space-9:64px;
+  --space-10:80px;
+
+  /* Store section */
+  --store-bg:var(--color-scheme-2-background);
+  --store-gap:var(--space-10);
+  --store-col-width:600px;
+  --store-photo-height:703px;
+  --store-info-label-width:70px;
+  --store-info-label-padding-x:20px;
+  --store-social-card-width:290px;
+  --store-social-card-padding-x:20px;
+  --store-social-card-padding-y:10px;
+  --store-social-row-gap:20px;
+  --store-map-width:1400px;
+  --store-map-height:329px;
+  --store-map-marker-width:113px;
+  --store-map-marker-height:69px;
+  --store-map-logo-width:84px;
+  --store-map-logo-height:36px;
+  --store-map-marker-left:854px;
+  --store-map-marker-top:133px;
+  --store-map-logo-left:871px;
+  --store-map-logo-top:145px;
 }
