@@ -63,12 +63,12 @@
         </a>
         <a class="c-blog-post-meta__share-btn" href="<?php echo esc_url('https://www.linkedin.com/sharing/share-offsite/?url=' . $share_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagramでシェア">
           <span class="c-blog-post-meta__icon" aria-hidden="true">
-            <img src="<?php echo esc_url($icon_base . '/Instagram.svg'); ?>" alt="" width="24" height="24" loading="lazy">
+            <img src="<?php echo esc_url($icon_base . '/instagram.svg'); ?>" alt="" width="24" height="24" loading="lazy">
           </span>
         </a>
         <a class="c-blog-post-meta__share-btn" href="<?php echo esc_url('https://www.facebook.com/sharer/sharer.php?u=' . $share_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebookでシェア">
           <span class="c-blog-post-meta__icon" aria-hidden="true">
-            <img src="<?php echo esc_url($icon_base . '/Facebook.svg'); ?>" alt="" width="24" height="24" loading="lazy">
+            <img src="<?php echo esc_url($icon_base . '/facebook.svg'); ?>" alt="" width="24" height="24" loading="lazy">
           </span>
         </a>
       </div>
