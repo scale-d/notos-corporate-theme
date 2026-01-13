@@ -50,13 +50,13 @@
           <p class="c-blog-post-meta__time">
             <span><?php echo esc_html(get_the_date('Y-m-d')); ?></span>
             <span class="c-blog-post-meta__dot" aria-hidden="true">•</span>
-            <span><?php echo esc_html($minutes); ?> min read</span>
+            <span><?php echo esc_html($minutes); ?>分で読める</span>
           </p>
         </div>
       </div>
 
       <div class="c-blog-post-meta__share" aria-label="Share">
-        <a class="c-blog-post-meta__share-btn" href="<?php echo esc_url($permalink); ?>" aria-label="リンクをコピー">
+        <a class="c-blog-post-meta__share-btn js-copy-link" href="<?php echo esc_url($permalink); ?>" data-copy-url="<?php echo esc_attr($permalink); ?>" aria-label="リンクをコピー">
           <span class="c-blog-post-meta__icon" aria-hidden="true">
             <img src="<?php echo esc_url($icon_base . '/link.svg'); ?>" alt="" width="24" height="24" loading="lazy">
           </span>

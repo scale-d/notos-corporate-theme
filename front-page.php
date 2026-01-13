@@ -348,7 +348,7 @@
             <div class="c-blog__body">
               <div class="c-blog__meta">
                 <?php if ($cat) : ?><span class="c-blog__tag"><?php echo $cat; ?></span><?php endif; ?>
-                <span class="c-blog__time"><?php echo esc_html($mins); ?> min read</span>
+                <span class="c-blog__time"><?php echo esc_html($mins); ?>分で読める</span>
               </div>
               <div class="c-blog__text">
                 <h3 class="c-blog__title-text"><?php the_title(); ?></h3>

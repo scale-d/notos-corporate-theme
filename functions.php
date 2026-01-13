@@ -14,6 +14,19 @@ add_action('after_setup_theme', function () {
   add_image_size('footer-logo', 370, 100, false);
 });
 
+// モバイル用：ハンバーガーメニュー末尾に「オンラインショップ」を追加
+add_filter('wp_nav_menu_items', 'notos_append_shop_menu_item', 10, 2);
+function notos_append_shop_menu_item($items, $args){
+  if (!isset($args->theme_location) || $args->theme_location !== 'primary') {
+    return $items;
+  }
+
+  $items .= '<li class="menu-item c-nav__shop-item">'
+          . '<a href="https://store.notos.shop" target="_blank" rel="noopener">オンラインショップ</a>'
+          . '</li>';
+  return $items;
+}
+
 add_action('customize_register', function($wp_customize){
   $wp_customize->add_section('notos_branding', [
     'title' => 'ブランド（フッターロゴ）', 'priority' => 30,

@@ -49,14 +49,14 @@ body{font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans JP",san
   height:var(--space-6);
   border:none;
   background:var(--opacity-transparent);
-  color:var(--color-neutral-darkest);
+  color:var(--color-scheme-1-accent);
 }
 
 .c-header__bar{
   display:block;
   width:100%;
   height:var(--space-1);
-  background:currentColor;
+  background:var(--color-scheme-1-accent);
   transform-origin:center;
   transition: transform .22s ease, opacity .22s ease;
 }
@@ -137,6 +137,26 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 .c-icon{ width:20px; height:21px; display:inline-block; }
 .c-icon--cart{ color:#fff; } 
+
+/* ===== Header mobile fixes ===== */
+.c-nav__shop-item{ display:none; }
+
+@media (max-width:768px){
+  /* ロゴを必ず中央に固定する（左右の列幅を同じにして視覚的中央に） */
+  .c-header__inner{
+    grid-template-columns:48px 1fr 48px;
+    gap:var(--space-2);
+  }
+
+  .c-header__left{ grid-column:1; }
+  .c-header__logo{ grid-column:2; justify-self:center; }
+
+  /* スマホではヘッダー右のショップボタンを隠す */
+  .c-header__shop{ display:none; }
+
+  /* 代わりにハンバーガーメニュー末尾にショップを表示 */
+  .c-nav__shop-item{ display:list-item; }
+}
 
 @media (min-width:768px){
   .c-header__inner{
@@ -2196,4 +2216,35 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   font-family:var(--font-heading);
   font-size:var(--text-heading-5);
   letter-spacing:var(--ls-tight);
+}
+
+/* ===== Copy link toast ===== */
+.c-copy-toast{
+  position:fixed;
+  left:50%;
+  bottom:24px;
+  transform:translateX(-50%) translateY(8px);
+  background:var(--color-scheme-1-accent);
+  color:var(--color-white);
+  padding:10px 12px;
+  border-radius:8px;
+  font-family:var(--font-body);
+  font-size:var(--text-small);
+  line-height:var(--lh-body);
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .15s ease, transform .15s ease;
+  z-index:9999;
+}
+
+.c-copy-toast.is-visible{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* Optional subtle feedback on the clicked button */
+.js-copy-link.is-copied{
+  outline:2px solid var(--color-scheme-1-accent);
+  outline-offset:2px;
 }

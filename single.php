@@ -24,7 +24,7 @@ get_header();
         <div class="c-post-share__block">
           <p class="c-post-share__label">Share this post</p>
           <div class="c-post-share__buttons">
-            <a class="c-post-share__btn"
+            <a class="c-post-share__btn js-copy-link"
               href="<?php echo esc_url($permalink); ?>"
               data-copy-url="<?php echo esc_attr($permalink); ?>"
               aria-label="リンクをコピー">
