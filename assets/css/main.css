@@ -3,6 +3,12 @@ html,body{margin:0;padding:0}
 body{font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans JP",sans-serif;color:var(--ink);background:var(--surface)}
 .container{max-width:var(--container);margin-inline:auto;padding-inline:16px}
 
+@media (max-width:768px){
+  :root{
+    --page-padding-global:32px;
+  }
+}
+
 /* ===== Header (BEM) ===== */
 .c-header{
   position:sticky;
@@ -898,6 +904,20 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   flex-direction:column;
 }
 
+/* Mobile: make each blog card fit within the viewport (no clipping) */
+@media (max-width:768px){
+  .c-blog__list{
+    width:100%;
+    max-width:100%;
+  }
+
+  .c-blog__card{
+    width:100%;
+    max-width:100%;
+    flex:0 0 100%;
+  }
+}
+
 .c-blog__card--light{
   background:var(--color-scheme-2-background);
 }
@@ -1154,6 +1174,18 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   gap:var(--space-4);
   text-align:center;
   color:var(--color-scheme-1-accent);
+}
+
+@media (max-width:768px){
+  .c-contact__header{
+    max-width:100%;
+    width:100%;
+    padding-inline:0;
+  }
+
+  .c-contact__title-group{
+    width:100%;
+  }
 }
 
 .c-contact__tagline{
