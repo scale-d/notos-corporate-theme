@@ -183,12 +183,14 @@ function notos_newsletter_maybe_create_table() {
     email VARCHAR(190) NOT NULL,
     status VARCHAR(20) NOT NULL DEFAULT 'pending',
     token VARCHAR(64) DEFAULT NULL,
+    unsubscribe_token VARCHAR(64) DEFAULT NULL,
     created_at DATETIME NOT NULL,
     updated_at DATETIME NOT NULL,
     PRIMARY KEY (id),
     UNIQUE KEY email (email),
     KEY status (status),
-    KEY token (token)
+    KEY token (token),
+    KEY unsubscribe_token (unsubscribe_token)
   ) {$charset_collate};";
 
   require_once ABSPATH . 'wp-admin/includes/upgrade.php';
@@ -221,6 +223,7 @@ function notos_newsletter_handle_subscribe() {
   $table = notos_newsletter_table_name();
   $now = current_time('mysql');
   $token = wp_hash($email . '|' . wp_generate_password(20, false) . '|' . time());
+  $unsub_token = wp_hash('unsub|' . $email . '|' . wp_generate_password(20, false) . '|' . time());
 
   $existing = $wpdb->get_var($wpdb->prepare("SELECT id FROM {$table} WHERE email = %s LIMIT 1", $email));
   if ($existing) {
@@ -229,10 +232,11 @@ function notos_newsletter_handle_subscribe() {
       array(
         'status' => 'pending',
         'token' => $token,
+        'unsubscribe_token' => $unsub_token,
         'updated_at' => $now,
       ),
       array('id' => (int)$existing),
-      array('%s','%s','%s'),
+      array('%s','%s','%s','%s'),
       array('%d')
     );
   } else {
@@ -242,17 +246,22 @@ function notos_newsletter_handle_subscribe() {
         'email' => $email,
         'status' => 'pending',
         'token' => $token,
+        'unsubscribe_token' => $unsub_token,
         'created_at' => $now,
         'updated_at' => $now,
       ),
-      array('%s','%s','%s','%s','%s')
+      array('%s','%s','%s','%s','%s','%s')
     );
   }
 
   // Double opt-in mail (この2つを編集すれば文面を変更できます)
   $confirm_url = add_query_arg('notos_nl_confirm', rawurlencode($token), home_url('/'));
+  $unsubscribe_url = add_query_arg('notos_nl_unsub', rawurlencode($unsub_token), home_url('/'));
+
   $subject = '【Notos】ニュースレター登録の確認';
-  $message = "ニュースレターのご登録ありがとうございます。\n\n下記URLをクリックして登録を完了してください。\n" . $confirm_url . "\n\n※心当たりがない場合は破棄してください。";
+  $message = "ニュースレターのご登録ありがとうございます。\n\n下記URLをクリックして登録を完了してください。\n" . $confirm_url
+    . "\n\n※心当たりがない場合は破棄してください。\n"
+    . "\n配信停止はこちら：\n" . $unsubscribe_url;
 
   wp_mail($email, $subject, $message);
 
@@ -285,6 +294,39 @@ add_action('init', function() {
       array('%d')
     );
     wp_safe_redirect(add_query_arg('newsletter', 'subscribed', home_url('/')));
+    exit;
+  }
+
+  wp_safe_redirect(add_query_arg('newsletter', 'invalid_token', home_url('/')));
+  exit;
+});
+
+// Unsubscribe endpoint: https://example.com/?notos_nl_unsub=TOKEN
+add_action('init', function() {
+  if (!isset($_GET['notos_nl_unsub'])) {
+    return;
+  }
+
+  $token = sanitize_text_field(wp_unslash($_GET['notos_nl_unsub']));
+  if (!$token) {
+    wp_safe_redirect(add_query_arg('newsletter', 'invalid_token', home_url('/')));
+    exit;
+  }
+
+  notos_newsletter_maybe_create_table();
+  global $wpdb;
+  $table = notos_newsletter_table_name();
+
+  $row = $wpdb->get_row($wpdb->prepare("SELECT id FROM {$table} WHERE unsubscribe_token = %s LIMIT 1", $token));
+  if ($row) {
+    $wpdb->update(
+      $table,
+      array('status' => 'unsubscribed', 'updated_at' => current_time('mysql')),
+      array('id' => (int)$row->id),
+      array('%s','%s'),
+      array('%d')
+    );
+    wp_safe_redirect(add_query_arg('newsletter', 'unsubscribed', home_url('/')));
     exit;
   }
 
@@ -358,6 +400,67 @@ function notos_newsletter_admin_page() {
   echo '<h1>Notos Newsletter</h1>';
   echo '<p>購読中: ' . esc_html($count) . ' / 確認待ち: ' . esc_html($pending) . '</p>';
   echo '<p><a class="button button-primary" href="' . esc_url(add_query_arg('export','csv')) . '">CSVエクスポート</a></p>';
+
+  // Simple bulk send (for small lists)
+  $notice = '';
+  if (isset($_POST['notos_nl_send_nonce']) && wp_verify_nonce($_POST['notos_nl_send_nonce'], 'notos_nl_send')) {
+    $subject = isset($_POST['subject']) ? sanitize_text_field(wp_unslash($_POST['subject'])) : '';
+    $body    = isset($_POST['body']) ? sanitize_textarea_field(wp_unslash($_POST['body'])) : '';
+    $mode    = isset($_POST['mode']) ? sanitize_text_field(wp_unslash($_POST['mode'])) : 'test';
+
+    if (!$subject || !$body) {
+      $notice = '件名と本文を入力してください。';
+    } else {
+      // collect recipients
+      if ($mode === 'all') {
+        $recipients = $wpdb->get_col("SELECT email FROM {$table} WHERE status='subscribed' ORDER BY id DESC LIMIT 200");
+      } else {
+        $recipients = array(wp_get_current_user()->user_email);
+      }
+
+      $sent = 0;
+      foreach ($recipients as $email) {
+        $email = sanitize_email($email);
+        if (!$email || !is_email($email)) continue;
+
+        // Unsubscribe URL for this recipient
+        $unsub_token = $wpdb->get_var($wpdb->prepare("SELECT unsubscribe_token FROM {$table} WHERE email=%s LIMIT 1", $email));
+        $unsubscribe_url = $unsub_token ? add_query_arg('notos_nl_unsub', rawurlencode($unsub_token), home_url('/')) : home_url('/');
+
+        $mail_body = $body . "\n\n---\n配信停止はこちら：\n" . $unsubscribe_url;
+
+        $headers = array('Content-Type: text/plain; charset=UTF-8');
+        $headers[] = 'List-Unsubscribe: <' . $unsubscribe_url . '>';
+
+        if (wp_mail($email, $subject, $mail_body, $headers)) {
+          $sent++;
+        }
+      }
+
+      $notice = ($mode === 'all')
+        ? '送信完了（最大200件まで）：' . $sent . ' 件'
+        : 'テスト送信しました：' . $sent . ' 件';
+    }
+  }
+
+  if ($notice) {
+    echo '<div class="notice notice-info"><p>' . esc_html($notice) . '</p></div>';
+  }
+
+  echo '<h2>一斉配信（簡易）</h2>';
+  echo '<p>※まずは小規模運用向け（最大200件）。大量配信は外部サービス推奨です。</p>';
+  echo '<form method="post" style="max-width:900px">';
+  wp_nonce_field('notos_nl_send', 'notos_nl_send_nonce');
+  echo '<table class="form-table"><tbody>';
+  echo '<tr><th scope="row"><label for="nl-subject">件名</label></th><td><input id="nl-subject" name="subject" type="text" class="regular-text" value="" /></td></tr>';
+  echo '<tr><th scope="row"><label for="nl-body">本文</label></th><td><textarea id="nl-body" name="body" rows="10" class="large-text" placeholder="本文を入力"></textarea></td></tr>';
+  echo '<tr><th scope="row">送信モード</th><td>'
+      . '<label><input type="radio" name="mode" value="test" checked> 自分にテスト送信</label><br>'
+      . '<label><input type="radio" name="mode" value="all"> 購読者全員に送信（最大200件）</label>'
+      . '</td></tr>';
+  echo '</tbody></table>';
+  submit_button('送信');
+  echo '</form>';
 
   $rows = $wpdb->get_results("SELECT email, status, created_at, updated_at FROM {$table} ORDER BY id DESC LIMIT 200", ARRAY_A);
   echo '<table class="widefat striped"><thead><tr><th>Email</th><th>Status</th><th>Created</th><th>Updated</th></tr></thead><tbody>';

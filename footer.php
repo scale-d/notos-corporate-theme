@@ -28,6 +28,27 @@
           </label>
           <button class="c-footer__button" type="submit">登録</button>
         </form>
+        <?php
+          $nl = isset($_GET['newsletter']) ? sanitize_text_field(wp_unslash($_GET['newsletter'])) : '';
+          if ($nl) {
+            $msg = '';
+            if ($nl === 'pending') {
+              $msg = '確認メールを送りました。メール内のリンクをクリックして登録を完了してください。';
+            } elseif ($nl === 'subscribed') {
+              $msg = '登録が完了しました。ありがとうございます。';
+            } elseif ($nl === 'unsubscribed') {
+              $msg = '配信停止を受け付けました。ありがとうございました。';
+            } elseif ($nl === 'invalid_email') {
+              $msg = 'メールアドレスが正しくありません。';
+            } elseif ($nl === 'invalid' || $nl === 'invalid_token') {
+              $msg = '処理に失敗しました。もう一度お試しください。';
+            }
+
+            if ($msg) {
+              echo '<p class="c-footer__message">' . esc_html($msg) . '</p>';
+            }
+          }
+        ?>
         <p class="c-footer__note">
           登録することでプライバシーポリシーに同意し、更新を受け取ります。
         </p>
