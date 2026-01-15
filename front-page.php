@@ -203,7 +203,7 @@
   </div>
 </section>
 
-<section class="c-logo">
+<section class="c-logo" id="brands">
   <div class="c-logo__inner">
     <h2 class="c-logo__title">取り扱いブランド</h2>
     <ul class="c-logo__grid">
@@ -315,7 +315,7 @@
   </div>
 </section>
 
-<section class="c-blog">
+<section class="c-blog" id="blog">
   <div class="c-blog__inner">
     <div class="c-blog__header">
       <div class="c-blog__title">
@@ -417,7 +417,7 @@
   </div>
 </section>
 
-<section class="c-contact">
+<section class="c-contact" id="contact">
   <div class="c-contact__inner">
     <div class="c-contact__header">
       <p class="c-contact__tagline">Contacts</p>

@@ -120,3 +120,40 @@
     });
   });
 })();
+
+// ===== Home anchor: go to top first, then smooth scroll to section =====
+(function(){
+  if (window.__notos_home_anchor_inited) return;
+  window.__notos_home_anchor_inited = true;
+
+  const TARGETS = new Set(['#brands', '#blog', '#contact']);
+
+  function isHomePage(){
+    // WPのフロントページには body.home が付きます
+    return document.body && document.body.classList.contains('home');
+  }
+
+  function run(){
+    if (!isHomePage()) return;
+
+    const hash = window.location.hash;
+    if (!TARGETS.has(hash)) return;
+
+    const el = document.querySelector(hash);
+    if (!el) return;
+
+    // 1) まずトップへ戻す
+    window.scrollTo(0, 0);
+
+    // 2) 次にスムーススクロールで目的セクションへ
+    window.setTimeout(function(){
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();

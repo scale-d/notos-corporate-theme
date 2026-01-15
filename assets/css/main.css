@@ -1,5 +1,6 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans JP",sans-serif;color:var(--ink);background:var(--surface)}
 .container{max-width:var(--container);margin-inline:auto;padding-inline:16px}
 
@@ -1416,6 +1417,12 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 /* アンカーに飛んだときにヘッダーで隠れない */
 .section { scroll-margin-top: 80px; }
+
+#brands,
+#blog,
+#contact{
+  scroll-margin-top: calc(var(--header-height));
+}
 
 /* アクセシビリティ：スキップリンク */
 .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }

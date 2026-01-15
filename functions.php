@@ -280,7 +280,7 @@ add_action('init', function() {
 
   $token = sanitize_text_field(wp_unslash($_GET['notos_nl_confirm']));
   if (!$token) {
-    wp_safe_redirect(add_query_arg('newsletter', 'invalid_token', home_url('/')));
+    wp_safe_redirect(add_query_arg('newsletter', 'invalid_token', home_url('/')) . '#newsletter');
     exit;
   }
 
@@ -297,11 +297,11 @@ add_action('init', function() {
       array('%s','%s','%s'),
       array('%d')
     );
-    wp_safe_redirect(add_query_arg('newsletter', 'subscribed', home_url('/')));
+    wp_safe_redirect(add_query_arg('newsletter', 'subscribed', home_url('/')) . '#newsletter');
     exit;
   }
 
-  wp_safe_redirect(add_query_arg('newsletter', 'invalid_token', home_url('/')));
+  wp_safe_redirect(add_query_arg('newsletter', 'invalid_token', home_url('/')) . '#newsletter');
   exit;
 });
 
@@ -313,7 +313,7 @@ add_action('init', function() {
 
   $token = sanitize_text_field(wp_unslash($_GET['notos_nl_unsub']));
   if (!$token) {
-    wp_safe_redirect(add_query_arg('newsletter', 'invalid_token', home_url('/')));
+    wp_safe_redirect(add_query_arg('newsletter', 'invalid_token', home_url('/')) . '#newsletter');
     exit;
   }
 
@@ -330,11 +330,11 @@ add_action('init', function() {
       array('%s','%s'),
       array('%d')
     );
-    wp_safe_redirect(add_query_arg('newsletter', 'unsubscribed', home_url('/')));
+    wp_safe_redirect(add_query_arg('newsletter', 'unsubscribed', home_url('/')) . '#newsletter');
     exit;
   }
 
-  wp_safe_redirect(add_query_arg('newsletter', 'invalid_token', home_url('/')));
+  wp_safe_redirect(add_query_arg('newsletter', 'invalid_token', home_url('/')) . '#newsletter');
   exit;
 });
 
@@ -452,7 +452,7 @@ function notos_newsletter_admin_page() {
   }
 
   echo '<h2>一斉配信（簡易）</h2>';
-  echo '<p>※まずは小規模運用向け（最大200件）。大量配信は外部サービス推奨です。</p>';
+  echo '<p>※まずは小規模運用向け（最大200件）。大量配信は外部サービス推奨。</p>';
   echo '<form method="post" style="max-width:900px">';
   wp_nonce_field('notos_nl_send', 'notos_nl_send_nonce');
   echo '<table class="form-table"><tbody>';
