@@ -2302,6 +2302,32 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   letter-spacing:var(--ls-tight);
 }
 
+/* Terms page: content typography (same as privacy) */
+.c-terms .c-brandlist__content{
+  max-width:var(--max-width-large);
+  margin-inline:auto;
+}
+
+.c-terms .c-brandlist__content p{
+  margin:0 0 var(--space-4);
+  font-size:var(--text-regular);
+  line-height:var(--lh-body);
+}
+
+.c-terms .c-brandlist__content h2{
+  margin:var(--space-9) 0 var(--space-4);
+  font-family:var(--font-heading);
+  font-size:var(--text-heading-5);
+  letter-spacing:var(--ls-tight);
+}
+
+.c-terms .c-brandlist__content h3{
+  margin:var(--space-8) 0 var(--space-3);
+  font-family:var(--font-heading);
+  font-size:var(--text-heading-5);
+  letter-spacing:var(--ls-tight);
+}
+
 /* ===== Copy link toast ===== */
 .c-copy-toast{
   position:fixed;
