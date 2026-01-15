@@ -3,7 +3,7 @@
 <footer class="c-footer">
   <div class="c-footer__inner">
     <div class="c-footer__top">
-      <div class="c-footer__newsletter">
+      <div class="c-footer__newsletter" id="newsletter">
         <div class="c-footer__logo">
           <?php
           $footer_logo_id = get_theme_mod('notos_footer_logo');
@@ -45,7 +45,10 @@
             }
 
             if ($msg) {
-              echo '<p class="c-footer__message">' . esc_html($msg) . '</p>';
+              echo '<div class="c-footer__message" role="status" aria-live="polite">'
+                . '<span class="c-footer__message-text">' . esc_html($msg) . '</span>'
+                . '<button class="c-footer__message-close" type="button" aria-label="メッセージを閉じる">×</button>'
+                . '</div>';
             }
           }
         ?>

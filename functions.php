@@ -202,7 +202,11 @@ function notos_newsletter_redirect_back($result) {
   if (!$ref) {
     $ref = home_url('/');
   }
-  $url = add_query_arg('newsletter', $result, $ref);
+
+  // 既存のフラグメント（#...）を除去してから、必ずフッター(#newsletter)へ戻す
+  $ref = preg_replace('/#.*$/', '', $ref);
+  $url = add_query_arg('newsletter', $result, $ref) . '#newsletter';
+
   wp_safe_redirect($url);
   exit;
 }

@@ -7,7 +7,7 @@ get_header();
   <div class="c-brandlist__inner">
     <header class="c-brandlist__header">
       <h1 class="c-brandlist__title">ブランド一覧</h1>
-      <p class="c-brandlist__note">★ は広島エリア初登場ブランドです。</p>
+      <p class="c-brandlist__note">ハイキング・渓流釣り・沢登り・スノーアクティビティ・トレイルラン・ランニング・ファッション関連等、広島ではまだ取り扱いの無い海外ブランドやガレージブランドを中心に下記ブランドの取り扱いが決定しています。(★は広島エリア初、()は近々に取引OKになりそうなブランド)</p>
     </header>
 
     <div class="c-brandlist__layout">

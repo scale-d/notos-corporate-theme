@@ -103,3 +103,20 @@
     });
   });
 })();
+
+// ===== Footer message dismiss =====
+(function(){
+  function onReady(fn){
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', fn);
+    else fn();
+  }
+
+  onReady(function(){
+    document.addEventListener('click', function(e){
+      const btn = e.target.closest('.c-footer__message-close');
+      if(!btn) return;
+      const box = btn.closest('.c-footer__message');
+      if(box) box.remove();
+    });
+  });
+})();

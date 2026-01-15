@@ -312,11 +312,39 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 .c-footer__message{
   margin:0;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 12px;
+  border-radius:8px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
   font-family:var(--font-body);
   font-size:var(--text-small);
   line-height:var(--lh-body);
   color:var(--color-white);
-  opacity:.95;
+  opacity:.98;
+}
+
+.c-footer__message-text{
+  display:block;
+}
+
+.c-footer__message-close{
+  appearance:none;
+  border:0;
+  background:transparent;
+  color:var(--color-white);
+  font-size:18px;
+  line-height:1;
+  padding:0;
+  cursor:pointer;
+  opacity:.9;
+}
+
+.c-footer__message-close:hover{
+  opacity:1;
 }
 
 .c-footer__links{
