@@ -112,7 +112,7 @@
         <div class="c-footer__policies">
           <a href="<?php echo esc_url( home_url('/privacy-policy/') ); ?>">プライバシーポリシー</a>
           <a href="<?php echo esc_url(home_url('/terms/')); ?>">サービス利用規約</a>
-          <a href="#">クッキー設定</a>
+          <a href="<?php echo esc_url(home_url('/cookie-policy/')); ?>">クッキー設定</a>
         </div>
       </div>
     </div>
