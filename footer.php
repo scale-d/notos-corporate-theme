@@ -111,7 +111,7 @@
         <p>© <?php echo date('Y'); ?> NOTOS. All rights reserved.</p>
         <div class="c-footer__policies">
           <a href="<?php echo esc_url( home_url('/privacy-policy/') ); ?>">プライバシーポリシー</a>
-          <a href="#">サービス利用規約</a>
+          <a href="<?php echo esc_url(home_url('/terms/')); ?>">サービス利用規約</a>
           <a href="#">クッキー設定</a>
         </div>
       </div>
