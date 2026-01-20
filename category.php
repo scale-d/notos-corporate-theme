@@ -3,6 +3,8 @@
 <main class="c-blog-page">
   <div class="c-blog-page__inner">
 
+    <?php get_template_part('template-parts/common/breadcrumbs'); ?>
+
     <?php
       // 現在のカテゴリ
       $cat = get_queried_object();

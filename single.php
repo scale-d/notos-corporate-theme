@@ -5,6 +5,7 @@ get_header();
 
 <main id="main" class="c-blog-post">
   <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+  <?php get_template_part('template-parts/common/breadcrumbs'); ?>
 
   <?php get_template_part('template-parts/blog-post/header'); ?>
 

@@ -6,7 +6,7 @@ get_header();
 <main id="main" class="c-brandlist">
   <div class="c-brandlist__inner">
     <header class="c-brandlist__header">
-      <?php if (function_exists('notos_render_breadcrumbs')) { notos_render_breadcrumbs(); } ?>
+      <?php get_template_part('template-parts/common/breadcrumbs'); ?>
       <h1 class="c-brandlist__title">ブランド一覧</h1>
       <p class="c-brandlist__note">ハイキング・渓流釣り・沢登り・スノーアクティビティ・トレイルラン・ランニング・ファッション関連等、広島ではまだ取り扱いの無い海外ブランドやガレージブランドを中心に下記ブランドの取り扱いが決定しています。(★は広島エリア初、()は近々に取引OKになりそうなブランド)</p>
     </header>

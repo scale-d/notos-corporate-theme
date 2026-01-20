@@ -8,6 +8,7 @@ get_header();
   <div class="c-brandlist__inner">
 
     <header class="c-brandlist__header">
+      <?php get_template_part('template-parts/common/breadcrumbs'); ?>
       <h1 class="c-brandlist__title"><?php the_title(); ?></h1>
       <p class="c-brandlist__note">クッキーポリシー</p>
     </header>
