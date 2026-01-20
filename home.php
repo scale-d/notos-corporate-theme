@@ -3,6 +3,8 @@
 <main class="c-blog-page">
   <div class="c-blog-page__inner">
 
+    <?php get_template_part('template-parts/common/breadcrumbs'); ?>
+
     <?php get_template_part('template-parts/blog/intro'); ?>
     <?php get_template_part('template-parts/blog/feature'); ?>
     <?php get_template_part('template-parts/blog/filters'); ?>
