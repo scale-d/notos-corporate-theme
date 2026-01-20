@@ -479,3 +479,21 @@ function notos_newsletter_admin_page() {
   echo '</tbody></table>';
   echo '</div>';
 }
+
+/**
+ * Google Analytics (GA4) gtag.js
+ * - Put as early as possible in <head> via wp_head with priority 0.
+ */
+add_action('wp_head', function () {
+  $ga_id = 'G-67W81R5QJ9';
+  ?>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr($ga_id); ?>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '<?php echo esc_js($ga_id); ?>');
+  </script>
+  <?php
+}, 0);
