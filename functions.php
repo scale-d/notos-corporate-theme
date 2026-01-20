@@ -497,3 +497,62 @@ add_action('wp_head', function () {
   </script>
   <?php
 }, 0);
+
+/**
+ * Breadcrumbs helper
+ * - 
+ */
+function notos_render_breadcrumbs() {
+  // トップページは出さない
+  if (is_front_page()) return;
+
+  $home_label = 'Home';
+  $home_url   = home_url('/');
+
+  // Blog のURL（あなたの構成に合わせて /blog/ 固定）
+  $blog_label = 'Blog';
+  $blog_url   = home_url('/blog/');
+
+  // 矢印SVG（CSSの currentColor で色が乗る）
+  $sep_svg = '<svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true"><path fill="currentColor" d="M9 5.5 15.5 12 9 18.5l1.4 1.4 7.9-7.9-7.9-7.9L9 5.5Z"/></svg>';
+
+  $items = [];
+  $items[] = ['label' => $home_label, 'url' => $home_url];
+
+  // current（最後の要素）
+  $current = '';
+
+  if (is_home()) {
+    // /blog/ の一覧ページ想定
+    $current = $blog_label;
+  } elseif (is_category()) {
+    $items[] = ['label' => $blog_label, 'url' => $blog_url];
+    $current = single_cat_title('', false);
+  } elseif (is_single()) {
+    // 投稿（post）のみ Blog を挟む
+    if (get_post_type() === 'post') {
+      $items[] = ['label' => $blog_label, 'url' => $blog_url];
+    }
+    $current = get_the_title();
+  } elseif (is_page()) {
+    $current = get_the_title();
+  } elseif (is_search()) {
+    $current = '検索結果: ' . get_search_query();
+  } elseif (is_404()) {
+    $current = 'ページが見つかりません';
+  } else {
+    // その他アーカイブ等
+    $current = wp_get_document_title();
+  }
+
+  echo '<nav class="c-breadcrumbs" aria-label="Breadcrumb">';
+
+  $last = count($items) - 1;
+  foreach ($items as $i => $it) {
+    echo '<a class="c-breadcrumbs__link" href="' . esc_url($it['url']) . '">' . esc_html($it['label']) . '</a>';
+    echo '<span class="c-breadcrumbs__sep" aria-hidden="true">' . $sep_svg . '</span>';
+  }
+
+  echo '<span class="c-breadcrumbs__current">' . esc_html($current) . '</span>';
+  echo '</nav>';
+}
