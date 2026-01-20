@@ -6,15 +6,7 @@ get_header();
 <main id="main" class="c-brandlist">
   <div class="c-brandlist__inner">
     <header class="c-brandlist__header">
-      <nav class="c-breadcrumbs" aria-label="Breadcrumb">
-        <a class="c-breadcrumbs__link" href="<?php echo esc_url(home_url('/')); ?>">Home</a>
-        <span class="c-breadcrumbs__sep" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
-            <path fill="currentColor" d="M9 5.5 15.5 12 9 18.5l1.4 1.4 7.9-7.9-7.9-7.9L9 5.5Z"/>
-          </svg>
-        </span>
-        <span class="c-breadcrumbs__current"><?php the_title(); ?></span>
-      </nav>
+      <?php if (function_exists('notos_render_breadcrumbs')) { notos_render_breadcrumbs(); } ?>
       <h1 class="c-brandlist__title">ブランド一覧</h1>
       <p class="c-brandlist__note">ハイキング・渓流釣り・沢登り・スノーアクティビティ・トレイルラン・ランニング・ファッション関連等、広島ではまだ取り扱いの無い海外ブランドやガレージブランドを中心に下記ブランドの取り扱いが決定しています。(★は広島エリア初、()は近々に取引OKになりそうなブランド)</p>
     </header>

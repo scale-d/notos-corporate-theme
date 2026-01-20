@@ -2122,6 +2122,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   margin-inline:auto;
 }
 
+
 .c-brandlist__header{
   display:flex;
   flex-direction:column;
@@ -2130,6 +2131,13 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   align-items:center;
   text-align:center;
 }
+
+/* Brand list: breadcrumbs → title spacing (80px total, accounting for flex gap) */
+.c-brandlist__header .c-breadcrumbs{
+  margin:0;
+  margin-bottom:calc(80px - var(--space-5));
+}
+
 
 .c-brandlist__title{
   margin:0;
