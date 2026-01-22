@@ -409,8 +409,9 @@ function notos_newsletter_register_admin_menu() {
 }
 
 function notos_newsletter_admin_page() {
-  if (!current_user_can('manage_options')) {
-    return;
+  // Tools -> Notos Newsletter は「編集者」でも使えるようにする。
+  if (!current_user_can('edit_others_posts')) {
+    wp_die('権限がありません');
   }
 
   notos_newsletter_maybe_create_table();
