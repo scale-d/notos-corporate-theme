@@ -78,6 +78,35 @@ function notos_theme_assets_admin() {
     }
   }
 
+  // Delete asset
+  if (!empty($_POST['delete_asset']) && !empty($_POST['delete_asset_nonce'])) {
+    if (!wp_verify_nonce($_POST['delete_asset_nonce'], 'notos_theme_assets_delete')) {
+      $message = '削除に失敗しました（nonce不正）';
+    } else {
+      $target = sanitize_file_name(wp_unslash($_POST['delete_asset']));
+      // normalize: remove trailing -1 / -2 etc before extension
+      $target = preg_replace('/-\\d+(?=\\.[^.]+$)/', '', strtolower($target));
+
+      $path = $assets_dir . '/' . $target;
+
+      // safety: must be inside assets dir
+      $real_assets = realpath($assets_dir);
+      $real_path = realpath($path);
+
+      if (!$real_assets || !$real_path || strpos($real_path, $real_assets) !== 0) {
+        $message = '削除に失敗しました（不正なパス）';
+      } elseif (!is_file($real_path)) {
+        $message = '削除に失敗しました（対象ファイルがありません）';
+      } else {
+        if (@unlink($real_path)) {
+          $message = 'Deleted: ' . esc_html(basename($real_path));
+        } else {
+          $message = '削除に失敗しました（パーミッションを確認）';
+        }
+      }
+    }
+  }
+
   echo '<div class="wrap"><h1>Theme Assets</h1>';
   if ($message) echo '<div class="updated"><p>'.$message.'</p></div>';
 
@@ -107,6 +136,7 @@ function notos_theme_assets_admin() {
        .'<th>パーミッション</th>'
        .'<th>更新日時</th>'
        .'<th style="text-align:right">サイズ</th>'
+       .'<th style="width:90px">操作</th>'
        .'</tr></thead><tbody>';
 
     foreach ($files as $f) {
@@ -129,6 +159,13 @@ function notos_theme_assets_admin() {
         .'<td><code>'.$perm_str.'</code></td>'
         .'<td>'.esc_html($date_str).'</td>'
         .'<td style="text-align:right">'.$size_str.'</td>'
+        .'<td>'
+        .  '<form method="post" onsubmit="return confirm(\'このファイルを削除します。よろしいですか？\');" style="margin:0">'
+        .    '<input type="hidden" name="delete_asset" value="'.esc_attr($f).'">'
+        .    '<input type="hidden" name="delete_asset_nonce" value="'.esc_attr(wp_create_nonce('notos_theme_assets_delete')).'">'
+        .    '<button type="submit" class="button button-small" style="color:#b32d2e;border-color:#b32d2e">削除</button>'
+        .  '</form>'
+        .'</td>'
         .'</tr>';
     }
 
