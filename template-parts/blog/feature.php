@@ -32,17 +32,26 @@ if ($featured_post):
   $cats = get_the_category($fp_id);
   $cat_name = !empty($cats) ? esc_html($cats[0]->name) : '';
   $excerpt = get_the_excerpt($fp_id);
-  $author_name = get_the_author_meta('display_name', get_post_field('post_author',$fp_id));
-  $mins = max(1, ceil(mb_strlen(wp_strip_all_tags(get_post_field('post_content',$fp_id))) / 400));
+  $author_name = get_the_author_meta('display_name', get_post_field('post_author', $fp_id));
+  $mins = max(1, ceil(mb_strlen(wp_strip_all_tags(get_post_field('post_content', $fp_id))) / 400));
 ?>
 <div class="c-blog-page__feature">
   <a class="c-blog-page__feature-media" href="<?php echo esc_url(get_permalink($fp_id)); ?>">
     <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr(get_the_title($fp_id)); ?>">
   </a>
   <div class="c-blog-page__feature-body">
-    <?php if ($cat_name): ?><p class="c-blog-page__category"><?php echo $cat_name; ?></p><?php endif; ?>
-    <h2 class="c-blog-page__feature-title"><?php echo esc_html(get_the_title($fp_id)); ?></h2>
-    <p class="c-blog-page__feature-excerpt"><?php echo esc_html( wp_trim_words($excerpt, 40, '…') ); ?></p>
+    <?php if ($cat_name): ?>
+      <p class="c-blog-page__category"><?php echo $cat_name; ?></p>
+    <?php endif; ?>
+
+    <h2 class="c-blog-page__feature-title">
+      <a class="c-blog-page__feature-title-link" href="<?php echo esc_url(get_permalink($fp_id)); ?>" style="color:inherit;text-decoration:none;">
+        <?php echo esc_html(get_the_title($fp_id)); ?>
+      </a>
+    </h2>
+
+    <p class="c-blog-page__feature-excerpt"><?php echo esc_html(wp_trim_words($excerpt, 40, '…')); ?></p>
+
     <div class="c-blog-page__author">
       <span class="c-blog-page__avatar">
         <?php
