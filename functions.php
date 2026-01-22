@@ -365,7 +365,7 @@ function notos_newsletter_register_admin_menu() {
   add_management_page(
     'Notos Newsletter',
     'Notos Newsletter',
-    'manage_options',
+    'edit_others_posts',
     'notos-newsletter',
     'notos_newsletter_admin_page'
   );

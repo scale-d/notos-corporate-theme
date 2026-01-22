@@ -9,11 +9,36 @@
           $footer_logo_id = get_theme_mod('notos_footer_logo');
           if ($footer_logo_id) {
             echo wp_get_attachment_image($footer_logo_id, 'footer-logo', false,
-              ['alt'=>'NOTOS','class'=>'c-footer__logo-img','width'=>370,'height'=>100]);
+              [
+                'alt'     => 'NOTOS',
+                'class'   => 'c-footer__logo-img',
+                'width'   => 370,
+                'height'  => 100,
+                'sizes'   => '(max-width: 768px) 185px, 370px',
+                'loading' => 'lazy',
+                'decoding'=> 'async',
+              ]);
           } else { ?>
-            <img class="c-footer__logo-img"
-                 src="<?php echo esc_url(get_template_directory_uri().'/assets/img/footer-logo-370x100.png'); ?>"
-                 alt="NOTOS" width="370" height="100">
+            <?php
+              $footer_logo_1x = get_template_directory_uri() . '/assets/img/footer-logo-370x102.png';
+              $footer_logo_2x_rel = '/assets/img/footer-logo-740x203.png';
+              $footer_logo_2x_path = get_template_directory() . $footer_logo_2x_rel;
+
+              $footer_srcset = esc_url($footer_logo_1x) . ' 370w';
+              if (file_exists($footer_logo_2x_path)) {
+                $footer_srcset .= ', ' . esc_url(get_template_directory_uri() . $footer_logo_2x_rel) . ' 740w';
+              }
+            ?>
+            <img
+              class="c-footer__logo-img"
+              src="<?php echo esc_url($footer_logo_1x); ?>"
+              srcset="<?php echo esc_attr($footer_srcset); ?>"
+              sizes="(max-width: 768px) 185px, 370px"
+              alt="NOTOS"
+              width="370"
+              height="100"
+              loading="lazy"
+              decoding="async">
           <?php } ?>
         </div>
         <p class="c-footer__lead">

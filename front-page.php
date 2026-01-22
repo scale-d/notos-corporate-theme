@@ -3,8 +3,26 @@
 <section class="c-hero" style="--hero-bg: url('<?php echo esc_url(get_template_directory_uri().'/assets/img/hero-sec.webp'); ?>');">
   <div class="c-hero__inner">
     <div class="c-hero__logo">
-      <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/hero-logo-560x153.png'); ?>"
-           alt="<?php bloginfo('name'); ?>">
+      <?php
+        $hero_logo_1x = get_template_directory_uri() . '/assets/img/hero-logo-560x154.png';
+        $hero_logo_2x_rel = '/assets/img/hero-logo-1120x307.png';
+        $hero_logo_2x_path = get_template_directory() . $hero_logo_2x_rel;
+
+        $hero_srcset = esc_url($hero_logo_1x) . ' 560w';
+        if (file_exists($hero_logo_2x_path)) {
+          $hero_srcset .= ', ' . esc_url(get_template_directory_uri() . $hero_logo_2x_rel) . ' 1120w';
+        }
+      ?>
+      <img
+        class="c-hero__logo-img"
+        src="<?php echo esc_url($hero_logo_1x); ?>"
+        srcset="<?php echo esc_attr($hero_srcset); ?>"
+        sizes="(max-width: 768px) 60vw, 560px"
+        width="560"
+        height="153"
+        alt="<?php bloginfo('name'); ?>"
+        loading="eager"
+        decoding="async">
     </div>
     <div class="c-hero__content">
       <h1 class="c-hero__title">3月1日、広島に「Notos」がOPEN！</h1>
