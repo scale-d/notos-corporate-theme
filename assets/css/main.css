@@ -474,6 +474,15 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   }
 }
 
+/* Desktop: hero height = viewport height minus header */
+@media (min-width:769px){
+  .c-hero{
+    min-height: calc(100vh - var(--header-height, 60px));
+    min-height: calc(100dvh - var(--header-height, 60px));
+    min-height: calc(100svh - var(--header-height, 60px));
+  }
+}
+
 .c-hero__inner{
   width:100%;
   max-width:var(--container-large);
