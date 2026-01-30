@@ -133,7 +133,6 @@
     </div>
     <div class="c-store__map">
       <div id="notos-map" class="c-store__map-canvas"
-           style="height:329px; width:100%; border-radius: var(--radius-medium, 0);"
            data-lat="34.40829191003846" data-lng="132.47143820238895" data-map-id="ff7fd07d411a9bb4806cea65"></div>
       <noscript>
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/store-map-1400x329.jpg'); ?>" alt="">
@@ -150,6 +149,7 @@
     const mapId = el.dataset.mapId || 'ff7fd07d411a9bb4806cea65';    // Cloud ConsoleのMap IDに置換
 
     function init(){
+      const gmapsUrl = <?php echo wp_json_encode('https://www.google.com/maps/place/Notos+(%E3%83%8E%E3%83%88%E3%82%B9)/@34.4082814,132.4688398,17z/data=!4m15!1m8!3m7!1s0x355a99f5c8bc3abf:0x6c77d91f2891dad6!2zTm90b3MgKOODjuODiOOCuSk!8m2!3d34.408277!4d132.4714201!10e1!16s%2Fg%2F11ymzl41tn!3m5!1s0x355a99f5c8bc3abf:0x6c77d91f2891dad6!8m2!3d34.408277!4d132.4714201!16s%2Fg%2F11ymzl41tn?authuser=0&entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D'); ?>;
       const map = new google.maps.Map(el, {
         center: {lat: lat, lng: lng},
         zoom: 16,
@@ -168,15 +168,22 @@
           this.div.style.transform = 'translate(-50%, calc(-100% - 10px))';
           this.div.style.pointerEvents = 'auto';
           this.div.style.zIndex = '100';
-          // CSSで吹き出しを描画し、その中にロゴを配置
-          const bubble = document.createElement('div');
-          bubble.className = 'map-bubble';
+          // CSSで吹き出しを描画し、その中にロゴを配置（クリックでGoogleマップへ）
+          const link = document.createElement('a');
+          link.className = 'map-bubble';
+          link.href = gmapsUrl;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.title = 'GoogleマップでNotosを開く';
+          link.setAttribute('aria-label', 'GoogleマップでNotosを開く');
+
           const logo = new Image();
           logo.src = '<?php echo esc_url(get_template_directory_uri().'/assets/img/map-logo-84x36.png'); ?>';
           logo.alt = '<?php bloginfo('name'); ?>';
           logo.className = 'map-bubble__logo';
-          bubble.appendChild(logo);
-          this.div.appendChild(bubble);
+
+          link.appendChild(logo);
+          this.div.appendChild(link);
           this.getPanes().overlayImage.appendChild(this.div);
         }
         draw(){

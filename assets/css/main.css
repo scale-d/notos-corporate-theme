@@ -822,9 +822,17 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   position:relative;
   width:100%;
   max-width:var(--store-map-width);
-  height:var(--store-map-height);
+  height:560px;
   margin-inline:auto;
   /* margin-top: var(--space-10); */
+}
+
+/* Google Map canvas (height is controlled by .c-store__map) */
+.c-store__map-canvas{
+  width:100%;
+  height:100%;
+  border-radius:var(--radius-medium, 0);
+  overflow:hidden;
 }
 
 .c-store__map img{
@@ -1478,6 +1486,13 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   background:#fff;
   border-radius:22px;
   box-shadow:0 4px 8px rgba(0,0,0,.4);
+  cursor:pointer;
+  text-decoration:none;
+}
+
+.map-bubble:focus-visible{
+  outline:2px solid var(--color-scheme-1-accent);
+  outline-offset:2px;
 }
 .map-bubble::before, .map-bubble::after{
   content:""; position:absolute; left:50%; transform:translateX(-50%);
