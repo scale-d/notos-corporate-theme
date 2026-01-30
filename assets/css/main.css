@@ -148,6 +148,12 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 /* ===== Header mobile fixes ===== */
 .c-nav__shop-item{ display:none; }
 
+/* <=1023px: ハンバーガーメニュー運用（ショップボタンは隠し、メニュー末尾に表示） */
+@media (max-width:1023px){
+  .c-header__shop{ display:none; }
+  .c-nav__shop-item{ display:list-item; }
+}
+
 @media (max-width:768px){
   /* ロゴを必ず中央に固定する（左右の列幅を同じにして視覚的中央に） */
   .c-header__inner{
@@ -157,15 +163,9 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
   .c-header__left{ grid-column:1; }
   .c-header__logo{ grid-column:2; justify-self:center; }
-
-  /* スマホではヘッダー右のショップボタンを隠す */
-  .c-header__shop{ display:none; }
-
-  /* 代わりにハンバーガーメニュー末尾にショップを表示 */
-  .c-nav__shop-item{ display:list-item; }
 }
 
-@media (min-width:1025px){
+@media (min-width:1024px){
   .c-header__inner{
     grid-template-columns:1fr auto 1fr;
     padding-inline:var(--page-padding-global);
