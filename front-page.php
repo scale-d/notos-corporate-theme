@@ -80,6 +80,10 @@
               </svg>
             </span>
           </a>
+          <?php /*
+          
+          Facebook（将来用）
+          
           <a class="c-store__card" href="#">
             <div class="c-store__card-text">
               <p class="c-store__card-title">FACEBOOK Page</p>
@@ -88,6 +92,22 @@
             <span class="c-store__card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
                 <path fill="currentColor" d="M13 9V7c0-.6.4-1 1-1h2V3h-3c-2.2 0-4 1.8-4 4v2H7v3h2v9h3v-9h2.6l.4-3H12Z"/>
+              </svg>
+            </span>
+          </a>
+
+          */ ?>
+          <a class="c-store__card" href="YOUR_LINE_URL_HERE" target="_blank" rel="noopener noreferrer">
+            <div class="c-store__card-text">
+              <p class="c-store__card-title">LINE</p>
+              <p class="c-store__card-sub">ライン</p>
+            </div>
+            <span class="c-store__card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+                <!-- chat bubble icon (generic) -->
+                <path fill="currentColor" d="M12 3C6.98 3 3 6.58 3 11c0 2.26 1.04 4.3 2.73 5.73L5 21l4.58-2.05c.78.17 1.59.26 2.42.26 5.02 0 9-3.58 9-8s-3.98-8-9-8Zm0 14.2c-.78 0-1.54-.08-2.26-.24l-.55-.12-2.16.97.35-2.05-.41-.33C5.55 14.36 4.8 12.74 4.8 11c0-3.43 3.19-6.2 7.2-6.2s7.2 2.77 7.2 6.2-3.19 6.2-7.2 6.2Z"/>
+                <path fill="currentColor" d="M8 11.8h8v1.4H8z"/>
+                <path fill="currentColor" d="M8 8.9h8v1.4H8z"/>
               </svg>
             </span>
           </a>
