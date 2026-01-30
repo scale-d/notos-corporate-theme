@@ -151,8 +151,9 @@
     function init(){
       const gmapsUrl = <?php echo wp_json_encode('https://www.google.com/maps/place/Notos+(%E3%83%8E%E3%83%88%E3%82%B9)/@34.4082814,132.4688398,17z/data=!4m15!1m8!3m7!1s0x355a99f5c8bc3abf:0x6c77d91f2891dad6!2zTm90b3MgKOODjuODiOOCuSk!8m2!3d34.408277!4d132.4714201!10e1!16s%2Fg%2F11ymzl41tn!3m5!1s0x355a99f5c8bc3abf:0x6c77d91f2891dad6!8m2!3d34.408277!4d132.4714201!16s%2Fg%2F11ymzl41tn?authuser=0&entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D'); ?>;
       const map = new google.maps.Map(el, {
-        center: {lat: lat, lng: lng},
-        zoom: 14,
+        // マップの中心を少し南にずらして、吹き出し（目的地）を上寄せにする
+        center: {lat: lat - 0.0045, lng: lng},
+        zoom: 15,
         mapId: mapId,
         disableDefaultUI: false
       });
