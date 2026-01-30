@@ -733,10 +733,26 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   display:block;
   width:100%;
   aspect-ratio:1 / 1;
-  border-radius:var(--radius-medium);
+  border-radius:0 !important;
   overflow:hidden;
   background-size:cover;
   background-position:center;
+}
+
+/* Instagram feed: square corners (override plugin/theme rounding) */
+.c-store__photo--instagram #sb_instagram .sbi_item,
+.c-store__photo--instagram #sb_instagram .sbi_item a,
+.c-store__photo--instagram #sb_instagram .sbi_item img{
+  border-radius:0 !important;
+}
+
+/* Instagram feed: header text color */
+.c-store__photo--instagram #sb_instagram .sbi_feedtheme_header_text,
+.c-store__photo--instagram #sb_instagram .sbi_header_text,
+.c-store__photo--instagram #sb_instagram .sbi_header_text a,
+.c-store__photo--instagram #sb_instagram .sbi_bio,
+.c-store__photo--instagram #sb_instagram .sbi_bio a{
+  color:#2271B1 !important;
 }
 
 /* If plugin outputs <img>, keep them normal */
