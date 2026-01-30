@@ -38,7 +38,7 @@
     <div class="c-store__top">
       <div class="c-store__content">
         <h2 class="c-store__title">
-          広島にULアウトドアショップ<br>「Notos」がオープンします。
+          3月1日、広島市牛田エリアにアウトドアセレクトショップ "Notos/ノトス" がOPEN！
         </h2>
         <p class="c-store__lead">
           「City Life, Mountain Soul.」<br><br>
@@ -49,30 +49,30 @@
         <div class="c-store__info">
           <div class="c-store__info-row">
             <span class="c-store__info-label">住所</span>
-            <p class="c-store__info-text">〒732-0066<br>広島県広島市東区牛田本町１丁目１０−１７ ファミーユ對重</p>
+            <p class="c-store__info-text">〒732-0066<br>広島市東区牛田本町 1-10-17</p>
           </div>
           <div class="c-store__info-row">
             <span class="c-store__info-label">TEL</span>
-            <p class="c-store__info-text">082-222-3333</p>
+            <p class="c-store__info-text">082-555-4580</p>
           </div>
           <div class="c-store__info-row">
             <span class="c-store__info-label">時間</span>
-            <p class="c-store__info-text">11:00 - 18:00</p>
+            <p class="c-store__info-text">12:00 - 20:00</p>
           </div>
           <div class="c-store__info-row">
-            <span class="c-store__info-label">定休</span>
+            <span class="c-store__info-label">定休日</span>
             <p class="c-store__info-text">水曜日</p>
           </div>
           <div class="c-store__info-row">
             <span class="c-store__info-label">駐車場</span>
-            <p class="c-store__info-text">２台</p>
+            <p class="c-store__info-text">３台</p>
           </div>
         </div>
         <div class="c-store__social">
           <a class="c-store__card" href="#">
             <div class="c-store__card-text">
               <p class="c-store__card-title">NOTOS Online Store</p>
-              <p class="c-store__card-sub">ノトス オンラインストアー</p>
+              <p class="c-store__card-sub">ノトス オンラインストア</p>
             </div>
             <span class="c-store__card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
@@ -116,13 +116,18 @@
         </div>
       </div>
       <div class="c-store__media">
-        <div class="c-store__photo">
+        <div class="c-store__photo c-store__photo--instagram">
+          <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
+
+          <?php /*
+          // 旧スライダー（店舗写真）
           <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/store-photo-600x703.jpg'); ?>" alt="">
           <div class="c-store__pagination" aria-hidden="true">
             <span></span><span></span><span></span>
           </div>
           <button class="c-store__arrow c-store__arrow--left" type="button" aria-label="前へ"></button>
           <button class="c-store__arrow c-store__arrow--right" type="button" aria-label="次へ"></button>
+          */ ?>
         </div>
       </div>
     </div>

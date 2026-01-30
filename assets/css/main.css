@@ -691,15 +691,70 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   background:var(--color-white);
 }
 
-/* 画像を重ね、アクティブだけ表示 */
-.c-store__photo img{
+/* Instagram feed (temporary replacement for store photo slider) */
+.c-store__photo--instagram{
+  height:auto;
+  overflow:visible;
+  background:transparent;
+}
+
+/* Smash Balloon container full width */
+.c-store__photo--instagram #sb_instagram,
+.c-store__photo--instagram .sbi{
+  width:100% !important;
+  max-width:100% !important;
+}
+
+/* Make the feed a clean grid */
+.c-store__photo--instagram #sb_instagram #sbi_images{
+  display:grid !important;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:var(--space-4);
+}
+
+@media (min-width:768px){
+  .c-store__photo--instagram #sb_instagram #sbi_images{
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width:1025px){
+  .c-store__photo--instagram #sb_instagram #sbi_images{
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+  }
+}
+
+.c-store__photo--instagram #sb_instagram .sbi_item{
+  margin:0 !important;
+}
+
+/* Ensure thumbnails look nice */
+.c-store__photo--instagram #sb_instagram .sbi_photo{
+  display:block;
+  width:100%;
+  aspect-ratio:1 / 1;
+  border-radius:var(--radius-medium);
+  overflow:hidden;
+  background-size:cover;
+  background-position:center;
+}
+
+/* If plugin outputs <img>, keep them normal */
+.c-store__photo--instagram img{
+  position:static;
+  width:100%;
+  height:auto;
+}
+
+/* Slider images (only when using the store-photo slider) */
+.c-store__photo:not(.c-store__photo--instagram) > img{
   position:absolute; inset:0;
   width:100%; height:100%;
   object-fit:cover; display:block;
   opacity:0; transition:opacity .28s ease;
 }
-.c-store__photo img.is-active,
-.c-store__photo img:first-child{ opacity:1; }
+.c-store__photo:not(.c-store__photo--instagram) > img.is-active,
+.c-store__photo:not(.c-store__photo--instagram) > img:first-child{ opacity:1; }
 
 .c-store__pagination{
   position:absolute;
