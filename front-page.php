@@ -260,352 +260,352 @@
     <ul class="c-logo__grid">
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/4T2.jpg'); ?>"
-          alt="4T2" width="100" height="100" loading="lazy" decoding="async">
+          alt="4T2" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/ACLIMA.jpg'); ?>"
-          alt="ACLIMA" width="100" height="100" loading="lazy" decoding="async">
+          alt="ACLIMA" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Afterglow.jpg'); ?>"
-          alt="Afterglow" width="100" height="100" loading="lazy" decoding="async">
+          alt="Afterglow" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/ALTRA.jpg'); ?>"
-          alt="ALTRA" width="100" height="100" loading="lazy" decoding="async">
+          alt="ALTRA" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/ANDO_.jpg'); ?>"
-          alt="ANDO_" width="100" height="100" loading="lazy" decoding="async">
+          alt="ANDO_" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/ANGLE.jpg'); ?>"
-          alt="ANGLE" width="100" height="100" loading="lazy" decoding="async">
+          alt="ANGLE" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/arata.jpg'); ?>"
-          alt="arata" width="100" height="100" loading="lazy" decoding="async">
+          alt="arata" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Black-Diamond.jpg'); ?>"
-          alt="Black-Diamond" width="100" height="100" loading="lazy" decoding="async">
+          alt="Black-Diamond" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/BUSHMEN.jpg'); ?>"
-          alt="BUSHMEN" width="100" height="100" loading="lazy" decoding="async">
+          alt="BUSHMEN" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/ciele.jpg'); ?>"
-          alt="ciele" width="100" height="100" loading="lazy" decoding="async">
+          alt="ciele" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/coros.jpg'); ?>"
-          alt="coros" width="100" height="100" loading="lazy" decoding="async">
+          alt="coros" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/EE.jpg'); ?>"
-          alt="EE" width="100" height="100" loading="lazy" decoding="async">
+          alt="EE" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/EuroSCHIRM.jpg'); ?>"
-          alt="EuroSCHIRM" width="100" height="100" loading="lazy" decoding="async">
+          alt="EuroSCHIRM" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/EVERNEW.jpg'); ?>"
-          alt="EVERNEW" width="100" height="100" loading="lazy" decoding="async">
+          alt="EVERNEW" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/F-and-M.jpg'); ?>"
-          alt="F&amp;M" width="100" height="100" loading="lazy" decoding="async">
+          alt="F&amp;M" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/factory-b.jpg'); ?>"
-          alt="factory-b" width="100" height="100" loading="lazy" decoding="async">
+          alt="factory-b" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/feetures.jpg'); ?>"
-          alt="feetures" width="100" height="100" loading="lazy" decoding="async">
+          alt="feetures" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/FIELD-RECORD.jpg'); ?>"
-          alt="FIELD-RECORD" width="100" height="100" loading="lazy" decoding="async">
+          alt="FIELD-RECORD" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/galibier.jpg'); ?>"
-          alt="galibier" width="100" height="100" loading="lazy" decoding="async">
+          alt="galibier" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/GARUD.jpg'); ?>"
-          alt="GARUD" width="100" height="100" loading="lazy" decoding="async">
+          alt="GARUD" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/goodr.jpg'); ?>"
-          alt="goodr" width="100" height="100" loading="lazy" decoding="async">
+          alt="goodr" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/GRIPDROP.jpg'); ?>"
-          alt="GRIPDROP" width="100" height="100" loading="lazy" decoding="async">
+          alt="GRIPDROP" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/HOUDINI.jpg'); ?>"
-          alt="HOUDINI" width="100" height="100" loading="lazy" decoding="async">
+          alt="HOUDINI" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/INNER-FACT.jpg'); ?>"
-          alt="INNER-FACT" width="100" height="100" loading="lazy" decoding="async">
+          alt="INNER-FACT" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/KIVA.jpg'); ?>"
-          alt="KIVA" width="100" height="100" loading="lazy" decoding="async">
+          alt="KIVA" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/LEISMOR.jpg'); ?>"
-          alt="LEISMOR" width="100" height="100" loading="lazy" decoding="async">
+          alt="LEISMOR" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/LELEKA.jpg'); ?>"
-          alt="LELEKA" width="100" height="100" loading="lazy" decoding="async">
+          alt="LELEKA" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/LFD.jpg'); ?>"
-          alt="LFD" width="100" height="100" loading="lazy" decoding="async">
+          alt="LFD" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/LITEWAY.jpg'); ?>"
-          alt="LITEWAY" width="100" height="100" loading="lazy" decoding="async">
+          alt="LITEWAY" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/LSM.jpg'); ?>"
-          alt="LSM" width="100" height="100" loading="lazy" decoding="async">
+          alt="LSM" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/MANABAR.jpg'); ?>"
-          alt="MANABAR" width="100" height="100" loading="lazy" decoding="async">
+          alt="MANABAR" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Matador.jpg'); ?>"
-          alt="Matador" width="100" height="100" loading="lazy" decoding="async">
+          alt="Matador" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/MEADOWPHYSICS.jpg'); ?>"
-          alt="MEADOWPHYSICS" width="100" height="100" loading="lazy" decoding="async">
+          alt="MEADOWPHYSICS" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/MGL.jpg'); ?>"
-          alt="MGL" width="100" height="100" loading="lazy" decoding="async">
+          alt="MGL" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/milestone.jpg'); ?>"
-          alt="milestone" width="100" height="100" loading="lazy" decoding="async">
+          alt="milestone" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Mountain-King.jpg'); ?>"
-          alt="Mountain-King" width="100" height="100" loading="lazy" decoding="async">
+          alt="Mountain-King" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/NITECORE.jpg'); ?>"
-          alt="NITECORE" width="100" height="100" loading="lazy" decoding="async">
+          alt="NITECORE" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/NNormal.jpg'); ?>"
-          alt="NNormal" width="100" height="100" loading="lazy" decoding="async">
+          alt="NNormal" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/NOCS.jpg'); ?>"
-          alt="NOCS" width="100" height="100" loading="lazy" decoding="async">
+          alt="NOCS" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/NODAL.jpg'); ?>"
-          alt="NODAL" width="100" height="100" loading="lazy" decoding="async">
+          alt="NODAL" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/nomadix.jpg'); ?>"
-          alt="nomadix" width="100" height="100" loading="lazy" decoding="async">
+          alt="nomadix" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/norda.jpg'); ?>"
-          alt="norda" width="100" height="100" loading="lazy" decoding="async">
+          alt="norda" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/norrona.jpg'); ?>"
-          alt="norrona" width="100" height="100" loading="lazy" decoding="async">
+          alt="norrona" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Notos.jpg'); ?>"
-          alt="Notos" width="100" height="100" loading="lazy" decoding="async">
+          alt="Notos" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/oiena.jpg'); ?>"
-          alt="oiena" width="100" height="100" loading="lazy" decoding="async">
+          alt="oiena" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/OR.jpg'); ?>"
-          alt="OR" width="100" height="100" loading="lazy" decoding="async">
+          alt="OR" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Otta.jpg'); ?>"
-          alt="Otta" width="100" height="100" loading="lazy" decoding="async">
+          alt="Otta" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/permandbaton.jpg'); ?>"
-          alt="permandbaton" width="100" height="100" loading="lazy" decoding="async">
+          alt="permandbaton" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/RIDGE.jpg'); ?>"
-          alt="RIDGE" width="100" height="100" loading="lazy" decoding="async">
+          alt="RIDGE" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/rig.jpg'); ?>"
-          alt="rig" width="100" height="100" loading="lazy" decoding="async">
+          alt="rig" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/river-peak.jpg'); ?>"
-          alt="river-peak" width="100" height="100" loading="lazy" decoding="async">
+          alt="river-peak" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/rivers.jpg'); ?>"
-          alt="rivers" width="100" height="100" loading="lazy" decoding="async">
+          alt="rivers" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/roark.jpg'); ?>"
-          alt="roark" width="100" height="100" loading="lazy" decoding="async">
+          alt="roark" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/ROOTCO.jpg'); ?>"
-          alt="ROOTCO" width="100" height="100" loading="lazy" decoding="async">
+          alt="ROOTCO" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/RovyVon.jpg'); ?>"
-          alt="RovyVon" width="100" height="100" loading="lazy" decoding="async">
+          alt="RovyVon" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/SAKURA.jpg'); ?>"
-          alt="SAKURA" width="100" height="100" loading="lazy" decoding="async">
+          alt="SAKURA" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Sawyer.jpg'); ?>"
-          alt="Sawyer" width="100" height="100" loading="lazy" decoding="async">
+          alt="Sawyer" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/SEATOSUMMIT.jpg'); ?>"
-          alt="SEATOSUMMIT" width="100" height="100" loading="lazy" decoding="async">
+          alt="SEATOSUMMIT" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/SN.jpg'); ?>"
-          alt="SN" width="100" height="100" loading="lazy" decoding="async">
+          alt="SN" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/STATIC.jpg'); ?>"
-          alt="STATIC" width="100" height="100" loading="lazy" decoding="async">
+          alt="STATIC" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/tannuki.jpg'); ?>"
-          alt="tannuki" width="100" height="100" loading="lazy" decoding="async">
+          alt="tannuki" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/tilak.jpg'); ?>"
-          alt="tilak" width="100" height="100" loading="lazy" decoding="async">
+          alt="tilak" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/TiNY.jpg'); ?>"
-          alt="TiNY" width="100" height="100" loading="lazy" decoding="async">
+          alt="TiNY" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/TMR.jpg'); ?>"
-          alt="TMR" width="100" height="100" loading="lazy" decoding="async">
+          alt="TMR" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/topo.jpg'); ?>"
-          alt="topo" width="100" height="100" loading="lazy" decoding="async">
+          alt="topo" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/TYMER.jpg'); ?>"
-          alt="TYMER" width="100" height="100" loading="lazy" decoding="async">
+          alt="TYMER" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/ULTRA-GOOD-LUCK.jpg'); ?>"
-          alt="ULTRA-GOOD-LUCK" width="100" height="100" loading="lazy" decoding="async">
+          alt="ULTRA-GOOD-LUCK" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/VAGA.jpg'); ?>"
-          alt="VAGA" width="100" height="100" loading="lazy" decoding="async">
+          alt="VAGA" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/VARGO.jpg'); ?>"
-          alt="VARGO" width="100" height="100" loading="lazy" decoding="async">
+          alt="VARGO" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Zpacks.jpg'); ?>"
-          alt="Zpacks" width="100" height="100" loading="lazy" decoding="async">
+          alt="Zpacks" loading="lazy" decoding="async">
       </li>
     </ul>
     <a class="c-blog__more c-logo__more" href="<?php echo esc_url( home_url('/brand-list/') ); ?>">

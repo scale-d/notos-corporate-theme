@@ -906,8 +906,25 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   }
 }
 
+/* Brand logo sizing (CSS only) */
+.c-logo{
+  --brand-logo-size:140px; /* mobile */
+}
+
+@media (min-width:768px){
+  .c-logo{
+    --brand-logo-size:160px; /* tablet (<=1024) */
+  }
+}
+
+@media (min-width:1025px){
+  .c-logo{
+    --brand-logo-size:180px; /* desktop */
+  }
+}
+
 .c-logo__item{
-  height:100px;
+  height:var(--brand-logo-size);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -915,10 +932,8 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 }
 
 .c-logo__item img{
-  width:100px;
-  height:100px;
-  max-width:100px;
-  max-height:100px;
+  width:var(--brand-logo-size);
+  height:var(--brand-logo-size);
   object-fit:contain;
   display:block;
 }
