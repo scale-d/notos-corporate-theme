@@ -95,6 +95,7 @@
         <div class="c-footer__col">
           <p class="c-footer__heading">フォローする</p>
           <ul class="c-footer__list c-footer__list--social">
+            <!--
             <li>
               <a href="#" class="c-footer__social">
                 <span class="c-footer__icon" aria-hidden="true">
@@ -103,6 +104,18 @@
                   </svg>
                 </span>
                 Facebook
+              </a>
+            </li>
+            -->
+
+            <li>
+              <a href="#" class="c-footer__social" aria-label="LINE">
+                <span class="c-footer__icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false">
+                    <path fill="white" d="M19.9 10.7c0-3.3-3.6-6-8-6s-8 2.7-8 6c0 2.9 2.6 5.3 6.1 5.9.2.1.6.2.7.5.1.2 0 .6 0 .8l-.1.8c0 .2-.1.8.7.4s4.3-2.5 5.8-4.3c1-.3 1.8-.7 2.5-1.2 1.4-1 2.3-2.4 2.3-3.9zm-10.1.7H7.5V10h2.3v1.4zm3.2 0h-2.3V10h2.3v1.4zm3.2 0h-2.3V10h2.3v1.4z"/>
+                  </svg>
+                </span>
+                LINE
               </a>
             </li>
             <li>
