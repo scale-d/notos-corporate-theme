@@ -25,7 +25,7 @@
         decoding="async">
     </div>
     <div class="c-hero__content">
-      <h1 class="c-hero__title">3月1日、広島に「Notos」がOPEN！</h1>
+      <!-- <h1 class="c-hero__title">3月1日、広島に「Notos」がOPEN！</h1> -->
       <p class="c-hero__lead">
         Notosはハイキング・トレイルランニング・ロードランニング・渓流釣り・スノーアクティビティなど、都市生活の延長線上にある“日常的アウトドア”のスタイルを提案するショップです。
       </p>
@@ -38,18 +38,16 @@
     <div class="c-store__top">
       <div class="c-store__content">
         <h2 class="c-store__title">
-          3月1日、広島市牛田エリアにアウトドアセレクトショップ "Notos/ノトス" がOPEN！
+          3月5日(木)、広島市牛田エリアにアウトドア用品のセレクトショップ "Notos/ノトス" がOPEN！
         </h2>
         <p class="c-store__lead">
-          「City Life, Mountain Soul.」<br><br>
-          Notosはハイキング・トレイルランニング・ロードランニング・渓流釣り・スノーアクティビティなど、都市生活の延長線上にある“日常的アウトドア”のスタイルを提案するショップです。<br>
+          「ハイキング・トレイルランニング・ロードランニング・渓流釣り・スノーアクティビティなど、都市生活の延長線上にある“日常的アウトドア”のスタイルを提案するショップ「Notos/ノトス」です。<br>
           広島の特徴でもある市街地からの「自然へのアクセスの良さ」を活かし、日帰りでも楽しめる気軽なアウトドアの魅力を発信してまいります。<br>
-          また、現職で培ってきた時代性のある商品セレクトを通じて、アウトドア未経験者にも開かれた入り口となることを目指します。<br>
         </p>
         <div class="c-store__info">
           <div class="c-store__info-row">
             <span class="c-store__info-label">住所</span>
-            <p class="c-store__info-text">〒732-0066<br>広島市東区牛田本町 1-10-17</p>
+            <p class="c-store__info-text">〒732-0066<br>広島市東区牛田本町 1-10-17 1F</p>
           </div>
           <div class="c-store__info-row">
             <span class="c-store__info-label">TEL</span>
@@ -71,7 +69,7 @@
         <div class="c-store__social">
           <a class="c-store__card" href="#">
             <div class="c-store__card-text">
-              <p class="c-store__card-title">NOTOS Online Store</p>
+              <p class="c-store__card-title">Notos Online Store（準備中）</p>
               <p class="c-store__card-sub">ノトス オンラインストア</p>
             </div>
             <span class="c-store__card-icon" aria-hidden="true">
@@ -608,14 +606,14 @@
           alt="Zpacks" loading="lazy" decoding="async">
       </li>
     </ul>
-    <a class="c-blog__more c-logo__more" href="<?php echo esc_url( home_url('/brand-list/') ); ?>">
+    <!-- <a class="c-blog__more c-logo__more" href="<?php echo esc_url( home_url('/brand-list/') ); ?>">
       その他のブランドはこちらから
       <span class="c-blog__more-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
           <path fill="currentColor" d="M9 5.5 15.5 12 9 18.5l1.4 1.4 7.9-7.9-7.9-7.9L9 5.5Z"/>
         </svg>
       </span>
-    </a>
+    </a> -->
   </div>
 </section>
 
@@ -624,7 +622,7 @@
     <div class="c-blog__header">
       <div class="c-blog__title">
         <p class="c-blog__tagline">ブログ</p>
-        <h2 class="c-blog__headline">NOTOS OUT THERE.</h2>
+        <h2 class="c-blog__headline">City Life, Mountain Soul. </h2>
         <p class="c-blog__sub">お店のこと、山行のこと、日々のこと。</p>
       </div>
       <a class="c-blog__all" href="<?php echo esc_url( home_url('/blog/') ); ?>">View all</a>
