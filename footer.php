@@ -146,7 +146,7 @@
     <div class="c-footer__bottom">
       <div class="c-footer__divider" aria-hidden="true"></div>
       <div class="c-footer__credits">
-        <p>© <?php echo date('Y'); ?> NOTOS. All rights reserved.</p>
+        <p>© <?php echo date('Y'); ?> Notos. All rights reserved.</p>
         <div class="c-footer__policies">
           <a href="<?php echo esc_url( home_url('/privacy-policy/') ); ?>">プライバシーポリシー</a>
           <a href="<?php echo esc_url(home_url('/terms/')); ?>">サービス利用規約</a>

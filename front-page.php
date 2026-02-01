@@ -136,6 +136,7 @@
       <div class="c-store__media">
         <div class="c-store__photo c-store__photo--instagram">
           <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
+          <?php echo do_shortcode('[instagram-feed feed=3]'); ?>
 
           <?php /*
           // 旧スライダー（店舗写真）
