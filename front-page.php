@@ -69,8 +69,8 @@
         <div class="c-store__social">
           <a class="c-store__card" href="#">
             <div class="c-store__card-text">
-              <p class="c-store__card-title">Notos Online Store（準備中）</p>
-              <p class="c-store__card-sub">ノトス オンラインストア</p>
+              <p class="c-store__card-title">Online Store（準備中）</p>
+              <p class="c-store__card-sub">オンラインストア</p>
             </div>
             <span class="c-store__card-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
@@ -135,8 +135,12 @@
       </div>
       <div class="c-store__media">
         <div class="c-store__photo c-store__photo--instagram">
-          <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
-          <?php echo do_shortcode('[instagram-feed feed=3]'); ?>
+          <div class="c-store__ig-feed">
+            <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
+          </div>
+          <div class="c-store__ig-feed">
+            <?php echo do_shortcode('[instagram-feed feed=3]'); ?>
+          </div>
 
           <?php /*
           // 旧スライダー（店舗写真）

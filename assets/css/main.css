@@ -587,6 +587,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   display:flex;
   flex-direction:column;
   gap:var(--space-3);
+  --store-info-label-width: 6.5em;
 }
 
 .c-store__info-row{
@@ -597,6 +598,12 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 .c-store__info-label{
   min-width:var(--store-info-label-width);
+  width:var(--store-info-label-width);
+  flex:0 0 var(--store-info-label-width);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  white-space:nowrap;
   padding-inline:var(--store-info-label-padding-x);
   border:var(--border-thin) solid var(--color-scheme-1-accent);
   text-align:center;
@@ -696,6 +703,10 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   height:auto;
   overflow:visible;
   background:transparent;
+}
+
+.c-store__ig-feed + .c-store__ig-feed{
+  margin-top:40px;
 }
 
 /* Smash Balloon container full width */
