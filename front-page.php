@@ -41,7 +41,7 @@
           3月5日(木)、広島市牛田エリアにアウトドア用品のセレクトショップ "Notos/ノトス" がOPEN！
         </h2>
         <p class="c-store__lead">
-          ハイキング・トレイルランニング・渓流釣り・スノーアクティビティなど、都市生活の延長線上にある“日常的アウトドア”のスタイルを提案するショップ「Notos/ノトス」です。<br>
+          ハイキング・トレイルランニング・渓流釣り・スノーアクティビティなど、都市生活の延長線上にある“日常的アウトドア”のスタイルを提案するショップ「Notos/ノトス」です。<br><br>
           広島の特徴である市街地からの「自然へのアクセスの良さ」を活かし、日帰りでも楽しめる気軽なアウトドアの魅力を発信してまいります。<br>
         </p>
         <div class="c-store__info">
@@ -328,7 +328,7 @@
       </li>
 
       <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/FCK500.jpg'); ?>"
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/fck500.jpg'); ?>"
           alt="FCK500" loading="lazy" decoding="async">
       </li>
 
@@ -368,7 +368,7 @@
       </li>
 
       <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/GOSSAMER-GEAR.jpg'); ?>"
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/gossamer-gear.jpg'); ?>"
           alt="GOSSAMER-GEAR" loading="lazy" decoding="async">
       </li>
 
@@ -383,7 +383,7 @@
       </li>
 
       <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Hydrapak.jpg'); ?>"
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/hydrapak.jpg'); ?>"
           alt="Hydrapak" loading="lazy" decoding="async">
       </li>
 
@@ -398,7 +398,7 @@
       </li>
 
       <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/KLYMIT.jpg'); ?>"
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/klymit.jpg'); ?>"
           alt="KLYMIT" loading="lazy" decoding="async">
       </li>
 
@@ -458,7 +458,7 @@
       </li>
 
       <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/MSR.jpg'); ?>"
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/msr.jpg'); ?>"
           alt="MSR" loading="lazy" decoding="async">
       </li>
 
@@ -503,7 +503,7 @@
       </li>
 
       <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/OLENO.jpg'); ?>"
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/oleno.jpg'); ?>"
           alt="OLENO" loading="lazy" decoding="async">
       </li>
 
@@ -523,12 +523,12 @@
       </li>
 
       <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/PINGORA.jpg'); ?>"
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/pingora.jpg'); ?>"
           alt="PINGORA" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/PRIMUS.jpg'); ?>"
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/primus.jpg'); ?>"
           alt="PRIMUS" loading="lazy" decoding="async">
       </li>
 
@@ -588,7 +588,7 @@
       </li>
 
       <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/SOL.jpg'); ?>"
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/sol.jpg'); ?>"
           alt="SOL" loading="lazy" decoding="async">
       </li>
 
@@ -603,7 +603,7 @@
       </li>
 
       <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Strap Gear.jpg'); ?>"
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/strap-gear.jpg'); ?>"
           alt="Strap Gear" loading="lazy" decoding="async">
       </li>
 
