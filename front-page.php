@@ -26,9 +26,9 @@
     </div>
     <div class="c-hero__content">
       <!-- <h1 class="c-hero__title">3月1日、広島に「Notos」がOPEN！</h1> -->
-      <p class="c-hero__lead">
+      <!-- <p class="c-hero__lead">
         Notosはハイキング・トレイルランニング・ロードランニング・渓流釣り・スノーアクティビティなど、都市生活の延長線上にある“日常的アウトドア”のスタイルを提案するショップです。
-      </p>
+      </p> -->
     </div>
   </div>
 </section>
@@ -41,8 +41,8 @@
           3月5日(木)、広島市牛田エリアにアウトドア用品のセレクトショップ "Notos/ノトス" がOPEN！
         </h2>
         <p class="c-store__lead">
-          「ハイキング・トレイルランニング・ロードランニング・渓流釣り・スノーアクティビティなど、都市生活の延長線上にある“日常的アウトドア”のスタイルを提案するショップ「Notos/ノトス」です。<br>
-          広島の特徴でもある市街地からの「自然へのアクセスの良さ」を活かし、日帰りでも楽しめる気軽なアウトドアの魅力を発信してまいります。<br>
+          ハイキング・トレイルランニング・渓流釣り・スノーアクティビティなど、都市生活の延長線上にある“日常的アウトドア”のスタイルを提案するショップ「Notos/ノトス」です。<br>
+          広島の特徴である市街地からの「自然へのアクセスの良さ」を活かし、日帰りでも楽しめる気軽なアウトドアの魅力を発信してまいります。<br>
         </p>
         <div class="c-store__info">
           <div class="c-store__info-row">
@@ -54,7 +54,7 @@
             <p class="c-store__info-text">082-555-4580</p>
           </div>
           <div class="c-store__info-row">
-            <span class="c-store__info-label">時間</span>
+            <span class="c-store__info-label">営業時間</span>
             <p class="c-store__info-text">12:00 - 20:00</p>
           </div>
           <div class="c-store__info-row">
@@ -328,6 +328,11 @@
       </li>
 
       <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/FCK500.jpg'); ?>"
+          alt="FCK500" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/F-and-M.jpg'); ?>"
           alt="F&amp;M" loading="lazy" decoding="async">
       </li>
@@ -363,6 +368,11 @@
       </li>
 
       <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/GOSSAMER-GEAR.jpg'); ?>"
+          alt="GOSSAMER-GEAR" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/GRIPDROP.jpg'); ?>"
           alt="GRIPDROP" loading="lazy" decoding="async">
       </li>
@@ -373,6 +383,11 @@
       </li>
 
       <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Hydrapak.jpg'); ?>"
+          alt="Hydrapak" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/INNER-FACT.jpg'); ?>"
           alt="INNER-FACT" loading="lazy" decoding="async">
       </li>
@@ -380,6 +395,11 @@
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/KIVA.jpg'); ?>"
           alt="KIVA" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/KLYMIT.jpg'); ?>"
+          alt="KLYMIT" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
@@ -438,6 +458,11 @@
       </li>
 
       <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/MSR.jpg'); ?>"
+          alt="MSR" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/NITECORE.jpg'); ?>"
           alt="NITECORE" loading="lazy" decoding="async">
       </li>
@@ -473,13 +498,13 @@
       </li>
 
       <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Notos.jpg'); ?>"
-          alt="Notos" loading="lazy" decoding="async">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/oiena.jpg'); ?>"
+          alt="oiena" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/oiena.jpg'); ?>"
-          alt="oiena" loading="lazy" decoding="async">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/OLENO.jpg'); ?>"
+          alt="OLENO" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
@@ -495,6 +520,16 @@
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/permandbaton.jpg'); ?>"
           alt="permandbaton" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/PINGORA.jpg'); ?>"
+          alt="PINGORA" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/PRIMUS.jpg'); ?>"
+          alt="PRIMUS" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
@@ -553,8 +588,23 @@
       </li>
 
       <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/SOL.jpg'); ?>"
+          alt="SOL" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/soto.jpg'); ?>"
+          alt="soto" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/STATIC.jpg'); ?>"
           alt="STATIC" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Strap Gear.jpg'); ?>"
+          alt="Strap Gear" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
