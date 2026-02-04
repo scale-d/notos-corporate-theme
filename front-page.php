@@ -357,10 +357,10 @@
           alt="galibier" loading="lazy" decoding="async">
       </li>
 
-      <li class="c-logo__item">
+      <!-- <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/GARUD.jpg'); ?>"
           alt="GARUD" loading="lazy" decoding="async">
-      </li>
+      </li> -->
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/goodr.jpg'); ?>"
@@ -472,10 +472,10 @@
           alt="NNormal" loading="lazy" decoding="async">
       </li>
 
-      <li class="c-logo__item">
+      <!-- <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/NOCS.jpg'); ?>"
           alt="NOCS" loading="lazy" decoding="async">
-      </li>
+      </li> -->
 
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/NODAL.jpg'); ?>"
