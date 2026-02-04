@@ -464,8 +464,8 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   background-repeat:no-repeat;
 }
 
-/* Mobile: hero height = viewport height minus header */
-@media (max-width:768px){
+/* Mobile (smartphone): hero height = viewport height minus header */
+@media (max-width:430px){
   .c-hero{
     /* fallback → modern (svh) */
     min-height: calc(100vh - var(--header-height, 60px));
@@ -474,12 +474,13 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   }
 }
 
-/* Desktop: hero height = viewport height minus header */
-@media (min-width:769px){
+/* Tablet + Desktop: hero height = about 2/3 viewport height (minus header) */
+@media (min-width:431px){
   .c-hero{
-    min-height: calc(100vh - var(--header-height, 60px));
-    min-height: calc(100dvh - var(--header-height, 60px));
-    min-height: calc(100svh - var(--header-height, 60px));
+    /* fallback → modern (svh) */
+    min-height: calc(66.666vh - var(--header-height, 60px));
+    min-height: calc(66.666dvh - var(--header-height, 60px));
+    min-height: calc(66.666svh - var(--header-height, 60px));
   }
 }
 
