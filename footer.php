@@ -4,6 +4,7 @@
   <div class="c-footer__inner">
     <div class="c-footer__top">
       <div class="c-footer__newsletter" id="newsletter">
+        <div id="contact" aria-hidden="true"></div>
         <div class="c-footer__logo">
           <?php
           $footer_logo_id = get_theme_mod('notos_footer_logo');
@@ -41,6 +42,7 @@
               decoding="async">
           <?php } ?>
         </div>
+        <?php if (false) : // ニュースレター（当面は非表示。復活する場合は true に変更） ?>
         <p class="c-footer__lead">
           ニュースレターに登録して最新情報を受け取ろう。
         </p>
@@ -80,6 +82,14 @@
         <p class="c-footer__note">
           登録することでプライバシーポリシーに同意し、更新を受け取ります。
         </p>
+        <?php else : // お問い合わせフォーム（当面はこちらを表示） ?>
+        <p class="c-footer__lead">
+          お問い合わせはこちらから。
+        </p>
+        <div class="c-footer__contact">
+          <?php echo do_shortcode('[contact-form-7 id="9e808e6" title="Front Contact"]'); ?>
+        </div>
+        <?php endif; ?>
       </div>
 
       <div class="c-footer__links">

@@ -774,6 +774,7 @@
   </div>
 </section>
 
+<?php if (false) : // フッターへお問い合わせを移設（必要になったら true に戻して復活） ?>
 <section class="c-contact" id="contact">
   <div class="c-contact__inner">
     <div class="c-contact__header">
@@ -786,5 +787,6 @@
     <?php echo do_shortcode('[contact-form-7 id="9e808e6" title="Front Contact"]'); ?>
   </div>
 </section>
+<?php endif; ?>
 
 <?php get_footer(); ?>
