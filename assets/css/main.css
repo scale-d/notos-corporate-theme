@@ -311,6 +311,114 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   margin:var(--space-0);
 }
 
+/* Footer contact form (CF7): reuse footer look, but stack fields vertically */
+.c-footer__contact{
+  width:100%;
+  max-width:var(--max-width-medium);
+  display:flex;
+  flex-direction:column;
+  gap:var(--space-4);
+}
+
+.c-footer__contact .wpcf7,
+.c-footer__contact .wpcf7 form{
+  width:100%;
+  max-width:100%;
+}
+
+/* CF7 outputs many <p> wrappers; reset margins and control spacing with gap */
+.c-footer__contact .wpcf7 form{
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:var(--space-4);
+}
+
+.c-footer__contact .wpcf7 form p{
+  margin:0;
+}
+
+.c-footer__contact .wpcf7-form-control-wrap{
+  display:block;
+  width:100%;
+}
+
+/* Labels */
+.c-footer__contact .wpcf7 form label{
+  display:flex;
+  flex-direction:column;
+  gap:var(--space-2);
+  margin:0;
+  font-family:var(--font-body);
+  font-size:var(--text-regular);
+  line-height:var(--lh-body);
+  color:var(--color-white);
+}
+
+/* Inputs: match newsletter input style (underline only) */
+.c-footer__contact .wpcf7 form input[type="text"],
+.c-footer__contact .wpcf7 form input[type="email"],
+.c-footer__contact .wpcf7 form textarea{
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  padding:var(--space-2) var(--space-0);
+  border:none;
+  border-bottom:var(--border-thin) solid var(--color-orient-light);
+  background:var(--opacity-transparent);
+  color:var(--color-white);
+  font-family:var(--font-body);
+  font-size:var(--text-regular);
+  line-height:var(--lh-body);
+  border-radius:0;
+  outline:none;
+}
+
+.c-footer__contact .wpcf7 form textarea{
+  min-height:140px;
+  resize:vertical;
+}
+
+.c-footer__contact .wpcf7 form input::placeholder,
+.c-footer__contact .wpcf7 form textarea::placeholder{
+  color:var(--color-white);
+  opacity:1;
+}
+
+/* Submit button: match newsletter button */
+.c-footer__contact .wpcf7 form input[type="submit"]{
+  padding:var(--space-1-5) var(--space-3);
+  border:none;
+  border-radius:var(--radius-small);
+  background:var(--color-orient-light);
+  color:var(--color-white);
+  font-family:var(--font-body);
+  font-size:var(--text-regular);
+  line-height:var(--lh-body);
+  font-weight:var(--font-weight-medium);
+  cursor:pointer;
+  width:auto;
+  align-self:flex-start;
+}
+
+/* CF7 response output readable on dark footer */
+.c-footer__contact .wpcf7-response-output{
+  margin:0;
+  padding:10px 12px;
+  border-radius:8px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  color:var(--color-white);
+}
+
+/* Guard: if a `.c-footer__form` wrapper is accidentally used inside contact, undo newsletter grid layout */
+.c-footer__contact .c-footer__form{
+  display:flex;
+  flex-direction:column;
+  gap:var(--space-4);
+  align-items:flex-start;
+}
+
 .c-footer__message{
   margin:0;
   display:flex;
