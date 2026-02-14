@@ -43,52 +43,52 @@
           <?php } ?>
         </div>
         <?php if (false) : // ニュースレター（当面は非表示。復活する場合は true に変更） ?>
-        <p class="c-footer__lead">
-          ニュースレターに登録して最新情報を受け取ろう。
-        </p>
-        <form class="c-footer__form" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
-          <input type="hidden" name="action" value="notos_newsletter_subscribe">
-          <?php wp_nonce_field('notos_newsletter_subscribe', 'notos_newsletter_nonce'); ?>
-          <label class="c-footer__field">
-            <span class="screen-reader-text">メールアドレス</span>
-            <input class="c-footer__input" type="email" name="email" placeholder="メールアドレスを入力" autocomplete="email" required>
-          </label>
-          <button class="c-footer__button" type="submit">登録</button>
-        </form>
-        <?php
-          $nl = isset($_GET['newsletter']) ? sanitize_text_field(wp_unslash($_GET['newsletter'])) : '';
-          if ($nl) {
-            $msg = '';
-            if ($nl === 'pending') {
-              $msg = '確認メールを送りました。メール内のリンクをクリックして登録を完了してください。';
-            } elseif ($nl === 'subscribed') {
-              $msg = '登録が完了しました。ありがとうございます。';
-            } elseif ($nl === 'unsubscribed') {
-              $msg = '配信停止を受け付けました。ありがとうございました。';
-            } elseif ($nl === 'invalid_email') {
-              $msg = 'メールアドレスが正しくありません。';
-            } elseif ($nl === 'invalid' || $nl === 'invalid_token') {
-              $msg = '処理に失敗しました。もう一度お試しください。';
-            }
+          <p class="c-footer__lead">
+            ニュースレターに登録して最新情報を受け取ろう。
+          </p>
+          <form class="c-footer__form" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
+            <input type="hidden" name="action" value="notos_newsletter_subscribe">
+            <?php wp_nonce_field('notos_newsletter_subscribe', 'notos_newsletter_nonce'); ?>
+            <label class="c-footer__field">
+              <span class="screen-reader-text">メールアドレス</span>
+              <input class="c-footer__input" type="email" name="email" placeholder="メールアドレスを入力" autocomplete="email" required>
+            </label>
+            <button class="c-footer__button" type="submit">登録</button>
+          </form>
+          <?php
+            $nl = isset($_GET['newsletter']) ? sanitize_text_field(wp_unslash($_GET['newsletter'])) : '';
+            if ($nl) {
+              $msg = '';
+              if ($nl === 'pending') {
+                $msg = '確認メールを送りました。メール内のリンクをクリックして登録を完了してください。';
+              } elseif ($nl === 'subscribed') {
+                $msg = '登録が完了しました。ありがとうございます。';
+              } elseif ($nl === 'unsubscribed') {
+                $msg = '配信停止を受け付けました。ありがとうございました。';
+              } elseif ($nl === 'invalid_email') {
+                $msg = 'メールアドレスが正しくありません。';
+              } elseif ($nl === 'invalid' || $nl === 'invalid_token') {
+                $msg = '処理に失敗しました。もう一度お試しください。';
+              }
 
-            if ($msg) {
-              echo '<div class="c-footer__message" role="status" aria-live="polite">'
-                . '<span class="c-footer__message-text">' . esc_html($msg) . '</span>'
-                . '<button class="c-footer__message-close" type="button" aria-label="メッセージを閉じる">×</button>'
-                . '</div>';
+              if ($msg) {
+                echo '<div class="c-footer__message" role="status" aria-live="polite">'
+                  . '<span class="c-footer__message-text">' . esc_html($msg) . '</span>'
+                  . '<button class="c-footer__message-close" type="button" aria-label="メッセージを閉じる">×</button>'
+                  . '</div>';
+              }
             }
-          }
-        ?>
-        <p class="c-footer__note">
-          登録することでプライバシーポリシーに同意し、更新を受け取ります。
-        </p>
-        <?php else : // お問い合わせフォーム（当面はこちらを表示） ?>
-        <p class="c-footer__lead">
-          お問い合わせはこちらから。
-        </p>
-        <div class="c-footer__contact">
-          <?php echo do_shortcode('[contact-form-7 id="9e808e6" title="Front Contact"]'); ?>
-        </div>
+            ?>
+            <p class="c-footer__note">
+              登録することでプライバシーポリシーに同意し、更新を受け取ります。
+            </p>
+          <?php else : // お問い合わせフォーム（当面はこちらを表示） ?>
+            <p class="c-footer__lead">
+              お問い合わせはこちらから。
+            </p>
+            <div class="c-footer__contact">
+              <?php echo do_shortcode('[contact-form-7 id="2684a4b" title="Footer Contact"]'); ?>
+            </div>
         <?php endif; ?>
       </div>
 
