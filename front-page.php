@@ -403,6 +403,16 @@
       </li>
 
       <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/cascade-wild.jpg'); ?>"
+          alt="Cascade-Wild" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/chant.jpg'); ?>"
+          alt="chant" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/ciele.jpg'); ?>"
           alt="ciele" loading="lazy" decoding="async">
       </li>
@@ -525,6 +535,16 @@
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/LSM.jpg'); ?>"
           alt="LSM" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/luna.jpg'); ?>"
+          alt="luna" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/luna-sandals.jpg'); ?>"
+          alt="LUNA-SANDALS" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
@@ -755,6 +775,11 @@
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/Zpacks.jpg'); ?>"
           alt="Zpacks" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/andmore.jpg'); ?>"
+          alt="andmore" loading="lazy" decoding="async">
       </li>
     </ul>
     <!-- <a class="c-blog__more c-logo__more" href="<?php echo esc_url( home_url('/brand-list/') ); ?>">
