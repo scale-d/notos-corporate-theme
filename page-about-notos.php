@@ -1,16 +1,16 @@
 <?php
-/* Page: Terms (slug: terms) */
+/* Page: About Notos (slug: about-notos) */
 get_header();
 ?>
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-<main id="main" class="c-brandlist c-terms">
+<main id="main" class="c-brandlist c-about">
   <div class="c-brandlist__inner">
 
     <header class="c-brandlist__header">
       <?php get_template_part('template-parts/common/breadcrumbs'); ?>
       <h1 class="c-brandlist__title"><?php the_title(); ?></h1>
-      <p class="c-brandlist__note">サイト利用規約</p>
+      <p class="c-brandlist__note">Notosについて</p>
     </header>
 
     <div class="c-brandlist__content">

@@ -13,8 +13,6 @@ get_header();
       <p class="c-brandlist__note">プライバシーポリシー</p>
     </header>
 
-    <div class="c-post-divider" aria-hidden="true"></div>
-
     <div class="c-brandlist__content">
       <?php the_content(); ?>
     </div>
