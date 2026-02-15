@@ -1006,7 +1006,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 /* ===== Logo section ===== */
 .c-logo{
-  background:var(--color-scheme-1-background);
+  background:var(--color-scheme-2-background);
   padding:var(--section-padding-medium) var(--page-padding-global);
 }
 
@@ -1200,7 +1200,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   max-width:var(--blog-card-width);
   flex: 0 0 var(--blog-card-width);
   scroll-snap-align:start;
-  background:var(--color-scheme-2-background foreground);
+  background:var(--color-scheme-2-background);
   border-radius:var(--radius-medium);
   overflow:hidden;
   display:flex;
