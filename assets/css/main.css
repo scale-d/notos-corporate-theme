@@ -321,12 +321,12 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   max-width:100%;
 }
 
-/* CF7 outputs many <p> wrappers; reset margins and control spacing with gap */
+/* CF7 outputs <p> wrappers depending on line breaks; reset margins and control spacing with gap */
 .c-footer__contact .wpcf7 form{
   margin:0;
   display:flex;
   flex-direction:column;
-  gap:var(--space-4);
+  gap:var(--space-3);
 }
 
 .c-footer__contact .wpcf7 form p{
@@ -338,22 +338,10 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   width:100%;
 }
 
-/* Labels */
-.c-footer__contact .wpcf7 form label{
-  display:flex;
-  flex-direction:column;
-  gap:var(--space-2);
-  margin:0;
-  font-family:var(--font-body);
-  font-size:var(--text-regular);
-  line-height:var(--lh-body);
-  color:var(--color-white);
-}
-
-/* Inputs: match newsletter input style (underline only) */
-.c-footer__contact .wpcf7 form input[type="text"],
-.c-footer__contact .wpcf7 form input[type="email"],
-.c-footer__contact .wpcf7 form textarea{
+/* Inputs: match newsletter input style (underline only)
+   (CF7側で class:c-footer__input / class:c-footer__textarea / class:c-footer__button を付ける前提) */
+.c-footer__contact .c-footer__input,
+.c-footer__contact .c-footer__textarea{
   width:100%;
   max-width:100%;
   box-sizing:border-box;
@@ -369,29 +357,20 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   outline:none;
 }
 
-.c-footer__contact .wpcf7 form textarea{
-  min-height:140px;
+/* Textarea: make it compact by default (about 3 lines), allow user to expand */
+.c-footer__contact .c-footer__textarea{
+  min-height:96px;
   resize:vertical;
 }
 
-.c-footer__contact .wpcf7 form input::placeholder,
-.c-footer__contact .wpcf7 form textarea::placeholder{
+.c-footer__contact .c-footer__input::placeholder,
+.c-footer__contact .c-footer__textarea::placeholder{
   color:var(--color-white);
   opacity:1;
 }
 
 /* Submit button: match newsletter button */
-.c-footer__contact .wpcf7 form input[type="submit"]{
-  padding:var(--space-1-5) var(--space-3);
-  border:none;
-  border-radius:var(--radius-small);
-  background:var(--color-orient-light);
-  color:var(--color-white);
-  font-family:var(--font-body);
-  font-size:var(--text-regular);
-  line-height:var(--lh-body);
-  font-weight:var(--font-weight-medium);
-  cursor:pointer;
+.c-footer__contact .c-footer__button{
   width:auto;
   align-self:flex-start;
 }
@@ -410,7 +389,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 .c-footer__contact .c-footer__form{
   display:flex;
   flex-direction:column;
-  gap:var(--space-4);
+  gap:var(--space-3);
   align-items:flex-start;
 }
 
