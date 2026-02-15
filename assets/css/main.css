@@ -1200,7 +1200,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   max-width:var(--blog-card-width);
   flex: 0 0 var(--blog-card-width);
   scroll-snap-align:start;
-  background:var(--color-scheme-2-foreground);
+  background:var(--color-scheme-2-background foreground);
   border-radius:var(--radius-medium);
   overflow:hidden;
   display:flex;
@@ -1259,7 +1259,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   display:inline-flex;
   padding:var(--blog-tag-padding-y) var(--blog-tag-padding-x);
   border-radius:var(--blog-tag-radius);
-  background:var(--color-scheme-2-background);
+  background:var(--color-scheme-2-foreground);
   color:var(--color-orient);
 }
 
