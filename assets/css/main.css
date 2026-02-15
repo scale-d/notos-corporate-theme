@@ -357,9 +357,10 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   outline:none;
 }
 
-/* Textarea: make it compact by default (about 3 lines), allow user to expand */
-.c-footer__contact .c-footer__textarea{
-  min-height:96px;
+/* Textarea: 3行相当で初期表示を小さく（rows=10を見た目で上書き） */
+.c-footer__contact textarea.c-footer__textarea{
+  height:96px !important;     /* ←ここがポイント（min-height では縮まらない） */
+  min-height:96px !important;
   resize:vertical;
 }
 
