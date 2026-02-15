@@ -251,6 +251,108 @@
   </div>
 </section>
 
+<section class="c-blog" id="blog">
+  <div class="c-blog__inner">
+    <div class="c-blog__header">
+      <div class="c-blog__title">
+        <p class="c-blog__tagline">ブログ</p>
+        <h2 class="c-blog__headline">City Life, Mountain Soul. </h2>
+        <p class="c-blog__sub">お店のこと、山行のこと、日々のこと。</p>
+      </div>
+      <a class="c-blog__all" href="<?php echo esc_url( home_url('/blog/') ); ?>">View all</a>
+    </div>
+    <div class="c-blog__list" id="blogList">
+      <?php
+      $q = new WP_Query([
+        'post_type'      => 'post',
+        'posts_per_page' => 10,
+        'post_status'    => 'publish'
+      ]);
+      if ( $q->have_posts() ) :
+        while ( $q->have_posts() ) : $q->the_post();
+          $thumb = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
+          if ( ! $thumb ) {
+            $thumb = get_template_directory_uri().'/assets/img/blog-placeholder-394x262.jpg';
+          }
+          $cat = '';
+          $cats = get_the_category();
+          if ( ! empty($cats) ) { $cat = esc_html($cats[0]->name); }
+          $content = wp_strip_all_tags( get_post_field('post_content', get_the_ID()) );
+          $mins    = max(1, ceil(mb_strlen($content) / 400));
+          ?>
+          <article class="c-blog__card">
+            <div class="c-blog__media">
+              <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
+            </div>
+            <div class="c-blog__body">
+              <div class="c-blog__meta">
+                <?php if ($cat) : ?><span class="c-blog__tag"><?php echo $cat; ?></span><?php endif; ?>
+                <span class="c-blog__time"><?php echo esc_html($mins); ?>分で読める</span>
+              </div>
+              <div class="c-blog__text">
+                <h3 class="c-blog__title-text"><?php the_title(); ?></h3>
+                <p class="c-blog__excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 30, '…' ) ); ?></p>
+              </div>
+              <a class="c-blog__more" href="<?php the_permalink(); ?>">
+                Read more
+                <span class="c-blog__more-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+                    <path fill="currentColor" d="M9 5.5 15.5 12 9 18.5l1.4 1.4 7.9-7.9-7.9-7.9L9 5.5Z"/>
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </article>
+          <?php
+        endwhile; wp_reset_postdata();
+      endif;
+      ?>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        const list = document.getElementById('blogList');
+        if(!list) return;
+
+        const prev = document.querySelector('.c-blog__page-btn[aria-label="前へ"]');
+        const next = document.querySelector('.c-blog__page-btn[aria-label="次へ"]');
+
+        const toPx = (v) => {
+          const n = parseFloat(v);
+          return Number.isFinite(n) ? n : 0;
+        };
+
+        // Measure actual card width + actual gap so 1 click == 1 card
+        const card = list.querySelector('.c-blog__card');
+        const cardW = card
+          ? card.getBoundingClientRect().width
+          : (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--blog-card-width')) || 394);
+
+        const gap = toPx(getComputedStyle(list).gap || getComputedStyle(list).columnGap || '0');
+        const delta = cardW + gap;
+
+        function go(dir){
+          list.scrollBy({ left: dir * delta, behavior: 'smooth' });
+        }
+
+        prev && prev.addEventListener('click', () => go(-1));
+        next && next.addEventListener('click', () => go(1));
+      });
+    </script>
+    <div class="c-blog__pagination">
+      <button class="c-blog__page-btn" type="button" aria-label="前へ">
+        <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+          <path fill="currentColor" d="m15 5.5-7.9 7.9 7.9 7.9L16.4 20 9.5 13.4 16.4 6.5 15 5.5Z"/>
+        </svg>
+      </button>
+      <button class="c-blog__page-btn" type="button" aria-label="次へ">
+        <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+          <path fill="currentColor" d="M9 5.5 15.5 12 9 18.5l1.4 1.4 7.9-7.9-7.9-7.9L9 5.5Z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
 <section class="c-logo" id="brands">
   <div class="c-logo__inner">
     <h2 class="c-logo__title">取り扱いブランド</h2>
@@ -666,107 +768,6 @@
   </div>
 </section>
 
-<section class="c-blog" id="blog">
-  <div class="c-blog__inner">
-    <div class="c-blog__header">
-      <div class="c-blog__title">
-        <p class="c-blog__tagline">ブログ</p>
-        <h2 class="c-blog__headline">City Life, Mountain Soul. </h2>
-        <p class="c-blog__sub">お店のこと、山行のこと、日々のこと。</p>
-      </div>
-      <a class="c-blog__all" href="<?php echo esc_url( home_url('/blog/') ); ?>">View all</a>
-    </div>
-    <div class="c-blog__list" id="blogList">
-      <?php
-      $q = new WP_Query([
-        'post_type'      => 'post',
-        'posts_per_page' => 10,
-        'post_status'    => 'publish'
-      ]);
-      if ( $q->have_posts() ) :
-        while ( $q->have_posts() ) : $q->the_post();
-          $thumb = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
-          if ( ! $thumb ) {
-            $thumb = get_template_directory_uri().'/assets/img/blog-placeholder-394x262.jpg';
-          }
-          $cat = '';
-          $cats = get_the_category();
-          if ( ! empty($cats) ) { $cat = esc_html($cats[0]->name); }
-          $content = wp_strip_all_tags( get_post_field('post_content', get_the_ID()) );
-          $mins    = max(1, ceil(mb_strlen($content) / 400));
-          ?>
-          <article class="c-blog__card">
-            <div class="c-blog__media">
-              <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
-            </div>
-            <div class="c-blog__body">
-              <div class="c-blog__meta">
-                <?php if ($cat) : ?><span class="c-blog__tag"><?php echo $cat; ?></span><?php endif; ?>
-                <span class="c-blog__time"><?php echo esc_html($mins); ?>分で読める</span>
-              </div>
-              <div class="c-blog__text">
-                <h3 class="c-blog__title-text"><?php the_title(); ?></h3>
-                <p class="c-blog__excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 30, '…' ) ); ?></p>
-              </div>
-              <a class="c-blog__more" href="<?php the_permalink(); ?>">
-                Read more
-                <span class="c-blog__more-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
-                    <path fill="currentColor" d="M9 5.5 15.5 12 9 18.5l1.4 1.4 7.9-7.9-7.9-7.9L9 5.5Z"/>
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </article>
-          <?php
-        endwhile; wp_reset_postdata();
-      endif;
-      ?>
-    </div>
-    <script>
-      document.addEventListener('DOMContentLoaded', function(){
-        const list = document.getElementById('blogList');
-        if(!list) return;
-
-        const prev = document.querySelector('.c-blog__page-btn[aria-label="前へ"]');
-        const next = document.querySelector('.c-blog__page-btn[aria-label="次へ"]');
-
-        const toPx = (v) => {
-          const n = parseFloat(v);
-          return Number.isFinite(n) ? n : 0;
-        };
-
-        // Measure actual card width + actual gap so 1 click == 1 card
-        const card = list.querySelector('.c-blog__card');
-        const cardW = card
-          ? card.getBoundingClientRect().width
-          : (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--blog-card-width')) || 394);
-
-        const gap = toPx(getComputedStyle(list).gap || getComputedStyle(list).columnGap || '0');
-        const delta = cardW + gap;
-
-        function go(dir){
-          list.scrollBy({ left: dir * delta, behavior: 'smooth' });
-        }
-
-        prev && prev.addEventListener('click', () => go(-1));
-        next && next.addEventListener('click', () => go(1));
-      });
-    </script>
-    <div class="c-blog__pagination">
-      <button class="c-blog__page-btn" type="button" aria-label="前へ">
-        <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
-          <path fill="currentColor" d="m15 5.5-7.9 7.9 7.9 7.9L16.4 20 9.5 13.4 16.4 6.5 15 5.5Z"/>
-        </svg>
-      </button>
-      <button class="c-blog__page-btn" type="button" aria-label="次へ">
-        <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
-          <path fill="currentColor" d="M9 5.5 15.5 12 9 18.5l1.4 1.4 7.9-7.9-7.9-7.9L9 5.5Z"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-</section>
 
 <?php if (false) : // フッターへお問い合わせを移設（必要になったら true に戻して復活） ?>
 <section class="c-contact" id="contact">

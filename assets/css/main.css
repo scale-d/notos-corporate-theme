@@ -635,7 +635,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 /* ===== Store section (Figma container) ===== */
 .c-store{
-  background:var(--store-bg);
+  background:#fff;
   padding:var(--section-padding-large) var(--page-padding-global);
 }
 
@@ -675,7 +675,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   margin:var(--space-0);
   font-family:var(--font-heading);
   font-size:var(--text-heading-3);
-  line-height:var(--lh-tight);
+  line-height:var(--lh-body);
   letter-spacing:var(--ls-tight);
   margin-bottom: var(--space-5);
 }
