@@ -133,26 +133,7 @@
           </a>
         </div>
       </div>
-      <div class="c-store__media">
-        <div class="c-store__photo c-store__photo--instagram">
-          <div class="c-store__ig-feed">
-            <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
-          </div>
-          <div class="c-store__ig-feed">
-            <?php echo do_shortcode('[instagram-feed feed=3]'); ?>
-          </div>
-
-          <?php /*
-          // 旧スライダー（店舗写真）
-          <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/store-photo-600x703.jpg'); ?>" alt="">
-          <div class="c-store__pagination" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </div>
-          <button class="c-store__arrow c-store__arrow--left" type="button" aria-label="前へ"></button>
-          <button class="c-store__arrow c-store__arrow--right" type="button" aria-label="次へ"></button>
-          */ ?>
-        </div>
-      </div>
+      <!-- Instagram media block moved below the map -->
     </div>
     <div class="c-store__map">
       <div id="notos-map" class="c-store__map-canvas"
@@ -160,6 +141,19 @@
       <noscript>
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/store-map-1400x329.jpg'); ?>" alt="">
       </noscript>
+    </div>
+
+    <div class="c-store__media c-store__media--after-map">
+      <div class="c-store__photo c-store__photo--instagram">
+        <div class="c-store__ig-wrap">
+          <div class="c-store__ig-feed">
+            <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
+          </div>
+          <div class="c-store__ig-feed">
+            <?php echo do_shortcode('[instagram-feed feed=3]'); ?>
+          </div>
+        </div>
+      </div>
     </div>
 
 <script>

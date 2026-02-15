@@ -663,8 +663,8 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 @media (min-width:768px){
   .c-store__top{
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    column-gap: 80px; /* Figma指定のギャップ */
+    grid-template-columns: 1fr;
+    column-gap: 0;
     align-items:start;
   }
 }
@@ -814,8 +814,33 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   background:transparent;
 }
 
-.c-store__ig-feed + .c-store__ig-feed{
-  margin-top:40px;
+/* Instagram feeds: grid for side-by-side on desktop, stacked on mobile */
+.c-store__ig-wrap{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:40px;
+  width:100%;
+}
+
+@media (min-width:768px){
+  .c-store__ig-wrap{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items:start;
+  }
+  /* gapで管理するので旧ルールを無効化 */
+  .c-store__ig-feed + .c-store__ig-feed{ margin-top:0; }
+}
+
+/* Instagram feeds are now placed under the map */
+.c-store__media--after-map{
+  width:100%;
+  max-width:var(--store-map-width);
+  margin-inline:auto;
+}
+
+.c-store__media--after-map .c-store__photo{
+  max-width:100%;
+  height:auto;
 }
 
 /* Smash Balloon container full width */
