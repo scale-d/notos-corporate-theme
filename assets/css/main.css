@@ -635,7 +635,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 /* ===== Store section (Figma container) ===== */
 .c-store{
-  background:#fff;
+  background:var(--color-scheme-2-background);;
   padding:var(--section-padding-large) var(--page-padding-global);
 }
 
@@ -1090,7 +1090,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 /* ===== Blog section ===== */
 .c-blog{
-  background:var(--color-scheme-2-background);
+  background:var(--color-scheme-1-background);
   padding:var(--section-padding-large) var(--page-padding-global);
 }
 
