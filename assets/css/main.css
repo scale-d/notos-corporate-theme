@@ -2534,6 +2534,12 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   margin-inline:auto;
 }
 
+/* About page: content width (same as privacy) */
+.c-about .c-brandlist__content{
+  max-width:var(--max-width-large);
+  margin-inline:auto;
+}
+
 .c-privacy .c-brandlist__content p{
   margin:0 0 var(--space-4);
   font-size:var(--text-regular);
