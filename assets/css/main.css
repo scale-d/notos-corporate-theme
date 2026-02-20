@@ -613,6 +613,48 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   line-height:var(--lh-body);
 }
 
+/* Hero scroll indicator (CSS) */
+.c-hero__scroll-indicator{
+  position:absolute;
+  left:50%;
+  bottom:24px;
+  transform:translateX(-50%);
+  pointer-events:none;
+  z-index:5;
+  opacity:.9;
+}
+
+.c-hero__scroll-mouse{
+  width:34px;
+  height:54px;
+  border:2px solid currentColor;
+  border-radius:20px;
+  box-sizing:border-box;
+  display:flex;
+  justify-content:center;
+  padding-top:10px;
+}
+
+.c-hero__scroll-wheel{
+  width:8px;
+  height:8px;
+  background:currentColor;
+  border-radius:50%;
+  display:block;
+  animation:c-hero-scroll-wheel 1.4s infinite;
+}
+
+@keyframes c-hero-scroll-wheel{
+  0%{transform:translateY(0);opacity:1}
+  60%{transform:translateY(18px);opacity:1}
+  85%{transform:translateY(24px);opacity:0}
+  100%{transform:translateY(24px);opacity:0}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .c-hero__scroll-indicator{display:none}
+}
+
 /* ===== Store section (Figma container) ===== */
 .c-store{
   background:var(--color-scheme-2-background);;

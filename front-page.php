@@ -30,6 +30,12 @@
         Notosはハイキング・トレイルランニング・ロードランニング・渓流釣り・スノーアクティビティなど、都市生活の延長線上にある“日常的アウトドア”のスタイルを提案するショップです。
       </p> -->
     </div>
+
+    <div class="c-hero__scroll-indicator" aria-hidden="true">
+      <div class="c-hero__scroll-mouse">
+        <span class="c-hero__scroll-wheel"></span>
+      </div>
+    </div>
   </div>
 </section>
 
