@@ -31,10 +31,11 @@
       <p class="c-hero__lead">ハイキング・トレイルランニング・渓流釣り・スノーアクティビティ、etc..</p>
     </div>
 
-    <div class="c-hero__scroll-indicator" aria-hidden="true">
-      <div class="c-hero__scroll-mouse">
-        <span class="c-hero__scroll-wheel"></span>
-      </div>
+  </div>
+
+  <div class="c-hero__scroll-indicator" aria-hidden="true">
+    <div class="c-hero__scroll-mouse">
+      <span class="c-hero__scroll-wheel"></span>
     </div>
   </div>
 </section>

@@ -534,7 +534,9 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 /* ===== Hero (Figma sec-hero) ===== */
 .c-hero{
   position:relative;
-  min-height:var(--hero-min-height);
+  min-height:100vh;
+  min-height:100dvh;
+  min-height:100svh;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -598,9 +600,9 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   z-index:3;
   opacity:0;
   background:
-    radial-gradient(900px 320px at 50% 72%, rgba(255,170,90,.28), rgba(255,170,90,0) 70%),
-    linear-gradient(to top, rgba(255,120,60,.14), rgba(255,120,60,0) 55%);
-  mix-blend-mode:screen;
+    radial-gradient(720px 260px at 50% 66%, rgba(255,170,90,.28), rgba(255,170,90,0) 70%),
+    linear-gradient(to top, rgba(255,120,60,.12), rgba(255,120,60,0) 60%);
+  mix-blend-mode:color; /* tint without brightening */
   animation:c-hero-dawn 6s ease-out forwards;
 }
 
@@ -612,15 +614,15 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 @keyframes c-hero-stars{
   0%{opacity:.95}
-  60%{opacity:.9}
-  100%{opacity:.55}
+  60%{opacity:.75}
+  100%{opacity:0}
 }
 
 @keyframes c-hero-dawn{
   0%{opacity:0; transform:translateY(10px)}
   35%{opacity:0; transform:translateY(10px)}
-  70%{opacity:1; transform:translateY(0)}
-  100%{opacity:1; transform:translateY(0)}
+  70%{opacity:.9; transform:translateY(0)}
+  100%{opacity:0; transform:translateY(0)}
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -630,28 +632,11 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
     animation:none !important;
   }
   .c-hero::before{ opacity:0; }
-  .c-hero__stars{ opacity:.6; }
-  .c-hero__dawn{ opacity:1; }
+  .c-hero__stars{ opacity:0; }
+  .c-hero__dawn{ opacity:0; }
 }
 
-/* Mobile (smartphone): hero height = viewport height minus header */
-@media (max-width:430px){
-  .c-hero{
-    /* fallback → modern (svh) */
-    min-height: calc(100vh - var(--header-height, 60px));
-    min-height: calc(100dvh - var(--header-height, 60px));
-    min-height: calc(100svh - var(--header-height, 60px));
-  }
-}
 
-/* Tablet + Desktop: hero height = about 2/3 viewport height (minus header) */
-@media (min-width:431px){
-/*   .c-hero{
-    min-height: calc(66.666vh - var(--header-height, 60px));
-    min-height: calc(66.666dvh - var(--header-height, 60px));
-    min-height: calc(66.666svh - var(--header-height, 60px));
-  }
- */}
 
 .c-hero__inner{
   width:100%;
