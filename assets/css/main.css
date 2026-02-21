@@ -545,6 +545,93 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
+  overflow:hidden;          /* FX overlays stay inside hero */
+  isolation:isolate;        /* keep blend effects contained */
+}
+
+/* Hero reveal animation: night (stars visible) → dawn */
+.c-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:#000;
+  opacity:1;
+  z-index:1;
+  animation:c-hero-reveal 6s ease-out forwards;
+}
+
+.c-hero__stars,
+.c-hero__dawn{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+/* Synthetic starfield so stars stay visible even while the landscape is dark */
+.c-hero__stars{
+  z-index:2;
+  opacity:.95;
+  background-image:
+    radial-gradient(1px 1px at 8% 18%, rgba(255,255,255,.9), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 15% 35%, rgba(255,255,255,.7), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 22% 12%, rgba(255,255,255,.85), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 28% 28%, rgba(255,255,255,.6), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 34% 8%, rgba(255,255,255,.95), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 41% 22%, rgba(255,255,255,.75), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 47% 14%, rgba(255,255,255,.9), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 53% 30%, rgba(255,255,255,.6), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 61% 10%, rgba(255,255,255,.9), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 69% 26%, rgba(255,255,255,.7), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 76% 16%, rgba(255,255,255,.85), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 84% 32%, rgba(255,255,255,.65), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 92% 12%, rgba(255,255,255,.95), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 12% 8%, rgba(255,255,255,.55), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 58% 6%, rgba(255,255,255,.55), rgba(255,255,255,0) 60%),
+    radial-gradient(1px 1px at 88% 6%, rgba(255,255,255,.55), rgba(255,255,255,0) 60%);
+  background-repeat:no-repeat;
+  mix-blend-mode:screen;
+  animation:c-hero-stars 6s ease-out forwards;
+}
+
+/* Warm dawn glow near the ridge line */
+.c-hero__dawn{
+  z-index:3;
+  opacity:0;
+  background:
+    radial-gradient(900px 320px at 50% 72%, rgba(255,170,90,.28), rgba(255,170,90,0) 70%),
+    linear-gradient(to top, rgba(255,120,60,.14), rgba(255,120,60,0) 55%);
+  mix-blend-mode:screen;
+  animation:c-hero-dawn 6s ease-out forwards;
+}
+
+@keyframes c-hero-reveal{
+  0%{opacity:1}
+  20%{opacity:1}
+  100%{opacity:0}
+}
+
+@keyframes c-hero-stars{
+  0%{opacity:.95}
+  60%{opacity:.9}
+  100%{opacity:.55}
+}
+
+@keyframes c-hero-dawn{
+  0%{opacity:0; transform:translateY(10px)}
+  35%{opacity:0; transform:translateY(10px)}
+  70%{opacity:1; transform:translateY(0)}
+  100%{opacity:1; transform:translateY(0)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .c-hero::before,
+  .c-hero__stars,
+  .c-hero__dawn{
+    animation:none !important;
+  }
+  .c-hero::before{ opacity:0; }
+  .c-hero__stars{ opacity:.6; }
+  .c-hero__dawn{ opacity:1; }
 }
 
 /* Mobile (smartphone): hero height = viewport height minus header */
@@ -573,6 +660,8 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   flex-direction:column;
   align-items:center;
   gap:var(--space-5);
+  position:relative;
+  z-index:4;
 }
 
 .c-hero__logo{
