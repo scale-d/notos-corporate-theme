@@ -559,13 +559,12 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 /* Tablet + Desktop: hero height = about 2/3 viewport height (minus header) */
 @media (min-width:431px){
-  .c-hero{
-    /* fallback → modern (svh) */
+/*   .c-hero{
     min-height: calc(66.666vh - var(--header-height, 60px));
     min-height: calc(66.666dvh - var(--header-height, 60px));
     min-height: calc(66.666svh - var(--header-height, 60px));
   }
-}
+ */}
 
 .c-hero__inner{
   width:100%;
@@ -601,7 +600,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 .c-hero__title{
   margin:var(--space-0);
   font-family:var(--font-heading);
-  font-size:var(--text-heading-2);
+  font-size:var(--text-heading-4);
   line-height:var(--lh-tight);
   letter-spacing:var(--ls-tight);
 }
@@ -696,7 +695,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 .c-store__title{
   margin:var(--space-0);
   font-family:var(--font-heading);
-  font-size:var(--text-heading-3);
+  font-size:var(--text-heading-5);
   line-height:var(--lh-body);
   letter-spacing:var(--ls-tight);
   margin-bottom: var(--space-5);
@@ -2689,7 +2688,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 @media (max-width: 768px){
   /* Hero title */
   .c-hero__title{
-    font-size: 36px;
+    font-size: 22px;
   }
 
   /* Store section title */

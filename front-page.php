@@ -25,10 +25,8 @@
         decoding="async">
     </div>
     <div class="c-hero__content">
-      <!-- <h1 class="c-hero__title">3月1日、広島に「Notos」がOPEN！</h1> -->
-      <!-- <p class="c-hero__lead">
-        Notosはハイキング・トレイルランニング・ロードランニング・渓流釣り・スノーアクティビティなど、都市生活の延長線上にある“日常的アウトドア”のスタイルを提案するショップです。
-      </p> -->
+      <h1 class="c-hero__title">3月5日、広島市牛田エリアにOPEN</h1>
+      <p class="c-hero__lead">ハイキング・トレイルランニング・渓流釣り・スノーアクティビティ、etc..</p>
     </div>
 
     <div class="c-hero__scroll-indicator" aria-hidden="true">
