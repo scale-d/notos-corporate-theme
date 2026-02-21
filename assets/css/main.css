@@ -563,8 +563,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 }
 
 .c-hero__stars,
-.c-hero__dawn,
-.c-hero__shimmer{
+.c-hero__dawn{
   position:absolute;
   inset:0;
   pointer-events:none;
@@ -593,7 +592,6 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
     radial-gradient(1px 1px at 88% 6%, rgba(255,255,255,.55), rgba(255,255,255,0) 60%);
   background-repeat:no-repeat;
   mix-blend-mode:screen;
-  filter:drop-shadow(0 0 6px rgba(255,255,255,.7));
   animation:c-hero-stars 6s ease-out forwards;
 }
 
@@ -608,27 +606,6 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   animation:c-hero-dawn 6s ease-out forwards;
 }
 
-/* Subtle water shimmer (animated sparkle) */
-.c-hero__shimmer{
-  z-index:3;
-  opacity:0;
-  background-image:
-    linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.22) 18%, rgba(255,255,255,0) 36%),
-    linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.12) 22%, rgba(255,255,255,0) 44%);
-  background-size:280px 140px, 420px 180px;
-  background-position:-40% 100%, -60% 100%;
-  background-repeat:repeat;
-  mix-blend-mode:screen;
-  animation:c-hero-shimmer 6s ease-out forwards;
-  -webkit-mask-image:linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 70%);
-  mask-image:linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 70%);
-}
-
-@keyframes c-hero-shimmer{
-  0%,45%{opacity:0}
-  70%{opacity:.16}
-  100%{opacity:0; background-position:160% 100%, 140% 100%}
-}
 
 @keyframes c-hero-reveal{
   0%{opacity:1}
@@ -637,9 +614,9 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 }
 
 @keyframes c-hero-stars{
-  0%{opacity:1; filter:drop-shadow(0 0 8px rgba(255,255,255,.8))}
-  60%{opacity:.8; filter:drop-shadow(0 0 3px rgba(255,255,255,.45))}
-  100%{opacity:0; filter:none}
+  0%{opacity:.95}
+  60%{opacity:.75}
+  100%{opacity:0}
 }
 
 @keyframes c-hero-dawn{
@@ -652,14 +629,12 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 @media (prefers-reduced-motion: reduce){
   .c-hero::before,
   .c-hero__stars,
-  .c-hero__dawn,
-  .c-hero__shimmer{
+  .c-hero__dawn{
     animation:none !important;
   }
   .c-hero::before{ opacity:0; }
-  .c-hero__stars{ opacity:0; filter:none; }
+  .c-hero__stars{ opacity:0; }
   .c-hero__dawn{ opacity:0; }
-  .c-hero__shimmer{ opacity:0; }
 }
 
 

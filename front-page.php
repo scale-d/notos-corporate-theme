@@ -3,7 +3,6 @@
 <section class="c-hero" style="--hero-bg: url('<?php echo esc_url(get_template_directory_uri().'/assets/img/hero-sec.webp'); ?>');">
   <div class="c-hero__stars" aria-hidden="true"></div>
   <div class="c-hero__dawn" aria-hidden="true"></div>
-  <div class="c-hero__shimmer" aria-hidden="true"></div>
   <div class="c-hero__inner">
     <div class="c-hero__logo">
       <?php
