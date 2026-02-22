@@ -692,13 +692,13 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
     opacity:0;
     transform:translateY(10px);
     animation:c-hero-copy-in 1.2s ease-out forwards;
-    animation-delay:3.8s;
+    animation-delay:2.8s;
   }
   .c-hero__lead{
     opacity:0;
     transform:translateY(10px);
     animation:c-hero-copy-in 1.2s ease-out forwards;
-    animation-delay:4.05s;
+    animation-delay:3.05s;
   }
 }
 
