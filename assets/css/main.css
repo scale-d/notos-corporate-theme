@@ -559,7 +559,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   background:#000;
   opacity:1;
   z-index:1;
-  animation:c-hero-reveal 6s ease-out forwards;
+  animation:c-hero-reveal 5s ease-out forwards;
 }
 
 .c-hero__stars,
@@ -592,7 +592,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
     radial-gradient(1px 1px at 88% 6%, rgba(255,255,255,.55), rgba(255,255,255,0) 60%);
   background-repeat:no-repeat;
   mix-blend-mode:screen;
-  animation:c-hero-stars 6s ease-out forwards;
+  animation:c-hero-stars 5s ease-out forwards;
 }
 
 /* Warm dawn glow near the ridge line */
@@ -603,7 +603,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
     radial-gradient(720px 260px at 50% 66%, rgba(255,170,90,.28), rgba(255,170,90,0) 70%),
     linear-gradient(to top, rgba(255,120,60,.12), rgba(255,120,60,0) 60%);
   mix-blend-mode:color; /* tint without brightening */
-  animation:c-hero-dawn 6s ease-out forwards;
+  animation:c-hero-dawn 5s ease-out forwards;
 }
 
 
@@ -692,13 +692,13 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
     opacity:0;
     transform:translateY(10px);
     animation:c-hero-copy-in 1.2s ease-out forwards;
-    animation-delay:4.8s;
+    animation-delay:3.8s;
   }
   .c-hero__lead{
     opacity:0;
     transform:translateY(10px);
     animation:c-hero-copy-in 1.2s ease-out forwards;
-    animation-delay:5.05s;
+    animation-delay:4.05s;
   }
 }
 
