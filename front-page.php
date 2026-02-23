@@ -52,25 +52,75 @@
           広島の特徴である市街地からの「自然へのアクセスの良さ」を活かし、日帰りでも楽しめる気軽なアウトドアの魅力を発信してまいります。<br>
         </p>
         <div class="c-store__info">
-          <div class="c-store__info-row">
-            <span class="c-store__info-label">住所</span>
-            <p class="c-store__info-text">〒732-0066<br>広島市東区牛田本町 1-10-17 1F</p>
+          <div class="c-store__slider js-store-slider" aria-label="店舗写真スライダー">
+            <div class="c-store__slider-viewport">
+              <?php
+                // assets/img/store-photo-01.jpg のように「store-photo-」で始まる画像を置くと自動でスライド化されます
+                $store_photo_paths = glob(get_template_directory() . '/assets/img/store-photo-*.*') ?: [];
+                natsort($store_photo_paths);
+                $store_photo_paths = array_values($store_photo_paths);
+
+                $store_photo_count = 0;
+
+                foreach ($store_photo_paths as $abs_path) {
+                  $rel = str_replace(get_template_directory(), '', $abs_path); // "/assets/img/..."
+                  $url = get_template_directory_uri() . $rel;
+
+                  $is_active = ($store_photo_count === 0) ? ' is-active' : '';
+                  $store_photo_count++;
+                  ?>
+                  <div class="c-store__slide<?php echo $is_active; ?>">
+                    <img
+                      src="<?php echo esc_url($url); ?>"
+                      alt="<?php echo esc_attr('Notos 店舗写真 ' . $store_photo_count); ?>"
+                      loading="lazy"
+                      decoding="async">
+                  </div>
+                  <?php
+                }
+
+                if ($store_photo_count === 0) :
+              ?>
+                <div class="c-store__slider-empty">店舗写真（準備中）</div>
+              <?php endif; ?>
+            </div>
+
+            <button class="c-store__slider-arrow is-prev" type="button" aria-label="前の写真">
+              <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+                <path fill="currentColor" d="m15 5.5-7.9 7.9 7.9 7.9L16.4 20 9.5 13.4 16.4 6.5 15 5.5Z"/>
+              </svg>
+            </button>
+
+            <button class="c-store__slider-arrow is-next" type="button" aria-label="次の写真">
+              <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+                <path fill="currentColor" d="M9 5.5 15.5 12 9 18.5l1.4 1.4 7.9-7.9-7.9-7.9L9 5.5Z"/>
+              </svg>
+            </button>
+
+            <div class="c-store__slider-dots" aria-label="店舗写真のページャー"></div>
           </div>
-          <div class="c-store__info-row">
-            <span class="c-store__info-label">TEL</span>
-            <p class="c-store__info-text">082-555-4580</p>
-          </div>
-          <div class="c-store__info-row">
-            <span class="c-store__info-label">営業時間</span>
-            <p class="c-store__info-text">12:00 - 20:00</p>
-          </div>
-          <div class="c-store__info-row">
-            <span class="c-store__info-label">定休日</span>
-            <p class="c-store__info-text">水曜日</p>
-          </div>
-          <div class="c-store__info-row">
-            <span class="c-store__info-label">駐車場</span>
-            <p class="c-store__info-text">３台</p>
+
+          <div class="c-store__info-list">
+            <div class="c-store__info-row">
+              <span class="c-store__info-label">住所</span>
+              <p class="c-store__info-text">〒732-0066<br>広島市東区牛田本町 1-10-17 1F</p>
+            </div>
+            <div class="c-store__info-row">
+              <span class="c-store__info-label">TEL</span>
+              <p class="c-store__info-text">082-555-4580</p>
+            </div>
+            <div class="c-store__info-row">
+              <span class="c-store__info-label">営業時間</span>
+              <p class="c-store__info-text">12:00 - 20:00</p>
+            </div>
+            <div class="c-store__info-row">
+              <span class="c-store__info-label">定休日</span>
+              <p class="c-store__info-text">水曜日</p>
+            </div>
+            <div class="c-store__info-row">
+              <span class="c-store__info-label">駐車場</span>
+              <p class="c-store__info-text">３台</p>
+            </div>
           </div>
         </div>
         <div class="c-store__social">
@@ -139,6 +189,58 @@
             </span>
           </a>
         </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function(){
+            document.querySelectorAll('.js-store-slider').forEach(function(root){
+              const slides = Array.from(root.querySelectorAll('.c-store__slide'));
+              if (slides.length === 0) return;
+
+              const prev = root.querySelector('.c-store__slider-arrow.is-prev');
+              const next = root.querySelector('.c-store__slider-arrow.is-next');
+              const dotsWrap = root.querySelector('.c-store__slider-dots');
+
+              let index = 0;
+
+              function buildDots(){
+                if (!dotsWrap) return;
+                dotsWrap.innerHTML = '';
+                slides.forEach(function(_, i){
+                  const b = document.createElement('button');
+                  b.type = 'button';
+                  b.className = 'c-store__slider-dot';
+                  b.setAttribute('aria-label', (i + 1) + '枚目');
+                  b.addEventListener('click', function(){ show(i); });
+                  dotsWrap.appendChild(b);
+                });
+              }
+
+              function show(i){
+                index = (i + slides.length) % slides.length;
+                slides.forEach(function(s, idx){ s.classList.toggle('is-active', idx === index); });
+
+                if (dotsWrap){
+                  Array.from(dotsWrap.querySelectorAll('.c-store__slider-dot')).forEach(function(d, idx){
+                    d.classList.toggle('is-active', idx === index);
+                  });
+                }
+              }
+
+              function toggleControls(){
+                const multi = slides.length > 1;
+                if (prev) prev.style.display = multi ? '' : 'none';
+                if (next) next.style.display = multi ? '' : 'none';
+                if (dotsWrap) dotsWrap.style.display = multi ? '' : 'none';
+              }
+
+              prev && prev.addEventListener('click', function(){ show(index - 1); });
+              next && next.addEventListener('click', function(){ show(index + 1); });
+
+              buildDots();
+              toggleControls();
+              show(0);
+            });
+          });
+        </script>
       </div>
       <!-- Instagram media block moved below the map -->
     </div>
