@@ -1632,8 +1632,8 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   padding:var(--blog-slider-btn-padding);
   border:none;
   border-radius:var(--blog-slider-radius);
-  background:var(--color-scheme-1-background);
-  color:var(--color-orient);
+  background:var(--color-orient);
+  color:var(--color-white);
   cursor:pointer;
 }
 
