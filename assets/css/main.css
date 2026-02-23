@@ -965,7 +965,10 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   background:#fff;
 }
 
-.c-store__calendar-td.is-empty{ border-color:transparent; }
+.c-store__calendar-td.is-empty{
+  background:#e5eef3;
+  border-color:transparent;
+}
 
 
 .c-store__calendar-td.is-sun{ color:#d32f2f; }
