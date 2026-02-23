@@ -824,7 +824,6 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 /* Store photo slider */
 .c-store__slider{
   width:100%;
-  max-width:600px;
   position:relative;
   justify-self:start;
 }
@@ -927,10 +926,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   .c-store__calendar-grid{ grid-template-columns:1fr; }
 }
 
-.c-store__month{
-  background:var(--color-white);
-  border:var(--border-thin) solid rgba(0,0,0,.08);
-}
+.c-store__month{}
 
 .c-store__month-title{
   background:var(--color-scheme-1-accent);
