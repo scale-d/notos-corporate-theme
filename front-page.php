@@ -121,6 +121,109 @@
               <span class="c-store__info-label">駐車場</span>
               <p class="c-store__info-text">３台</p>
             </div>
+
+            <?php
+            // ===== Store calendar (current month + next month) =====
+            // ✅ 月替わりは自動（毎月コード変更不要）
+            // Customize:
+            // - Weekly closed day: $weekly_closed_wday (0=Sun ... 6=Sat)
+            // - Temporary closures: $closed_dates に 'YYYY-MM-DD'
+            // - Events: $events に 'YYYY-MM-DD' => 'イベント名'
+            $weekly_closed_wday = 3; // 水曜日（0=日, 1=月, 2=火, 3=水...）
+
+            // 臨時休業（例）
+            $closed_dates = [
+              // '2026-03-20',
+            ];
+
+            // イベント（例）
+            $events = [
+              // '2026-03-05' => 'OPEN',
+            ];
+
+            $tz = wp_timezone();
+            $now = new DateTimeImmutable('now', $tz);
+            $this_month = $now->modify('first day of this month')->setTime(0, 0);
+            $next_month = $this_month->modify('+1 month');
+
+            $render_month = function (DateTimeImmutable $month_start) use ($weekly_closed_wday, $closed_dates, $events) {
+              $y = (int) $month_start->format('Y');
+              $m = (int) $month_start->format('n');
+              $label = sprintf('%d年 %02d月', $y, $m);
+
+              $first_wday = (int) $month_start->format('w'); // 0=Sun
+              $days_in_month = (int) $month_start->format('t');
+
+              $html = '';
+              $html .= '<div class="c-store__month">';
+              $html .= '<div class="c-store__month-title">' . esc_html($label) . '</div>';
+              $html .= '<table class="c-store__calendar-table" role="grid">';
+              $html .= '<thead><tr>';
+              foreach (['日', '月', '火', '水', '木', '金', '土'] as $i => $wd) {
+                $th_class = ($i === 0) ? ' is-sun' : (($i === 6) ? ' is-sat' : '');
+                $html .= '<th scope="col" class="c-store__calendar-th' . $th_class . '">' . esc_html($wd) . '</th>';
+              }
+              $html .= '</tr></thead><tbody>';
+
+              $day = 1;
+              $weeks = (int) ceil(($first_wday + $days_in_month) / 7);
+
+              for ($w = 0; $w < $weeks; $w++) {
+                $html .= '<tr>';
+                for ($d = 0; $d < 7; $d++) {
+                  $cell_index = $w * 7 + $d;
+
+                  if ($cell_index < $first_wday || $day > $days_in_month) {
+                    $html .= '<td class="c-store__calendar-td is-empty" aria-hidden="true"></td>';
+                    continue;
+                  }
+
+                  $date = sprintf('%04d-%02d-%02d', $y, $m, $day);
+                  $is_closed = ($d === (int) $weekly_closed_wday) || in_array($date, $closed_dates, true);
+                  $is_event = array_key_exists($date, $events);
+
+                  $classes = 'c-store__calendar-td';
+                  if ($d === 0) $classes .= ' is-sun';
+                  if ($d === 6) $classes .= ' is-sat';
+
+                  // 店休日を優先（イベント色で上書きしない）
+                  if ($is_closed) {
+                    $classes .= ' is-closed';
+                  } elseif ($is_event) {
+                    $classes .= ' is-event';
+                  }
+
+                  $aria = $date;
+                  if ($is_closed) $aria .= ' 店休日';
+                  if ($is_event) $aria .= ' ' . $events[$date];
+
+                  $html .= '<td class="' . esc_attr($classes) . '">';
+                  $html .= '<span class="c-store__calendar-day" aria-label="' . esc_attr($aria) . '">' . esc_html((string) $day) . '</span>';
+                  $html .= '</td>';
+
+                  $day++;
+                }
+                $html .= '</tr>';
+              }
+
+              $html .= '</tbody></table>';
+              $html .= '<div class="c-store__calendar-legend">'
+                . '<span class="c-store__legend-item"><span class="c-store__legend-swatch is-closed" aria-hidden="true"></span><span class="c-store__legend-text">店休日</span></span>'
+                . '<span class="c-store__legend-item"><span class="c-store__legend-swatch is-event" aria-hidden="true"></span><span class="c-store__legend-text">イベント</span></span>'
+                . '</div>';
+              $html .= '</div>';
+
+              return $html;
+            };
+          ?>
+
+          <div class="c-store__calendar" aria-label="営業カレンダー">
+            <div class="c-store__calendar-grid">
+              <?php echo $render_month($this_month); ?>
+              <?php echo $render_month($next_month); ?>
+            </div>
+          </div>
+
           </div>
         </div>
         <div class="c-store__social">
