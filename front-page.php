@@ -56,7 +56,7 @@
             <div class="c-store__slider-viewport">
               <?php
                 // assets/img/store-photo-01.jpg のように「store-photo-」で始まる画像を置くと自動でスライド化されます
-                $store_photo_paths = glob(get_template_directory() . '/assets/img/store-photo-*.*') ?: [];
+                $store_photo_paths = glob(get_template_directory() . '/assets/img/store/photos/store-photo-*.*') ?: [];
                 natsort($store_photo_paths);
                 $store_photo_paths = array_values($store_photo_paths);
 
@@ -193,7 +193,11 @@
           document.addEventListener('DOMContentLoaded', function(){
             document.querySelectorAll('.js-store-slider').forEach(function(root){
               const slides = Array.from(root.querySelectorAll('.c-store__slide'));
-              if (slides.length === 0) return;
+              if (slides.length === 0) {
+                root.querySelectorAll('.c-store__slider-arrow, .c-store__slider-dots')
+                  .forEach(el => el.style.display = 'none');
+                return;
+              }
 
               const prev = root.querySelector('.c-store__slider-arrow.is-prev');
               const next = root.querySelector('.c-store__slider-arrow.is-next');
