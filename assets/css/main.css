@@ -918,8 +918,9 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 .c-store__calendar-grid{
   display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
+  grid-template-columns:repeat(2, minmax(220px, 240px));
   gap:var(--space-4);
+  justify-content:start;
 }
 
 @media (max-width:768px){
@@ -932,7 +933,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 }
 
 .c-store__month-title{
-  background:#111;
+  background:var(--color-scheme-1-accent);
   color:#fff;
   font-family:var(--font-body);
   font-size:var(--text-small);
@@ -951,7 +952,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 .c-store__calendar-th,
 .c-store__calendar-td{
   text-align:center;
-  border:1px solid rgba(0,0,0,.06);
+  border:1px solid var(--color-scheme-2-background);
   height:30px;
 }
 
@@ -970,7 +971,10 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 .c-store__calendar-td.is-empty{ border-color:transparent; }
 
+
 .c-store__calendar-td.is-sun{ color:#d32f2f; }
+
+.c-store__calendar-td.is-sat{ background:#fff; }
 
 .c-store__calendar-td.is-closed{
   background:#d32f2f;
