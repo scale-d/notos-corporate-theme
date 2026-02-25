@@ -269,7 +269,7 @@
               </svg>
             </span>
           </a>
-          <a class="c-store__card" href="#">
+          <a class="c-store__card" href="https://www.instagram.com/notos.hiroshima/" target="_blank" rel="noopener noreferrer" aria-label="InstagramでNotosをフォローする">
             <div class="c-store__card-text">
               <p class="c-store__card-title">INSTAGRAM</p>
               <p class="c-store__card-sub">インスタグラム</p>
@@ -280,7 +280,7 @@
               </svg>
             </span>
           </a>
-          <a class="c-store__card" href="#">
+          <a class="c-store__card" href="https://www.youtube.com/@notos_hiroshim" target="_blank" rel="noopener noreferrer" aria-label="YoutubeでNotosをフォローする">
             <div class="c-store__card-text">
               <p class="c-store__card-title">YOUTUBE</p>
               <p class="c-store__card-sub">ユーチューブ</p>
