@@ -122,7 +122,10 @@
               <a href="#" class="c-footer__social" aria-label="LINE">
                 <span class="c-footer__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="white" d="M22 7.6a3 3 0 0 0-2.1-2.1C18.1 5 12 5 12 5s-6.1 0-7.9.5A3 3 0 0 0 2 7.6 31 31 0 0 0 2 12a31 31 0 0 0 .1 4.4 3 3 0 0 0 2.1 2.1C5.9 19 12 19 12 19s6.1 0 7.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.1-4.4ZM10 15.5v-7l6 3.5Z"/>
+                    <!-- chat bubble icon (generic) -->
+                    <path fill="white" d="M12 3C6.98 3 3 6.58 3 11c0 2.26 1.04 4.3 2.73 5.73L5 21l4.58-2.05c.78.17 1.59.26 2.42.26 5.02 0 9-3.58 9-8s-3.98-8-9-8Zm0 14.2c-.78 0-1.54-.08-2.26-.24l-.55-.12-2.16.97.35-2.05-.41-.33C5.55 14.36 4.8 12.74 4.8 11c0-3.43 3.19-6.2 7.2-6.2s7.2 2.77 7.2 6.2-3.19 6.2-7.2 6.2Z"/>
+                    <path fill="white" d="M8 11.8h8v1.4H8z"/>
+                    <path fill="white" d="M8 8.9h8v1.4H8z"/>
                   </svg>
                 </span>
                 LINE
