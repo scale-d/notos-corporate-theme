@@ -966,8 +966,8 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 }
 
 .c-store__calendar-td.is-empty{
-  background:#e5eef3;
-  border-color:transparent;
+/*   background:#e5eef3;
+  border-color:transparent; */
 }
 
 
