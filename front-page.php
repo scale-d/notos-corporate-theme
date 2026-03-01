@@ -599,8 +599,8 @@
       </li>
 
       <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/ANGLE.jpg'); ?>"
-          alt="ANGLE" loading="lazy" decoding="async">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/AA500.jpg'); ?>"
+          alt="AXISCO" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
@@ -761,6 +761,11 @@
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/luna-sandals.jpg'); ?>"
           alt="LUNA-SANDALS" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/lono-wear.jpg'); ?>"
+          alt="lono-wear" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
@@ -971,6 +976,11 @@
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/TYMER.jpg'); ?>"
           alt="TYMER" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/UGL.jpg'); ?>"
+          alt="ULTRA GOOD LUCK" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
