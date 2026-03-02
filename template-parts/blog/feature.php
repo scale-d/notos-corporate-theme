@@ -40,6 +40,8 @@ if ($featured_post):
     <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr(get_the_title($fp_id)); ?>">
   </a>
   <div class="c-blog-page__feature-body">
+    <p class="c-blog-page__featured-badge">注目記事</p>
+
     <?php if ($cat_name): ?>
       <p class="c-blog-page__category"><?php echo $cat_name; ?></p>
     <?php endif; ?>

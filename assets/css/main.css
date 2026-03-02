@@ -2134,6 +2134,21 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   color:var(--color-scheme-1-accent);
 }
 
+.c-blog-page__featured-badge{
+  margin:0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px 12px;
+  border-radius:999px;
+  border:var(--border-thin) solid var(--color-scheme-1-accent);
+  color:var(--color-scheme-1-accent);
+  background:var(--color-scheme-2-background);
+  font-size:var(--text-small);
+  font-weight:var(--font-weight-semibold);
+  line-height:1;
+  width:fit-content;
+}
 .c-blog-page__category{
   margin:0;
   font-size:var(--text-small);        /* 14px */
