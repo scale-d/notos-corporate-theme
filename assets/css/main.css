@@ -2129,7 +2129,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   display:flex;
   flex-direction:column;
   gap:var(--space-4);                 /* 16px between elements */
-  padding-top:48px;                   /* Figma値 */
+  padding-top:24px;                   /* Figma値 */
   padding-bottom:24px;                /* Figma値 */
   color:var(--color-scheme-1-accent);
 }
@@ -2140,7 +2140,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   align-items:center;
   justify-content:center;
   padding:6px 12px;
-  border-radius:999px;
+  border-radius:var(--blog-page-filter-radius);
   border:var(--border-thin) solid var(--color-scheme-1-accent);
   color:var(--color-scheme-1-accent);
   background:var(--color-scheme-2-background);
