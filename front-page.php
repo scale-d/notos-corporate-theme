@@ -103,7 +103,7 @@
           <div class="c-store__info-list">
             <div class="c-store__info-row">
               <span class="c-store__info-label">住所</span>
-              <p class="c-store__info-text">〒732-0066<br>広島市東区牛田本町 1-10-17 1F</p>
+              <p class="c-store__info-text">〒732-0066 広島市東区牛田本町 1-10-17 1F</p>
             </div>
             <div class="c-store__info-row">
               <span class="c-store__info-label">TEL</span>
@@ -197,13 +197,14 @@
                   if ($is_closed) $aria .= ' 店休日';
                   if ($is_event) $aria .= ' ' . $events[$date];
 
-                  $tooltip_attr = '';
+                  $tooltip_html = '';
                   if (!$is_closed && $is_event) {
-                    $tooltip_attr = ' data-tooltip="' . esc_attr($events[$date]) . '"';
+                    $tooltip_html = '<span class="c-store__event-tooltip" role="tooltip">' . esc_html($events[$date]) . '</span>';
                   }
 
-                  $html .= '<td class="' . esc_attr($classes) . '"' . $tooltip_attr . '>';
+                  $html .= '<td class="' . esc_attr($classes) . '">';
                   $html .= '<span class="c-store__calendar-day" aria-label="' . esc_attr($aria) . '">' . esc_html((string) $day) . '</span>';
+                  $html .= $tooltip_html;
                   $html .= '</td>';
 
                   $day++;

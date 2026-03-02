@@ -988,9 +988,8 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   color:#111;
 }
 
-/* Event tooltip (uses data-tooltip attribute from PHP) */
-.c-store__calendar-td.is-event::after{
-  content:attr(data-tooltip);
+/* Event tooltip */
+.c-store__event-tooltip{
   position:absolute;
   left:50%;
   bottom:100%;
@@ -1010,30 +1009,21 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   z-index:20;
 }
 
-/* Tooltip tail (inverted triangle) */
-.c-store__calendar-td.is-event::before{
+/* Tail under the tooltip (inverted triangle) */
+.c-store__event-tooltip::after{
   content:"";
   position:absolute;
   left:50%;
-  bottom:100%;
-  transform:translate(-50%, -4px);
+  top:100%;
+  transform:translateX(-50%);
   border:7px solid transparent;
   border-top-color:#fff;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .18s ease, transform .18s ease;
-  z-index:19;
-  filter:drop-shadow(0 4px 10px rgba(0,0,0,.12));
+  filter:drop-shadow(0 3px 8px rgba(0,0,0,.12));
 }
 
-.c-store__calendar-td.is-event:hover::after{
+.c-store__calendar-td.is-event:hover .c-store__event-tooltip{
   opacity:1;
   transform:translate(-50%, -14px);
-}
-
-.c-store__calendar-td.is-event:hover::before{
-  opacity:1;
-  transform:translate(-50%, -6px);
 }
 
 .c-store__calendar-day{ display:inline-block; line-height:1; }
