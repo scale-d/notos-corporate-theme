@@ -982,8 +982,55 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 /* ✅ イベント日（黄色） */
 .c-store__calendar-td.is-event{
+  position:relative;
+  overflow:visible;
   background:#F6D347;
   color:#111;
+}
+
+/* Event tooltip (uses data-tooltip attribute from PHP) */
+.c-store__calendar-td.is-event::after{
+  content:attr(data-tooltip);
+  position:absolute;
+  left:50%;
+  bottom:100%;
+  transform:translate(-50%, -8px);
+  background:rgba(17,17,17,.92);
+  color:#fff;
+  padding:6px 8px;
+  border-radius:8px;
+  font-size:12px;
+  line-height:1.2;
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease, transform .18s ease;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+  z-index:20;
+}
+
+.c-store__calendar-td.is-event::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:100%;
+  transform:translate(-50%, -2px);
+  border:6px solid transparent;
+  border-top-color:rgba(17,17,17,.92);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease, transform .18s ease;
+  z-index:19;
+}
+
+.c-store__calendar-td.is-event:hover::after{
+  opacity:1;
+  transform:translate(-50%, -12px);
+}
+
+.c-store__calendar-td.is-event:hover::before{
+  opacity:1;
+  transform:translate(-50%, -6px);
 }
 
 .c-store__calendar-day{ display:inline-block; line-height:1; }

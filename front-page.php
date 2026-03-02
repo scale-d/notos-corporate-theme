@@ -197,7 +197,12 @@
                   if ($is_closed) $aria .= ' 店休日';
                   if ($is_event) $aria .= ' ' . $events[$date];
 
-                  $html .= '<td class="' . esc_attr($classes) . '">';
+                  $tooltip_attr = '';
+                  if (!$is_closed && $is_event) {
+                    $tooltip_attr = ' data-tooltip="' . esc_attr($events[$date]) . '"';
+                  }
+
+                  $html .= '<td class="' . esc_attr($classes) . '"' . $tooltip_attr . '>';
                   $html .= '<span class="c-store__calendar-day" aria-label="' . esc_attr($aria) . '">' . esc_html((string) $day) . '</span>';
                   $html .= '</td>';
 
