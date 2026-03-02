@@ -121,6 +121,13 @@
               <span class="c-store__info-label">駐車場</span>
               <p class="c-store__info-text">３台</p>
             </div>
+            <div class="c-store__info-row">
+              <span class="c-store__info-label">施設</span>
+              <p class="c-store__info-text">シャワールーム完備(利用料金：税込550円)<br>
+              軽ドリンク(コーヒー/無添加よもぎティ/ミネラルウォーター)サービス<br>
+              ※石鹸/タオル 販売あり
+              </p>
+            </div>
 
             <?php
             // ===== Store calendar (current month + next month) =====
