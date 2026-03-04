@@ -40,7 +40,7 @@
   </div>
 </section>
 
-<section class="c-store">
+<section class="c-store" id="store">
   <div class="c-store__inner">
     <div class="c-store__top">
       <div class="c-store__content">
@@ -270,7 +270,8 @@
           </a>
 
           */ ?>
-          <a class="c-store__card" href="YOUR_LINE_URL_HERE" target="_blank" rel="noopener noreferrer">
+          <a class="c-store__card" href="#">
+          <!-- <a class="c-store__card" href="YOUR_LINE_URL_HERE" target="_blank" rel="noopener noreferrer"> -->
             <div class="c-store__card-text">
               <p class="c-store__card-title">LINE</p>
               <p class="c-store__card-sub">ライン</p>
