@@ -2587,13 +2587,14 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   margin:48px 0;
 }
 
-/* 画像を 768x400 相当でトリミング寄せ */
+/* 本文内画像はトリミングせず、元の縦横比のまま表示する */
 .c-blog-post-body__inner figure img,
 .c-blog-post-body__inner .wp-block-image img{
   width:100%;
+  height:auto;
   display:block;
-  aspect-ratio:768 / 400;
-  object-fit:cover;
+  aspect-ratio:auto;
+  object-fit:unset;
 }
 
 /* Captions */
