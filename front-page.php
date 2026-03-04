@@ -119,13 +119,13 @@
             </div>
             <div class="c-store__info-row">
               <span class="c-store__info-label">駐車場</span>
-              <p class="c-store__info-text">３台</p>
+              <p class="c-store__info-text">3台以上・駐輪場あり(バイク可)</p>
             </div>
             <div class="c-store__info-row">
               <span class="c-store__info-label">施設</span>
-              <p class="c-store__info-text">シャワールーム完備(利用料金：税込550円)<br>
-              軽ドリンク(コーヒー/無添加よもぎティ/ミネラルウォーター)サービス<br>
-              ※石鹸/タオル 販売あり
+              <p class="c-store__info-text">シャワー利用 / 荷物預かりサービス(税込550円)<br>
+              ※軽ドリンク付き(コーヒー/無添加よもぎティー/ミネラルウォーター)<br>
+              ※石鹸/簡易タオル販売あり
               </p>
             </div>
 
@@ -994,11 +994,6 @@
       <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/UGL.jpg'); ?>"
           alt="ULTRA GOOD LUCK" loading="lazy" decoding="async">
-      </li>
-
-      <li class="c-logo__item">
-        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/ULTRA-GOOD-LUCK.jpg'); ?>"
-          alt="ULTRA-GOOD-LUCK" loading="lazy" decoding="async">
       </li>
 
       <li class="c-logo__item">
