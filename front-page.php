@@ -103,7 +103,8 @@
           <div class="c-store__info-list">
             <div class="c-store__info-row">
               <span class="c-store__info-label">住所</span>
-              <p class="c-store__info-text">〒732-0066 広島市東区牛田本町 1-10-17 1F</p>
+              <p class="c-store__info-text">〒732-0066<br>
+              広島市東区牛田本町 1-10-17 1F</p>
             </div>
             <div class="c-store__info-row">
               <span class="c-store__info-label">TEL</span>
@@ -119,7 +120,8 @@
             </div>
             <div class="c-store__info-row">
               <span class="c-store__info-label">駐車場</span>
-              <p class="c-store__info-text">3台以上・駐輪場あり(バイク可)</p>
+              <p class="c-store__info-text">3台以上<br>
+              駐輪場あり(バイク可)</p>
             </div>
             <div class="c-store__info-row">
               <span class="c-store__info-label">施設</span>
