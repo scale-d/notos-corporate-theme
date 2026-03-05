@@ -242,7 +242,7 @@
           </div>
         </div>
         <div class="c-store__social">
-          <a class="c-store__card" href="#">
+          <div class="c-store__card is-disabled" aria-disabled="true">
             <div class="c-store__card-text">
               <p class="c-store__card-title">Online Store（準備中）</p>
               <p class="c-store__card-sub">オンラインストア</p>
@@ -252,7 +252,7 @@
                 <path fill="currentColor" d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 .001 4A2 2 0 0 0 17 18ZM6.2 6h13.3l-1.4 7.2a2 2 0 0 1-2 1.6H9a2 2 0 0 1-2-1.6L5.3 4H3V2h3.1a2 2 0 0 1 2 1.6L8.4 6Z"/>
               </svg>
             </span>
-          </a>
+          </div>
           <?php /*
           
           Facebook（将来用）
@@ -270,10 +270,10 @@
           </a>
 
           */ ?>
-          <a class="c-store__card" href="#">
-          <!-- <a class="c-store__card" href="YOUR_LINE_URL_HERE" target="_blank" rel="noopener noreferrer"> -->
+          <div class="c-store__card is-disabled" aria-disabled="true">
+            <!-- <a class="c-store__card" href="YOUR_LINE_URL_HERE" target="_blank" rel="noopener noreferrer"> -->
             <div class="c-store__card-text">
-              <p class="c-store__card-title">LINE</p>
+              <p class="c-store__card-title">LINE（準備中）</p>
               <p class="c-store__card-sub">ライン</p>
             </div>
             <span class="c-store__card-icon" aria-hidden="true">
@@ -284,7 +284,7 @@
                 <path fill="currentColor" d="M8 8.9h8v1.4H8z"/>
               </svg>
             </span>
-          </a>
+          </div>
           <a class="c-store__card" href="https://www.instagram.com/notos.hiroshima/" target="_blank" rel="noopener noreferrer" aria-label="InstagramでNotosをフォローする">
             <div class="c-store__card-text">
               <p class="c-store__card-title">INSTAGRAM</p>
@@ -514,7 +514,9 @@
           ?>
           <article class="c-blog__card">
             <div class="c-blog__media">
-              <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
+              <a class="c-blog__link" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr(get_the_title()); ?>">
+                <img src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr(get_the_title()); ?>">
+              </a>
             </div>
             <div class="c-blog__body">
               <div class="c-blog__meta">
@@ -522,7 +524,9 @@
                 <span class="c-blog__time"><?php echo esc_html($mins); ?>分で読める</span>
               </div>
               <div class="c-blog__text">
-                <h3 class="c-blog__title-text"><?php the_title(); ?></h3>
+                <h3 class="c-blog__title-text">
+                  <a class="c-blog__title-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                </h3>
                 <p class="c-blog__excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 30, '…' ) ); ?></p>
               </div>
               <a class="c-blog__more" href="<?php the_permalink(); ?>">

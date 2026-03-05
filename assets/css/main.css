@@ -1130,6 +1130,11 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   background:var(--color-white);
 }
 
+.c-store__card.is-disabled{
+  pointer-events: none;
+  cursor: default;
+}
+
 .c-store__card-text{
   display:flex;
   flex-direction:column;
@@ -1587,6 +1592,21 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 .c-blog__card--light{
   background:var(--color-scheme-2-background);
+}
+
+.c-blog__link{
+  display:block;
+  color:inherit;
+  text-decoration:none;
+}
+
+.c-blog__title-link{
+  color:inherit;
+  text-decoration:none;
+}
+
+.c-blog__title-link:hover{
+  text-decoration:underline;
 }
 
 .c-blog__media{
