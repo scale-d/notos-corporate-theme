@@ -68,31 +68,36 @@ get_header();
 
       <script>
         document.addEventListener('DOMContentLoaded', function(){
-          var btn = document.querySelector('.js-share-instagram');
-          if (!btn) return;
+          var btns = document.querySelectorAll('.js-share-instagram');
+          if (!btns.length) return;
 
-          btn.addEventListener('click', async function(){
-            var url = btn.getAttribute('data-share-url') || window.location.href;
-            var title = btn.getAttribute('data-share-title') || document.title;
+          btns.forEach(function(btn){
+            btn.addEventListener('click', async function(e){
+              // Safety: if any anchor remains, prevent navigation.
+              if (e && typeof e.preventDefault === 'function') e.preventDefault();
 
-            // 1) If Web Share API is available (mostly mobile), open the native share sheet.
-            if (navigator.share) {
-              try {
-                await navigator.share({ title: title, url: url });
-                return;
-              } catch (e) {
-                // user canceled or share failed -> fall through to copy
+              var url = btn.getAttribute('data-share-url') || window.location.href;
+              var title = btn.getAttribute('data-share-title') || document.title;
+
+              // 1) If Web Share API is available (mostly mobile), open the native share sheet.
+              if (navigator.share) {
+                try {
+                  await navigator.share({ title: title, url: url });
+                  return;
+                } catch (e) {
+                  // user canceled or share failed -> fall through to copy
+                }
               }
-            }
 
-            // 2) Fallback: copy link to clipboard so the user can paste it into Instagram.
-            try {
-              await navigator.clipboard.writeText(url);
-              alert('リンクをコピーしました。Instagramの投稿/ストーリー作成画面で貼り付けてください。');
-            } catch (e) {
-              // Last resort
-              prompt('このURLをコピーしてInstagramで貼り付けてください。', url);
-            }
+              // 2) Fallback: copy link to clipboard so the user can paste it into Instagram.
+              try {
+                await navigator.clipboard.writeText(url);
+                alert('リンクをコピーしました。Instagramの投稿/ストーリー作成画面で貼り付けてください。');
+              } catch (e) {
+                // Last resort
+                prompt('このURLをコピーしてInstagramで貼り付けてください。', url);
+              }
+            });
           });
         });
       </script>

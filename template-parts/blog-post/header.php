@@ -61,11 +61,15 @@
             <img src="<?php echo esc_url($icon_base . '/link.svg'); ?>" alt="" width="24" height="24" loading="lazy">
           </span>
         </a>
-        <a class="c-blog-post-meta__share-btn" href="<?php echo esc_url('https://www.linkedin.com/sharing/share-offsite/?url=' . $share_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagramでシェア">
+        <button class="c-blog-post-meta__share-btn js-share-instagram"
+          type="button"
+          data-share-url="<?php echo esc_attr($permalink); ?>"
+          data-share-title="<?php echo esc_attr(get_the_title()); ?>"
+          aria-label="Instagramでシェア">
           <span class="c-blog-post-meta__icon" aria-hidden="true">
             <img src="<?php echo esc_url($icon_base . '/instagram.svg'); ?>" alt="" width="24" height="24" loading="lazy">
           </span>
-        </a>
+        </button>
         <a class="c-blog-post-meta__share-btn" href="<?php echo esc_url('https://www.facebook.com/sharer/sharer.php?u=' . $share_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebookでシェア">
           <span class="c-blog-post-meta__icon" aria-hidden="true">
             <img src="<?php echo esc_url($icon_base . '/facebook.svg'); ?>" alt="" width="24" height="24" loading="lazy">
