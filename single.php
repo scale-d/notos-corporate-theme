@@ -79,8 +79,14 @@ get_header();
               var url = btn.getAttribute('data-share-url') || window.location.href;
               var title = btn.getAttribute('data-share-title') || document.title;
 
+              // Use native share sheet ONLY on mobile. (On desktop, Instagram won't appear in the share list.)
+              var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
+                || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+              var isAndroid = /Android/i.test(navigator.userAgent);
+              var isMobile = isIOS || isAndroid;
+
               // 1) If Web Share API is available (mostly mobile), open the native share sheet.
-              if (navigator.share) {
+              if (isMobile && navigator.share) {
                 try {
                   await navigator.share({ title: title, url: url });
                   return;
