@@ -95,13 +95,17 @@ get_header();
                 }
               }
 
-              // 2) Fallback: copy link to clipboard so the user can paste it into Instagram.
+              // 2) Fallback: copy link to clipboard.
+              // NOTE: Instagram captions usually do NOT make URLs clickable.
+              var msgMobile = 'リンクをコピーしました。Instagramで共有する場合は、①ストーリーズの「リンク」スタンプに貼る、または②プロフィールのリンク欄に貼り付けてください。';
+              var msgDesktop = 'リンクをコピーしました。共有する場合は、スマホのInstagramで①ストーリーズの「リンク」スタンプ、または②プロフィールのリンク欄に貼り付けてください。';
+
               try {
                 await navigator.clipboard.writeText(url);
-                alert('リンクをコピーしました。Instagramの投稿/ストーリー作成画面で貼り付けてください。');
+                alert(isMobile ? msgMobile : msgDesktop);
               } catch (e) {
                 // Last resort
-                prompt('このURLをコピーしてInstagramで貼り付けてください。', url);
+                prompt((isMobile ? msgMobile : msgDesktop) + '\n\nURL:', url);
               }
             });
           });
