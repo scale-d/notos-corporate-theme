@@ -33,14 +33,15 @@ get_header();
               </span>
             </a>
 
-            <a class="c-post-share__btn"
-              href="<?php echo esc_url('https://www.linkedin.com/sharing/share-offsite/?url=' . $share_url); ?>"
-              target="_blank" rel="noopener noreferrer"
-              aria-label="LinkedInでシェア">
+            <button class="c-post-share__btn js-share-instagram"
+              type="button"
+              data-share-url="<?php echo esc_attr($permalink); ?>"
+              data-share-title="<?php echo esc_attr(get_the_title()); ?>"
+              aria-label="Instagramでシェア">
               <span class="c-post-share__icon" aria-hidden="true">
                 <img src="<?php echo esc_url($icon_base . '/instagram.svg'); ?>" alt="" width="24" height="24" loading="lazy">
               </span>
-            </a>
+            </button>
 
             <a class="c-post-share__btn"
               href="<?php echo esc_url('https://www.facebook.com/sharer/sharer.php?u=' . $share_url); ?>"
@@ -64,6 +65,37 @@ get_header();
           </div>
         <?php endif; ?>
       </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function(){
+          var btn = document.querySelector('.js-share-instagram');
+          if (!btn) return;
+
+          btn.addEventListener('click', async function(){
+            var url = btn.getAttribute('data-share-url') || window.location.href;
+            var title = btn.getAttribute('data-share-title') || document.title;
+
+            // 1) If Web Share API is available (mostly mobile), open the native share sheet.
+            if (navigator.share) {
+              try {
+                await navigator.share({ title: title, url: url });
+                return;
+              } catch (e) {
+                // user canceled or share failed -> fall through to copy
+              }
+            }
+
+            // 2) Fallback: copy link to clipboard so the user can paste it into Instagram.
+            try {
+              await navigator.clipboard.writeText(url);
+              alert('リンクをコピーしました。Instagramの投稿/ストーリー作成画面で貼り付けてください。');
+            } catch (e) {
+              // Last resort
+              prompt('このURLをコピーしてInstagramで貼り付けてください。', url);
+            }
+          });
+        });
+      </script>
 
       <div class="c-post-divider" aria-hidden="true"></div>
 
