@@ -2547,6 +2547,16 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   background:var(--color-scheme-2-background);
   color:var(--color-scheme-1-accent);
   text-decoration:none;
+  border:none;
+  padding:0;
+  appearance:none;
+  -webkit-appearance:none;
+  font:inherit;
+}
+
+.c-blog-post-meta__share-btn:focus-visible{
+  outline:2px solid var(--color-scheme-1-accent);
+  outline-offset:2px;
 }
 
 .c-blog-post-meta__share-btn:hover{
@@ -2679,6 +2689,16 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   background:var(--color-scheme-2-background);
   color:var(--color-scheme-1-accent);
   text-decoration:none;
+  border:none;
+  padding:0;
+  appearance:none;
+  -webkit-appearance:none;
+  font:inherit;
+}
+
+.c-post-share__btn:focus-visible{
+  outline:2px solid var(--color-scheme-1-accent);
+  outline-offset:2px;
 }
 
 .c-post-share__btn:hover{
