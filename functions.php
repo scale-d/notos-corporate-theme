@@ -594,3 +594,135 @@ function notos_render_breadcrumbs() {
   echo '<span class="c-breadcrumbs__current">' . esc_html($current) . '</span>';
   echo '</nav>';
 }
+
+/**
+ * Header menu: Blog "new posts" badge + hover dropdown.
+ * - Badge shows the number of posts published in the last 7 days.
+ * - Dropdown lists the latest 10 posts. Posts within 7 days show a red dot.
+ */
+function notos_blog_menu_data_v2(): array {
+  $cache_key = 'notos_blog_menu_data_v2';
+  $cached = get_transient($cache_key);
+  if (is_array($cached)) {
+    return $cached;
+  }
+
+  $tz = wp_timezone();
+  $threshold = (new DateTimeImmutable('now', $tz))->modify('-7 days');
+  $after = $threshold->format('Y-m-d H:i:s');
+
+  // Count posts in the last 7 days.
+  $count_q = new WP_Query([
+    'post_type'           => 'post',
+    'post_status'         => 'publish',
+    'posts_per_page'      => 1,
+    'no_found_rows'       => false,
+    'ignore_sticky_posts' => true,
+    'date_query'          => [
+      [
+        'after'     => $after,
+        'inclusive' => true,
+        'column'    => 'post_date',
+      ],
+    ],
+  ]);
+  $new_count = (int) $count_q->found_posts;
+
+  // Latest 10 posts for dropdown.
+  $list_q = new WP_Query([
+    'post_type'           => 'post',
+    'post_status'         => 'publish',
+    'posts_per_page'      => 10,
+    'no_found_rows'       => true,
+    'ignore_sticky_posts' => true,
+  ]);
+
+  $items = [];
+  foreach ($list_q->posts as $post) {
+    $dt = get_post_datetime($post);
+    $is_new = $dt ? ($dt->getTimestamp() >= $threshold->getTimestamp()) : false;
+
+    $items[] = [
+      'title'  => get_the_title($post),
+      'url'    => get_permalink($post),
+      'date'   => get_the_date('m/d', $post),
+      'dt'     => get_the_date('c', $post),
+      'is_new' => $is_new,
+    ];
+  }
+
+  $data = [
+    'new_count' => $new_count,
+    'items'     => $items,
+  ];
+
+  // Cache briefly to avoid repeated queries.
+  set_transient($cache_key, $data, 10 * MINUTE_IN_SECONDS);
+
+  return $data;
+}
+
+function notos_is_blog_menu_item_v2($item): bool {
+  $blog_url = trailingslashit(home_url('/blog/'));
+  $item_url = trailingslashit((string) $item->url);
+  if ($item_url === $blog_url) {
+    return true;
+  }
+  // Fallback: match by label.
+  return (string) $item->title === 'ブログ';
+}
+
+add_filter('nav_menu_css_class', function ($classes, $item, $args, $depth) {
+  if (!isset($args->theme_location) || $args->theme_location !== 'primary') {
+    return $classes;
+  }
+  if (notos_is_blog_menu_item_v2($item)) {
+    $classes[] = 'c-nav__item--blog';
+  }
+  return $classes;
+}, 20, 4);
+
+add_filter('walker_nav_menu_start_el', function ($item_output, $item, $depth, $args) {
+  if (!isset($args->theme_location) || $args->theme_location !== 'primary') {
+    return $item_output;
+  }
+  if (!notos_is_blog_menu_item_v2($item)) {
+    return $item_output;
+  }
+
+  $data = notos_blog_menu_data_v2();
+  $new_count = (int) ($data['new_count'] ?? 0);
+  $items = (array) ($data['items'] ?? []);
+
+  // Badge (only when there are new posts).
+  $badge = '';
+  if ($new_count > 0) {
+    $badge = '<span class="c-nav__badge" aria-label="新着' . esc_attr((string) $new_count) . '件">' . esc_html((string) $new_count) . '</span>';
+  }
+
+  // Dropdown.
+  $dropdown = '<div class="c-nav__blog-dropdown" aria-label="新着記事">';
+  if (!empty($items)) {
+    $dropdown .= '<ul class="c-nav__blog-list">';
+    foreach ($items as $it) {
+      $li_class = 'c-nav__blog-item' . (!empty($it['is_new']) ? ' is-new' : '');
+      $dropdown .= '<li class="' . esc_attr($li_class) . '">' 
+        . '<a href="' . esc_url($it['url']) . '">' 
+        . '<span class="c-nav__blog-dot" aria-hidden="true"></span>'
+        . '<time class="c-nav__blog-date" datetime="' . esc_attr($it['dt']) . '">' . esc_html($it['date']) . '</time>'
+        . '<span class="c-nav__blog-title">' . esc_html($it['title']) . '</span>'
+        . '</a>'
+        . '</li>';
+    }
+    $dropdown .= '</ul>';
+  } else {
+    $dropdown .= '<p class="c-nav__blog-empty">記事がありません</p>';
+  }
+  $dropdown .= '<div class="c-nav__blog-footer"><a class="c-nav__blog-more" href="' . esc_url(home_url('/blog/')) . '">すべて読む</a></div>';
+  $dropdown .= '</div>';
+
+  // Inject badge inside the anchor, and dropdown right after the anchor.
+  $item_output = preg_replace('/<\/a>/', $badge . '</a>' . $dropdown, $item_output, 1);
+
+  return $item_output;
+}, 20, 4);
