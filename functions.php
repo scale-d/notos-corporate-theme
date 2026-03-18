@@ -601,15 +601,31 @@ function notos_render_breadcrumbs() {
  * - Dropdown lists the latest 10 posts. Posts within 7 days show a red dot.
  */
 function notos_blog_menu_data_v2(): array {
+  // Dev mode: disable transient cache so menu updates immediately.
+  // Set to `true` when you want caching back.
+  $use_cache = false;
+
   $cache_key = 'notos_blog_menu_data_v2';
-  $cached = get_transient($cache_key);
-  if (is_array($cached)) {
-    return $cached;
+  if ($use_cache) {
+    $cached = get_transient($cache_key);
+    // If an old cached value exists without `new_items`, drop it and rebuild.
+    if (is_array($cached) && array_key_exists('new_items', $cached)) {
+      return $cached;
+    }
+    if (is_array($cached) && !array_key_exists('new_items', $cached)) {
+      delete_transient($cache_key);
+    }
   }
 
   $tz = wp_timezone();
-  $threshold = (new DateTimeImmutable('now', $tz))->modify('-7 days');
-  $after = $threshold->format('Y-m-d H:i:s');
+
+  // Red dot: within 7 days
+  $threshold_new = (new DateTimeImmutable('now', $tz))->modify('-7 days');
+  $after_new = $threshold_new->format('Y-m-d H:i:s');
+
+  // Dropdown + badge: within 1 month
+  $threshold_month = (new DateTimeImmutable('now', $tz))->modify('-1 month');
+  $after_month = $threshold_month->format('Y-m-d H:i:s');
 
   // Count posts in the last 7 days.
   $count_q = new WP_Query([
@@ -620,7 +636,7 @@ function notos_blog_menu_data_v2(): array {
     'ignore_sticky_posts' => true,
     'date_query'          => [
       [
-        'after'     => $after,
+        'after'     => $after_month,
         'inclusive' => true,
         'column'    => 'post_date',
       ],
@@ -628,19 +644,26 @@ function notos_blog_menu_data_v2(): array {
   ]);
   $new_count = (int) $count_q->found_posts;
 
-  // Latest 10 posts for dropdown.
+  // Latest 10 posts for dropdown (within 1 month).
   $list_q = new WP_Query([
     'post_type'           => 'post',
     'post_status'         => 'publish',
     'posts_per_page'      => 10,
     'no_found_rows'       => true,
     'ignore_sticky_posts' => true,
+    'date_query'          => [
+      [
+        'after'     => $after_month,
+        'inclusive' => true,
+        'column'    => 'post_date',
+      ],
+    ],
   ]);
 
   $items = [];
   foreach ($list_q->posts as $post) {
     $dt = get_post_datetime($post);
-    $is_new = $dt ? ($dt->getTimestamp() >= $threshold->getTimestamp()) : false;
+    $is_new = $dt ? ($dt->getTimestamp() >= $threshold_new->getTimestamp()) : false;
 
     $items[] = [
       'title'  => get_the_title($post),
@@ -660,7 +683,7 @@ function notos_blog_menu_data_v2(): array {
     'ignore_sticky_posts' => true,
     'date_query'          => [
       [
-        'after'     => $after,
+        'after'     => $after_new,
         'inclusive' => true,
         'column'    => 'post_date',
       ],
@@ -683,8 +706,10 @@ function notos_blog_menu_data_v2(): array {
     'new_items' => $new_items,
   ];
 
-  // Cache briefly to avoid repeated queries.
-  set_transient($cache_key, $data, 10 * MINUTE_IN_SECONDS);
+  if ($use_cache) {
+    // Cache briefly to avoid repeated queries.
+    set_transient($cache_key, $data, 10 * MINUTE_IN_SECONDS);
+  }
 
   return $data;
 }
@@ -731,6 +756,11 @@ add_filter('walker_nav_menu_start_el', function ($item_output, $item, $depth, $a
   $new_count = (int) ($data['new_count'] ?? 0);
   $items = (array) ($data['items'] ?? []);
   $new_items = (array) ($data['new_items'] ?? []);
+
+  // If there are no posts within 1 month, hide badge and dropdown entirely.
+  if ($new_count === 0) {
+    return $item_output;
+  }
 
   // Badge (only when there are new posts).
   $badge = '';
