@@ -636,7 +636,7 @@ function notos_blog_menu_data_v2(): array {
     'ignore_sticky_posts' => true,
     'date_query'          => [
       [
-        'after'     => $after_month,
+        'after'     => $after_new,
         'inclusive' => true,
         'column'    => 'post_date',
       ],
@@ -674,31 +674,8 @@ function notos_blog_menu_data_v2(): array {
     ];
   }
 
-  // New posts (last 7 days) for mobile list (max 10).
-  $new_q = new WP_Query([
-    'post_type'           => 'post',
-    'post_status'         => 'publish',
-    'posts_per_page'      => 10,
-    'no_found_rows'       => true,
-    'ignore_sticky_posts' => true,
-    'date_query'          => [
-      [
-        'after'     => $after_new,
-        'inclusive' => true,
-        'column'    => 'post_date',
-      ],
-    ],
-  ]);
-
-  $new_items = [];
-  foreach ($new_q->posts as $post) {
-    $new_items[] = [
-      'title' => get_the_title($post),
-      'url'   => get_permalink($post),
-      'date'  => get_the_date('m/d', $post),
-      'dt'    => get_the_date('c', $post),
-    ];
-  }
+  // Mobile list uses the same 1-month items as the desktop dropdown.
+  $new_items = $items;
 
   $data = [
     'new_count' => $new_count,
@@ -758,7 +735,7 @@ add_filter('walker_nav_menu_start_el', function ($item_output, $item, $depth, $a
   $new_items = (array) ($data['new_items'] ?? []);
 
   // If there are no posts within 1 month, hide badge and dropdown entirely.
-  if ($new_count === 0) {
+  if (empty($items)) {
     return $item_output;
   }
 
@@ -790,11 +767,13 @@ add_filter('walker_nav_menu_start_el', function ($item_output, $item, $depth, $a
   $dropdown .= '</div>';
 
   $mobile_list = '';
-  if (!empty($new_items)) {
+  if (!empty($items)) {
     $mobile_list .= '<ul class="c-nav__blog-mobile-list" aria-label="新着記事">';
-    foreach ($new_items as $it) {
-      $mobile_list .= '<li class="c-nav__blog-mobile-item">'
+    foreach ($items as $it) {
+      $li_class = 'c-nav__blog-mobile-item' . (!empty($it['is_new']) ? ' is-new' : '');
+      $mobile_list .= '<li class="' . esc_attr($li_class) . '">' 
         . '<a href="' . esc_url($it['url']) . '">' 
+        . '<span class="c-nav__blog-dot" aria-hidden="true"></span>'
         . '<time class="c-nav__blog-mobile-date" datetime="' . esc_attr($it['dt']) . '">' . esc_html($it['date']) . '</time>'
         . '<span class="c-nav__blog-mobile-title">' . esc_html($it['title']) . '</span>'
         . '</a>'
