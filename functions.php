@@ -651,9 +651,36 @@ function notos_blog_menu_data_v2(): array {
     ];
   }
 
+  // New posts (last 7 days) for mobile list (max 10).
+  $new_q = new WP_Query([
+    'post_type'           => 'post',
+    'post_status'         => 'publish',
+    'posts_per_page'      => 10,
+    'no_found_rows'       => true,
+    'ignore_sticky_posts' => true,
+    'date_query'          => [
+      [
+        'after'     => $after,
+        'inclusive' => true,
+        'column'    => 'post_date',
+      ],
+    ],
+  ]);
+
+  $new_items = [];
+  foreach ($new_q->posts as $post) {
+    $new_items[] = [
+      'title' => get_the_title($post),
+      'url'   => get_permalink($post),
+      'date'  => get_the_date('m/d', $post),
+      'dt'    => get_the_date('c', $post),
+    ];
+  }
+
   $data = [
     'new_count' => $new_count,
     'items'     => $items,
+    'new_items' => $new_items,
   ];
 
   // Cache briefly to avoid repeated queries.
@@ -672,6 +699,7 @@ function notos_is_blog_menu_item_v2($item): bool {
   return (string) $item->title === 'ブログ';
 }
 
+
 add_filter('nav_menu_css_class', function ($classes, $item, $args, $depth) {
   if (!isset($args->theme_location) || $args->theme_location !== 'primary') {
     return $classes;
@@ -681,6 +709,15 @@ add_filter('nav_menu_css_class', function ($classes, $item, $args, $depth) {
   }
   return $classes;
 }, 20, 4);
+
+add_filter('body_class', function($classes){
+  if (is_admin()) return $classes;
+  $data = notos_blog_menu_data_v2();
+  if (!empty($data['new_count'])) {
+    $classes[] = 'has-blog-new';
+  }
+  return $classes;
+});
 
 add_filter('walker_nav_menu_start_el', function ($item_output, $item, $depth, $args) {
   if (!isset($args->theme_location) || $args->theme_location !== 'primary') {
@@ -693,6 +730,7 @@ add_filter('walker_nav_menu_start_el', function ($item_output, $item, $depth, $a
   $data = notos_blog_menu_data_v2();
   $new_count = (int) ($data['new_count'] ?? 0);
   $items = (array) ($data['items'] ?? []);
+  $new_items = (array) ($data['new_items'] ?? []);
 
   // Badge (only when there are new posts).
   $badge = '';
@@ -721,8 +759,22 @@ add_filter('walker_nav_menu_start_el', function ($item_output, $item, $depth, $a
   $dropdown .= '<div class="c-nav__blog-footer"><a class="c-nav__blog-more" href="' . esc_url(home_url('/blog/')) . '">すべて読む</a></div>';
   $dropdown .= '</div>';
 
-  // Inject badge inside the anchor, and dropdown right after the anchor.
-  $item_output = preg_replace('/<\/a>/', $badge . '</a>' . $dropdown, $item_output, 1);
+  $mobile_list = '';
+  if (!empty($new_items)) {
+    $mobile_list .= '<ul class="c-nav__blog-mobile-list" aria-label="新着記事">';
+    foreach ($new_items as $it) {
+      $mobile_list .= '<li class="c-nav__blog-mobile-item">'
+        . '<a href="' . esc_url($it['url']) . '">' 
+        . '<time class="c-nav__blog-mobile-date" datetime="' . esc_attr($it['dt']) . '">' . esc_html($it['date']) . '</time>'
+        . '<span class="c-nav__blog-mobile-title">' . esc_html($it['title']) . '</span>'
+        . '</a>'
+        . '</li>';
+    }
+    $mobile_list .= '</ul>';
+  }
+
+  // Inject badge inside the anchor, and dropdown right after the anchor, then the mobile list.
+  $item_output = preg_replace('/<\/a>/', $badge . '</a>' . $dropdown . $mobile_list, $item_output, 1);
 
   return $item_output;
 }, 20, 4);

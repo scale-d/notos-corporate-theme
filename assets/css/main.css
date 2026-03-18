@@ -48,6 +48,7 @@ body{font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans JP",san
 }
 
 .c-header__toggle{
+  position:relative;
   display:inline-flex;
   flex-direction:column;
   justify-content:center;
@@ -57,6 +58,20 @@ body{font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans JP",san
   border:none;
   background:var(--opacity-transparent);
   color:var(--color-scheme-1-accent);
+}
+
+@media (max-width:1023px){
+  /* Red dot on hamburger when there are new blog posts (hide when menu is open) */
+  html:not(.nav-open) body.has-blog-new .c-header__toggle::after{
+    content:"";
+    position:absolute;
+    top:-2px;
+    left:-2px;
+    width:14px;
+    height:14px;
+    border-radius:999px;
+    background:#ff0000;
+  }
 }
 
 .c-header__bar{
@@ -209,7 +224,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
-  max-width:22ch;
+  max-width:40ch;
   display:block;
   flex:1 1 auto;
 }
@@ -232,6 +247,45 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   margin:0;
   color:var(--color-scheme-1-accent);
   opacity:.8;
+}
+
+.c-nav__blog-mobile-list{
+  display:none;
+  list-style:none;
+  margin:12px 0 0;
+  padding:0;
+  border-top:1px solid rgba(0,0,0,.12);
+}
+
+.c-nav__blog-mobile-item a{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:10px 0;
+  text-decoration:none;
+  color:var(--color-scheme-1-accent);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.c-nav__blog-mobile-date{
+  font-size:18px;
+  font-weight:700;
+  width:64px;
+  white-space:nowrap;
+}
+
+.c-nav__blog-mobile-title{
+  font-size:14px;
+  font-weight:700;
+  line-height:1.35;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  max-width:22ch;
+}
+
+@media (max-width:1023px){
+  .c-nav__blog-mobile-list{ display:block; }
 }
 
 @media (min-width:1024px){
