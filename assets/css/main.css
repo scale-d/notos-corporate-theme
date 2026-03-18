@@ -208,6 +208,7 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   flex:0 0 8px;
 }
 
+.c-nav__blog-item.is-new .c-nav__blog-dot,
 .c-nav__blog-mobile-item.is-new .c-nav__blog-dot{ opacity:1; }
 
 .c-nav__blog-date{
