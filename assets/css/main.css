@@ -137,11 +137,10 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 }
 
 .c-nav__blog-dropdown{
-  display:none;
   position:absolute;
   top:calc(100% + 12px);
-  left:50%;
-  transform:translateX(-50%);
+  left:0;
+  transform:none;
   width:420px;
   max-width:calc(100vw - 48px);
   background:#fff;
@@ -149,6 +148,23 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   box-shadow:0 16px 38px rgba(0,0,0,.20);
   padding:18px 22px;
   z-index:70;
+
+  /* hidden by default (avoid hover flicker) */
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .15s ease, transform .15s ease, visibility 0s linear .15s;
+}
+
+/* Invisible hover bridge to cross the gap without closing the dropdown */
+.c-nav__blog-dropdown::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:-12px;
+  height:12px;
+  background:transparent;
 }
 
 .c-nav__blog-list{
@@ -169,12 +185,12 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 }
 
 .c-nav__blog-dot{
-  width:14px;
-  height:14px;
+  width:8px;
+  height:8px;
   border-radius:999px;
   background:#ff0000;
   opacity:0;
-  flex:0 0 14px;
+  flex:0 0 8px;
 }
 
 .c-nav__blog-item.is-new .c-nav__blog-dot{ opacity:1; }
@@ -193,6 +209,9 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
+  max-width:22ch;
+  display:block;
+  flex:1 1 auto;
 }
 
 .c-nav__blog-footer{
@@ -218,7 +237,10 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 @media (min-width:1024px){
   .c-nav__item--blog:hover .c-nav__blog-dropdown,
   .c-nav__item--blog:focus-within .c-nav__blog-dropdown{
-    display:block;
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transition:opacity .15s ease, transform .15s ease;
   }
 }
 
