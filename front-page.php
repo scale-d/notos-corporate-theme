@@ -745,6 +745,11 @@
       </li>
 
       <li class="c-logo__item">
+        <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/klattermusen500.jpg'); ?>"
+          alt="Klättermusen" loading="lazy" decoding="async">
+      </li>
+
+      <li class="c-logo__item">
         <img src="<?php echo esc_url(get_template_directory_uri().'/assets/img/klymit.jpg'); ?>"
           alt="KLYMIT" loading="lazy" decoding="async">
       </li>
