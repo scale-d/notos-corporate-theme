@@ -1225,6 +1225,18 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 
 .c-store__calendar-day{ display:inline-block; line-height:1; }
 
+.c-store__calendar-link{
+  color: inherit;
+  text-decoration: none;
+}
+
+/* クリック後も色を変えない */
+.c-store__calendar-link:visited,
+.c-store__calendar-link:active,
+.c-store__calendar-link:focus{
+  color: inherit;
+}
+
 .c-store__calendar-legend{
   display:flex;
   align-items:center;
