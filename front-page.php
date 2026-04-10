@@ -254,6 +254,14 @@
             // イベント（例）
             $events = [
               '2026-03-05' => 'Notosオープン!',
+              '2026-04-25' => 'Notos ×旅ト眼鏡',
+              '2026-04-26' => 'Notos ×旅ト眼鏡',
+            ];
+
+            // イベントのリンク先（クリックで遷移させたい日付だけ指定）
+            $event_urls = [
+              '2026-04-25' => 'https://notos.shop/%e3%80%90notos-x%e6%97%85%e3%83%88%e7%9c%bc%e9%8f%a1%e3%80%91/',
+              '2026-04-26' => 'https://notos.shop/%e3%80%90notos-x%e6%97%85%e3%83%88%e7%9c%bc%e9%8f%a1%e3%80%91/',
             ];
 
             $tz = wp_timezone();
@@ -261,7 +269,7 @@
             $this_month = $now->modify('first day of this month')->setTime(0, 0);
             $next_month = $this_month->modify('+1 month');
 
-            $render_month = function (DateTimeImmutable $month_start) use ($weekly_closed_wday, $closed_dates, $events) {
+            $render_month = function (DateTimeImmutable $month_start) use ($weekly_closed_wday, $closed_dates, $events, $event_urls) {
               $y = (int) $month_start->format('Y');
               $m = (int) $month_start->format('n');
               $label = sprintf('%d年 %02d月', $y, $m);
@@ -318,7 +326,20 @@
                   }
 
                   $html .= '<td class="' . esc_attr($classes) . '">';
-                  $html .= '<span class="c-store__calendar-day" aria-label="' . esc_attr($aria) . '">' . esc_html((string) $day) . '</span>';
+
+                  $event_url = '';
+                  if (!$is_closed && $is_event && !empty($event_urls[$date])) {
+                    $event_url = $event_urls[$date];
+                  }
+
+                  if ($event_url) {
+                    $html .= '<a class="c-store__calendar-link" href="' . esc_url($event_url) . '" aria-label="' . esc_attr($aria) . '">'
+                      . '<span class="c-store__calendar-day">' . esc_html((string) $day) . '</span>'
+                      . '</a>';
+                  } else {
+                    $html .= '<span class="c-store__calendar-day" aria-label="' . esc_attr($aria) . '">' . esc_html((string) $day) . '</span>';
+                  }
+
                   $html .= $tooltip_html;
                   $html .= '</td>';
 
