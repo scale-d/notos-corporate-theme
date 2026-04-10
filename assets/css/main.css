@@ -129,6 +129,32 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 /* Blog menu: badge + hover dropdown */
 .c-nav__item--blog{ position:relative; }
 
+/* Blog dropdown: keep text color fixed (no black / no visited color change) */
+.c-nav__blog-dropdown{
+  color: var(--color-scheme-1-accent);
+}
+
+.c-nav__blog-item a,
+.c-nav__blog-item a:visited,
+.c-nav__blog-item a:active,
+.c-nav__blog-item a:focus{
+  color: var(--color-scheme-1-accent);
+}
+
+.c-nav__blog-mobile-item a,
+.c-nav__blog-mobile-item a:visited,
+.c-nav__blog-mobile-item a:active,
+.c-nav__blog-mobile-item a:focus{
+  color: var(--color-scheme-1-accent);
+}
+
+.c-nav__blog-more,
+.c-nav__blog-more:visited,
+.c-nav__blog-more:active,
+.c-nav__blog-more:focus{
+  color: var(--color-scheme-1-accent);
+}
+
 .c-nav__item--blog > a{
   position:relative;
   display:inline-flex;
@@ -1226,15 +1252,24 @@ html.nav-open .c-header__nav{ opacity:1; transform:none; pointer-events:auto; }
 .c-store__calendar-day{ display:inline-block; line-height:1; }
 
 .c-store__calendar-link{
-  color: inherit;
-  text-decoration: none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  color:var(--color-scheme-1-accent);
+  text-decoration:none;
 }
 
 /* クリック後も色を変えない */
 .c-store__calendar-link:visited,
 .c-store__calendar-link:active,
 .c-store__calendar-link:focus{
-  color: inherit;
+  color:var(--color-scheme-1-accent);
+}
+
+.c-store__calendar-link:hover{
+  text-decoration:underline;
 }
 
 .c-store__calendar-legend{
